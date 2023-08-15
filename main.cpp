@@ -3,7 +3,9 @@
 #include <assert.h>
 
 #define INFINITE_SOLUTIONS -1
+#define DOUBLE_COMPARE_PREC 0.000001
 
+int is_double_equal(double a, double b);
 int input_flush();
 int read_double_to_ptr(double* x);
 void enter_coeff_to_ptr(const char c, double* x);
@@ -38,9 +40,14 @@ int main() {
   return 0;
 }
 
+//Returns 1 if two doubles are equal with precision of DOUBLE_COMPARE_PRECISION
+int is_double_equal(double a, double b) {
+  return abs(a - b) < DOUBLE_COMPARE_PREC;
+}
+
 //Flushes input. Returns number of flushed symbols
 int input_flush() {
-  char c;
+  int c;
   int cnt = 1;
   while ((c=getchar()) != '\n' && c != EOF) cnt++;
   return cnt;
@@ -69,21 +76,22 @@ void enter_coeff_to_ptr(char c, double* x) {
 //Solves quad equation to pointers x1, x2. Returns number of solutions (INFINITE_SOLUTIONS if infinite)
 int solve_to_ptr(const double a, const double b, const double c, double* x1, double* x2){
   assert(x1!=NULL && x2!=NULL);
-  if (a == 0) {                       //check if equation is quad (zero division check)
-    if (b == 0)
-      if (c == 0)
+  if (is_double_equal(a, 0)) {        //check if equation is quad (zero division check)
+    if (is_double_equal(b, 0)) {
+      if (is_double_equal(c, 0))
         return INFINITE_SOLUTIONS;    //infinite number of solutions
       else
         return 0;
+    }
     *x1 = -c / b;
     return 1;
   }
-  double D = b*b - 4*a*c;         //discriminant
-  if (D < 0) {                    //check if there are solutions
-    return 0;
-  } else if (D == 0) {
+  double D = b*b - 4*a*c;             //discriminant
+  if (is_double_equal(D, 0)) {        //check if there are solutions
     *x1 = (-b) / (2*a);
     return 1;
+  } else if (D < 0) {
+    return 0;
   } else {
     double D_sqrt = sqrt(D);
     *x1 = (-b - D_sqrt) / (2*a);
