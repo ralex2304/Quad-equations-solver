@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <assert.h>
 
-#define BUF_LEN 100
-
+int input_flush();
 int read_double_to_ptr(double* x);
 void enter_coeff_to_ptr(const char c, double* x);
 int solve_to_ptr(const double a, const double b, const double c, double* x1, double* x2);
@@ -31,24 +30,20 @@ int main() {
   return 0;
 }
 
+//Flushes input. Returns number of flushed symbols
+int input_flush() {
+  char c;
+  int cnt = 1;
+  while ((c=getchar()) != '\n' && c != EOF) cnt++;
+  return cnt;
+}
+
 //Reads double from input to pointer. Returns 0 if fails
 int read_double_to_ptr(double* x) {
   assert(x != NULL);
-  char c = '\0';
-  char str[BUF_LEN];
-  int str_len = 0;
-  int dot_cnt = 0;
-  while ((c=getchar()) != '\n') {
-    if (c == ' ') continue;
-    if ((c=='-' && str_len!=0) || (c=='.' && dot_cnt!=0) || !('0'<=c && c<='9' || c=='-' || c=='.'))
-      return 0;
-    if (c == '.') dot_cnt++;
-    str[str_len] = c;
-    str_len++;
-  }
-  str[str_len] = '\0';
-  // if str is emty, strtod returns 0.0 (it's not a bug, it's a feature ^-^ )
-  *x = strtod(str, NULL);
+  int res = scanf("%lf", x);
+  if (input_flush() != 1 || res != 1 || res == EOF)   //check input errors anf flush input
+    return 0;
   return 1;
 }
 
@@ -59,7 +54,6 @@ void enter_coeff_to_ptr(char c, double* x) {
     printf("Enter coefficient %c: ", c);
     if (read_double_to_ptr(x)) break;                         //exit if entered correctly
     printf("Coefficient entered incorrectly. Try again\n");
-    while(getchar() != '\n') {}                               //clear input buffer
   }
   return;
 }
