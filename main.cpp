@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 #include <assert.h>
 
 int input_flush();
@@ -42,7 +43,7 @@ int input_flush() {
 int read_double_to_ptr(double* x) {
   assert(x != NULL);
   int res = scanf("%lf", x);
-  if (input_flush() != 1 || res != 1 || res == EOF)   //check input errors anf flush input
+  if (input_flush() != 1 || res != 1 || res == EOF)   //check input errors and flush input
     return 0;
   return 1;
 }
@@ -77,8 +78,9 @@ int solve_to_ptr(const double a, const double b, const double c, double* x1, dou
     *x1 = (-b) / (2*a);
     return 1;
   } else {
-    *x1 = (-b - D) / (2*a);
-    *x2 = (-b + D) / (2*a);
+    double D_sqrt = sqrt(D);
+    *x1 = (-b - D_sqrt) / (2*a);
+    *x2 = (-b + D_sqrt) / (2*a);
     return 2;
   }
   assert(0);
