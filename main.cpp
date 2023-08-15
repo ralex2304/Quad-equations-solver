@@ -2,6 +2,8 @@
 #include <math.h>
 #include <assert.h>
 
+#define INFINITE_SOLUTIONS -1
+
 int input_flush();
 int read_double_to_ptr(double* x);
 void enter_coeff_to_ptr(const char c, double* x);
@@ -15,17 +17,22 @@ int main() {
   enter_coeff_to_ptr('b', &b);
   enter_coeff_to_ptr('c', &c);
   double x1, x2;
-  int solutions = solve_to_ptr(a, b, c, &x1, &x2);
-  if (solutions == 0){
-    printf("No solutions\n");
-  } else if (solutions == 1){
-    printf("1 solution:\nx = %lf\n", x1);
-  } else if (solutions == 2){
-    printf("2 solutions:\nx1 = %lf\nx2 = %lf\n", x1, x2);
-  } else if(solutions == -1){
-    wprintf(L"Infinite number of solutions:\nx belongs to the set (-inf; +inf)\n");
-  } else {
-    assert(0);
+  switch (solve_to_ptr(a, b, c, &x1, &x2)){
+    case 0:
+      printf("No solutions\n");
+      break;
+    case 1:
+      printf("1 solution:\nx = %lf\n", x1);
+      break;
+    case 2:
+      printf("2 solutions:\nx1 = %lf\nx2 = %lf\n", x1, x2);
+      break;
+    case INFINITE_SOLUTIONS:
+      wprintf(L"Infinite number of solutions:\nx belongs to the set (-inf; +inf)\n");
+      break;
+    default:
+      assert(0);
+      break;
   }
   printf("Bye!");
   return 0;
@@ -59,13 +66,13 @@ void enter_coeff_to_ptr(char c, double* x) {
   return;
 }
 
-//Solves quad equation to pointers x1, x2. Returns number of solutions (-1 if infinite)
+//Solves quad equation to pointers x1, x2. Returns number of solutions (INFINITE_SOLUTIONS if infinite)
 int solve_to_ptr(const double a, const double b, const double c, double* x1, double* x2){
   assert(x1!=NULL && x2!=NULL);
-  if (a == 0) {                   //check if equation is quad (zero division check)
+  if (a == 0) {                       //check if equation is quad (zero division check)
     if (b == 0)
       if (c == 0)
-        return -1;                //infinite number of solutions
+        return INFINITE_SOLUTIONS;    //infinite number of solutions
       else
         return 0;
     *x1 = -c / b;
