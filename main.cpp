@@ -1,8 +1,19 @@
+/**
+ * @file main.cpp
+ * @author ralex2304
+ * @brief Quad equations solver
+ * @version 0.7
+ * @date 2023-08-17
+ */
+
 #include <stdio.h>
 #include <ctype.h>
 #include <math.h>
 #include <assert.h>
 
+/**
+ * @brief Specifies number of soludions of the equation
+ */
 enum SOLUTIONS {
     NAN_SOLUTIONS = -2,
     INFINITE_SOLUTIONS = -1,
@@ -11,6 +22,9 @@ enum SOLUTIONS {
     TWO_SOLUTIONS = 2
 };
 
+/**
+ * @brief Contains input and output data for solver
+ */
 struct SolverData {
     static const int COEFF_NUM = 3;
     double coeffs[COEFF_NUM] = {};
@@ -26,7 +40,13 @@ void print_roots(const SolverData* data);
 int input_flush();
 int read_double(double* x);
 int enter_coeff(const char c, double* x);
-// Returns 1 if two doubles are equal with precision of DOUBLE_COMPARE_PRECISION
+/**
+ * @brief Tells if two doubles are equal with precision of DOUBLE_COMPARE_PRECISION
+ * 
+ * @param[in] a First double
+ * @param[in] b Second double
+ * @return int (a == b)
+ */
 inline int is_double_equal(const double a, const double b) {
     assert(!isnan(a) && !isinf(a) && !isnan(b) && !isinf(b));
 
@@ -58,7 +78,11 @@ int main() {
     return 0;
 }
 
-// Flushes input. Returns number of flushed symbols
+/**
+ * @brief Flushes input
+ * 
+ * @return int number of flushed symbols
+ */
 int input_flush() {
     int c = 0;
     int cnt = 0;
@@ -69,7 +93,13 @@ int input_flush() {
     return cnt;
 }
 
-// Reads double from input to pointer. Returns 0 if fails
+// 
+/**
+ * @brief Reads double from input to pointer
+ * 
+ * @param[in] x 
+ * @return int success
+ */
 int read_double(double* x) {
     assert(x);
 
@@ -77,7 +107,13 @@ int read_double(double* x) {
     return input_flush() == 1 && res == 1 && res != EOF && !isnan(*x) && !isinf(*x);    // check input errors and flush input
 }
 
-// Reads COEFF_NUM coefficients from input, starting with 'a'
+// 
+/**
+ * @brief Reads coefficients from input to data->coeffs, starting with name 'a'
+ * 
+ * @param[in] data 
+ * @return int success
+ */
 int enter_coeffs(SolverData* data) {
     assert(data);
 
@@ -88,7 +124,13 @@ int enter_coeffs(SolverData* data) {
     return 1;
 }
 
-// Reads coefficient from input
+/**
+ * @brief Reads coefficient double from input
+ * 
+ * @param[in] c coefficient name
+ * @param[in] x 
+ * @return int success
+ */
 int enter_coeff(char c, double* x) {
     assert(x && isalpha(c));
     static const int ENTER_COEFF_TRIES = 5;
@@ -105,8 +147,12 @@ int enter_coeff(char c, double* x) {
     return 0;
 }
 
-// Solves quad equations of the form a*x^2 + b*x + c = 0 to pointers x1, x2.
-// Returns number of solutions (INFINITE_SOLUTIONS if infinite)
+/**
+ * @brief Solves quad equations
+ * 
+ * @param data[in] 
+ * @return SOLUTIONS number of solutions
+ */
 SOLUTIONS solve_quad(SolverData* data){
     assert(data && data->COEFF_NUM >= 3);
     
@@ -132,8 +178,12 @@ SOLUTIONS solve_quad(SolverData* data){
     }
 }
 
-// Solves equations of the form a*x + b = 0 to pointer x1.
-// Returns number of solutions (INFINITE_SOLUTIONS if infinite)
+/**
+ * @brief Solves linear equations
+ * 
+ * @param[in] data 
+ * @return SOLUTIONS number of solutions
+ */
 SOLUTIONS solve_lin(SolverData* data) {
     assert(data && data->COEFF_NUM >= 2);
 
@@ -148,7 +198,11 @@ SOLUTIONS solve_lin(SolverData* data) {
     return ONE_SOLUTION;
 }
 
-// Prints roots
+/**
+ * @brief Prints roots
+ * 
+ * @param[in] data 
+ */
 void print_roots(const SolverData* data){
     switch (data->roots_num) {
         case NO_SOLUTIONS:
