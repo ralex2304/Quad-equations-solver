@@ -1,17 +1,20 @@
-#ifndef _TEST_H
-#define _TEST_H
+#ifndef TEST_H_
+#define TEST_H_
 
 #include "../solver.h"
 
 const char test_name[] = "test/test.txt"; // test file name
 
+int test_read(FILE** file, EqSolverData* data, const char* filename);
+
 /**
  * @brief Opens test file by filename
  * 
- * @param[in] file - pointer 
- * @param[in] filename - name of file
+ * @param file - pointer 
+ * @param filename - name of file
+ * @return int success
  */
-void test_open_file(FILE** file, const char* filename);
+int test_open_file(FILE** file, const char* filename);
 
 /**
  * @brief Reads coeffs from test file
@@ -20,7 +23,7 @@ void test_open_file(FILE** file, const char* filename);
  * @param[in] file 
  * @return int success
  */
-int test_enter_coeffs(SolverData* data, FILE* file);
+int test_enter_coeffs(EqSolverData* data, FILE** file);
 
 /**
  * @brief Reads correct roots from test file
@@ -29,14 +32,22 @@ int test_enter_coeffs(SolverData* data, FILE* file);
  * @param[in] correct_data 
  * @param[in] file 
  */
-void test_read_roots(const SolverData* data, SolverData* correc_data, FILE* file);
+void test_read_roots(const EqSolverData* data, EqSolverData* correc_data, FILE** file);
 
 /**
- * @brief Checks solutions number and roots
+ * @brief 
+ * 
+ * @param data 
+ * @param file 
+ */
+void test_check(const EqSolverData* data, FILE** file);
+
+/**
+ * @brief Compares solutinons number and roots
  * 
  * @param[in] data 
  * @param[in] correct_data 
  */
-void test_check_data(const SolverData* data, const SolverData* correct_data);
+void test_compare_data(const EqSolverData* data, const EqSolverData* correct_data);
 
 #endif

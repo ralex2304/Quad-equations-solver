@@ -10,24 +10,24 @@ int input_flush(FILE* stream) {
     return cnt;
 }
 
-int read_double(double* x, FILE* stream) {
+int read_num(double* x, FILE* stream) {
     assert(x);
 
     int res = fscanf(stream, "%lf", x);
-    return input_flush(stream) == 1 && res == 1 && res != EOF && !isnan(*x) && !isinf(*x);    // check input errors and flush input
+    return input_flush(stream) == 1 && res == 1 && !is_double_nan_inf(*x);  // check input errors and flush input
 }
 
-int read_int(int* x, FILE* stream) {
+int read_num(int* x, FILE* stream) {
     assert(x);
 
     int res = fscanf(stream, "%d", x);
-    return input_flush(stream) == 1 && res == 1 && res != EOF && !isnan(*x) && !isinf(*x);    // check input errors and flush input
+    return input_flush(stream) == 1 && res == 1 && res != EOF;    // check input errors and flush input
 }
 
-int enter_coeffs(SolverData* data) {
+int enter_coeffs(EqSolverData* data) {
     assert(data);
 
-    for (int i = 0; i < data->COEFF_NUM; i++) {
+    for (int i = 0; i < EqSolverData::COEFF_NUM; i++) {
         if (!enter_coeff('a' + (char)i, data->coeffs + i))
             return 0;
     }
@@ -41,21 +41,22 @@ int enter_coeff(char c, double* x) {
 
     while (tries--) {
         printf("Enter coefficient %c: ", c);
-        if (read_double(x))
+        if (read_num(x))
             return 1;           // exit if entered correctly
         printf("Coefficient entered incorrectly. Try again\n");
     }
 
-    printf("You tried to enter coefficient for %d times! Oh, come on, what's wrong with you?!\n", ENTER_COEFF_TRIES);
+    printf("You tried to enter coefficient for %d times!"
+           "Oh, come on, what's wrong with you?!\n", ENTER_COEFF_TRIES);
     return 0;
 }
 
-SOLUTIONS solve_quad(SolverData* data){
-    assert(data && data->COEFF_NUM >= 3);
+SOLUTIONS solve_quad(EqSolverData* data){
+    assert(data && EqSolverData::COEFF_NUM >= 3);
     
-    double a = data->coeffs[data->COEFF_NUM - 3];
-    double b = data->coeffs[data->COEFF_NUM - 2];
-    double c = data->coeffs[data->COEFF_NUM - 1];
+    double a = data->coeffs[EqSolverData::COEFF_NUM - 3];
+    double b = data->coeffs[EqSolverData::COEFF_NUM - 2];
+    double c = data->coeffs[EqSolverData::COEFF_NUM - 1];
 
     if (is_double_equal(a, 0)) {        // check if equation is quad (zero division check)
         return solve_lin(data);
@@ -75,11 +76,11 @@ SOLUTIONS solve_quad(SolverData* data){
     }
 }
 
-SOLUTIONS solve_lin(SolverData* data) {
-    assert(data && data->COEFF_NUM >= 2);
+SOLUTIONS solve_lin(EqSolverData* data) {
+    assert(data && EqSolverData::COEFF_NUM >= 2);
 
-    double a = data->coeffs[data->COEFF_NUM - 2];
-    double b = data->coeffs[data->COEFF_NUM - 1];
+    double a = data->coeffs[EqSolverData::COEFF_NUM - 2];
+    double b = data->coeffs[EqSolverData::COEFF_NUM - 1];
 
     if (is_double_equal(a, 0)) {
         return is_double_equal(b, 0) ? INFINITE_SOLUTIONS : NO_SOLUTIONS;
@@ -89,17 +90,17 @@ SOLUTIONS solve_lin(SolverData* data) {
     return ONE_SOLUTION;
 }
 
-void print_roots(const SolverData* data){
+void print_roots(const EqSolverData* data){
     switch (data->roots_num) {
         case NO_SOLUTIONS:
             printf("No solutions\n");
             break;
         case ONE_SOLUTION:
-            assert(!isnan(data->roots[0]) && !isinf(data->roots[0]));
+            assert(!is_double_nan_inf(data->roots[0]));
             printf("1 solution:\nx = %lf\n", data->roots[0]);
             break;
         case TWO_SOLUTIONS:
-            assert(!isnan(data->roots[0]) && !isinf(data->roots[0]) && !isnan(data->roots[1]) && !isinf(data->roots[1]));
+            assert(!is_double_nan_inf(data->roots[0]) && !is_double_nan_inf(data->roots[1]));
             printf("2 solutions:\nx1 = %lf\nx2 = %lf\n", data->roots[0], data->roots[1]);
             break;
         case INFINITE_SOLUTIONS:

@@ -1,46 +1,67 @@
 #include "test.h"
 
-void test_open_file(FILE** file, const char* filename) {
+int test_read(FILE** file, EqSolverData* data, const char* filename) {
+    if (!test_open_file(file, filename))
+        return 0;
+    if (!test_enter_coeffs(data, file))
+        return 0;
+    return 1;
+}
+
+int test_open_file(FILE** file, const char* filename) {
     *file = fopen(filename, "r");
     if (*file == NULL) {
         printf("Error opening test file %s\n", filename);
+        perror("Message: ");
         fclose(*file);
-        exit(0);
+        return 0;
     }
+    return 1;
 }
 
-int test_enter_coeffs(SolverData* data, FILE* file) {
+int test_enter_coeffs(EqSolverData* data, FILE** file) {
     assert(data && file);
 
-    for (int i = 0; i < data->COEFF_NUM; i++) {
-        if (!read_double(data->coeffs + i, file)) {
+    for (int i = 0; i < EqSolverData::COEFF_NUM; i++) {
+        if (!read_num(data->coeffs + i, *file)) {
             printf("Error reading coefficient from test file\n");
-            fclose(file);
+            fclose(*file);
             return 0;
         } 
     }
     return 1;
 }
 
-void test_read_roots(const SolverData* data, SolverData* correct_data, FILE* file) {
+void test_read_roots(const EqSolverData* data, EqSolverData* correct_data, FILE** file) {
     assert(data && correct_data && file);
     
-    if (!read_int(((int*)&correct_data->roots_num), file)) {
+    if (!read_num(((int*)&correct_data->roots_num), *file)) {
         printf("Error reading number of solutions from test file\n");
-        fclose(file);
+        fclose(*file);
         exit(0);
     }
 
     for (int i = 0; i < (int)correct_data->roots_num; i++) {
-        if(!read_double(&correct_data->roots[i], file)) {
+        if(!read_num(&correct_data->roots[i], *file)) {
             printf("Error reading solution from test file\n");
-            fclose(file);
+            fclose(*file);
             exit(0);
         }
     }
 }
 
-void test_check_data(const SolverData* data, const SolverData* correct_data) {
+void test_check(const EqSolverData* data, FILE** file) {
+    EqSolverData correct_data = {};
+    for (int i = 0; i < EqSolverData::COEFF_NUM - 1; i++)
+        correct_data.roots[i] = NAN;
+    test_read_roots(data, &correct_data, file);
+
+    fclose(*file);
+
+    test_compare_data(data, &correct_data);
+}
+
+void test_compare_data(const EqSolverData* data, const EqSolverData* correct_data) {
     assert(data && correct_data);
 
     if (data->roots_num != correct_data->roots_num) {
@@ -53,7 +74,7 @@ void test_check_data(const SolverData* data, const SolverData* correct_data) {
     // Тут конечно по-хорошему надо отсортировать корни, но это TODO
     int success = 1;
     for (int i = 0; i < (int) correct_data->roots_num; i++) {
-        assert(!isnan(data->roots[i]) && !isnan(correct_data->roots[i]));
+        assert(!is_double_nan_inf(data->roots[i]) && !is_double_nan_inf(correct_data->roots[i]));
         if (!is_double_equal(data->roots[i], correct_data->roots[i])) {
             printf("Test failed. Incorrect root %d\n", (i+1));
             printf("Correct root:  %lf\n", correct_data->roots[i]);
