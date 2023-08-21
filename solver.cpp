@@ -52,7 +52,7 @@ int enter_coeff(char c, double* x) {
     return 0;
 }
 
-SOLUTIONS solve_quad(EqSolverData* data){
+void solve_quad(EqSolverData* data){
     assert(data && EqSolverData::COEFF_NUM >= 3);
     
     double a = data->coeffs[EqSolverData::COEFF_NUM - 3];
@@ -60,35 +60,38 @@ SOLUTIONS solve_quad(EqSolverData* data){
     double c = data->coeffs[EqSolverData::COEFF_NUM - 1];
 
     if (is_double_equal(a, 0)) {        // check if equation is quad (zero division check)
-        return solve_lin(data);
+        solve_lin(data);
+        return;
     }
 
     double D = b*b - 4*a*c;             // discriminant
     if (is_double_equal(D, 0)) {        // check if there are solutions
         data->roots[0] = (-b) / (2*a);
-        return ONE_SOLUTION;
+        data->roots_num = ONE_SOLUTION;
     } else if (D < 0) {
-        return NO_SOLUTIONS;
+        data->roots_num = NO_SOLUTIONS;
     } else {
         double D_sqrt = sqrt(D);
         data->roots[0] = (-b - D_sqrt) / (2*a);
         data->roots[1] = (-b + D_sqrt) / (2*a);
-        return TWO_SOLUTIONS;
+        data->roots_num = TWO_SOLUTIONS;
     }
+    bubble_sort(data->roots, data->roots_num);
 }
 
-SOLUTIONS solve_lin(EqSolverData* data) {
+void solve_lin(EqSolverData* data) {
     assert(data && EqSolverData::COEFF_NUM >= 2);
 
     double a = data->coeffs[EqSolverData::COEFF_NUM - 2];
     double b = data->coeffs[EqSolverData::COEFF_NUM - 1];
 
     if (is_double_equal(a, 0)) {
-        return is_double_equal(b, 0) ? INFINITE_SOLUTIONS : NO_SOLUTIONS;
+        data->roots_num = is_double_equal(b, 0) ? INFINITE_SOLUTIONS : NO_SOLUTIONS;
+        return;
     }
 
     data->roots[0] = -b / a;
-    return ONE_SOLUTION;
+    data->roots_num = ONE_SOLUTION;
 }
 
 void print_roots(const EqSolverData* data){

@@ -85,7 +85,6 @@ void test_compare_data(const EqSolverData* data, const EqSolverData* correct_dat
         printf("Number of solutions is correct: %d\n", (int)correct_data->roots_num);
     }
 
-    // Тут конечно по-хорошему надо отсортировать корни, но это TODO
     int success = 1;
     for (int i = 0; i < (int) correct_data->roots_num; i++) {
         assert(!is_double_nan_inf(data->roots[i]) && !is_double_nan_inf(correct_data->roots[i]));

@@ -36,7 +36,7 @@ int main(int argc, char* argv[]) {
             assert(!is_double_nan_inf(data.coeffs[i]));
         
         // Solve data
-        data.roots_num = solve_quad(&data);
+        solve_quad(&data);
         
         // Write data
         if (tests == NORMAL_MODE) {

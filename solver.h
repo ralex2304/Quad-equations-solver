@@ -61,17 +61,15 @@ int enter_coeffs(EqSolverData* data);
  * @brief Solves linear equations
  * 
  * @param[in] data 
- * @return SOLUTIONS number of solutions
  */
-SOLUTIONS solve_lin(EqSolverData* data);
+void solve_lin(EqSolverData* data);
 
 /**
  * @brief Solves quad equations
  * 
  * @param[in] data
- * @return SOLUTIONS number of solutions
  */
-SOLUTIONS solve_quad(EqSolverData* data);
+void solve_quad(EqSolverData* data);
 
 /**
  * @brief Prints roots
@@ -137,6 +135,31 @@ inline int is_double_equal(const double a, const double b) {
  */
 inline int is_double_nan_inf(const double a) {
     return isnan(a) || isinf(a);
+}
+
+/**
+ * @brief Swaps values of two pointers
+ * 
+ * @param a First pointer
+ * @param b Second pointer
+ */
+inline void swap(double* a, double* b) {
+    double c = *a;
+    *a = *b;
+    *b = c;
+}
+
+/**
+ * @brief Bubble sorting algorithm
+ * 
+ * @param arr array
+ * @param size array size
+ */
+inline void bubble_sort(double arr[], int size) {
+    for (int i = 0; i < size - 1; i++)
+        for (int j = 0; j < size - 1; j++)
+            if (arr[j] > arr[j+1])
+                swap(arr + j, arr + j + 1);
 }
 
 #endif
