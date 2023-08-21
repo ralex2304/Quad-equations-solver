@@ -7,6 +7,15 @@
 #include <assert.h>
 
 /**
+ * @brief Specifies program modes
+ */
+enum MODE {
+    NORMAL_MODE = -1,
+    TESTS_ENDED_MODE = 0,
+    TESTS_LEFT_MODE = 1
+};
+
+/**
  * @brief Specifies number of soludions of the equation
  */
 enum SOLUTIONS {
@@ -28,6 +37,19 @@ struct EqSolverData {
 };
 
 /**
+ * @brief Inits EqSolverData struct
+ * 
+ * @param data pointer
+ */
+inline void EqSolverData_init(EqSolverData* data) {
+    for (int i = 0; i < EqSolverData::COEFF_NUM; i++)
+        data->coeffs[i] = NAN;
+    for (int i = 0; i < EqSolverData::COEFF_NUM - 1; i++)
+        data->roots[i] = NAN;
+    data->roots_num = NAN_SOLUTIONS;
+}
+
+/**
  * @brief Reads coefficients from input to data->coeffs, starting with name 'a'
  * 
  * @param[in] data 
@@ -46,7 +68,7 @@ SOLUTIONS solve_lin(EqSolverData* data);
 /**
  * @brief Solves quad equations
  * 
- * @param data[in] 
+ * @param[in] data
  * @return SOLUTIONS number of solutions
  */
 SOLUTIONS solve_quad(EqSolverData* data);
@@ -104,7 +126,7 @@ inline int is_double_equal(const double a, const double b) {
     assert(!isnan(a) && !isinf(a) && !isnan(b) && !isinf(b));
 
     static const double DOUBLE_COMPARE_PREC = 0.000001;
-    return abs(a - b) < DOUBLE_COMPARE_PREC;
+    return fabs(a - b) < DOUBLE_COMPARE_PREC;
 };
 
 /**

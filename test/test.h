@@ -3,9 +3,16 @@
 
 #include "../solver.h"
 
-const char test_name[] = "test/test.txt"; // test file name
-
-int test_read(FILE** file, EqSolverData* data, const char* filename);
+/**
+ * @brief Tells if there are tests for solving.
+ *        If there aren't any, enters normal mode
+ * 
+ * @param[in] file test file pointer
+ * @param[in] data
+ * @param[in] filename
+ * @return MODE
+ */
+MODE have_tests(FILE** file, EqSolverData* data, char* filename);
 
 /**
  * @brief Opens test file by filename
@@ -31,16 +38,18 @@ int test_enter_coeffs(EqSolverData* data, FILE** file);
  * @param[in] data 
  * @param[in] correct_data 
  * @param[in] file 
+ * @return int success
  */
-void test_read_roots(const EqSolverData* data, EqSolverData* correc_data, FILE** file);
+int test_read_roots(const EqSolverData* data, EqSolverData* correc_data, FILE** file);
 
 /**
- * @brief 
+ * @brief calls test_read_roots and test_compare_data
  * 
  * @param data 
- * @param file 
+ * @param file
+ * @return int success 
  */
-void test_check(const EqSolverData* data, FILE** file);
+int test_check(const EqSolverData* data, FILE** file);
 
 /**
  * @brief Compares solutinons number and roots

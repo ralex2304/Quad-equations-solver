@@ -14,7 +14,8 @@ int read_num(double* x, FILE* stream) {
     assert(x);
 
     int res = fscanf(stream, "%lf", x);
-    return input_flush(stream) == 1 && res == 1 && !is_double_nan_inf(*x);  // check input errors and flush input
+    return input_flush(stream) == 1 && res == 1
+           && !is_double_nan_inf(*x);  // check input errors and flush input
 }
 
 int read_num(int* x, FILE* stream) {
@@ -104,7 +105,7 @@ void print_roots(const EqSolverData* data){
             printf("2 solutions:\nx1 = %lf\nx2 = %lf\n", data->roots[0], data->roots[1]);
             break;
         case INFINITE_SOLUTIONS:
-            wprintf(L"Infinite number of solutions:\nx belongs to the set (-inf; +inf)\n");
+            printf("Infinite number of solutions:\nx belongs to the set (-inf; +inf)\n");
             break;
         case NAN_SOLUTIONS:
         default:

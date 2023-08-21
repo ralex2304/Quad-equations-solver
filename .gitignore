@@ -1,2 +1,4 @@
 .vscode
 *.exe
+.DS_store
+main.out*

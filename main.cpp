@@ -7,48 +7,49 @@
  */
 
 #include "solver.h"
+#include "args.h"
+#include "test/test.h"
 
 /**
  * @brief Enables test mode
  */
 #define TEST
-#ifdef TEST
-#include "test/test.h"
-#endif
 
-int main() {
+int main(int argc, char* argv[]) {
     printf("Hello! This program solves quad equations of the form a*x^2 + b*x + c = 0\n"
            "Where \"x\" is a variable and \"a\", \"b\", \"c\" are coefficients\n");
 
+    char* filename = NULL;
+    args_parse(argc, argv, &filename);
+    #ifndef TEST
+    filename = NULL;
+    #endif
+
     // Read data
-    EqSolverData data = {};
-    for (int i = 0; i < EqSolverData::COEFF_NUM; i++)
-        data.coeffs[i] = NAN;
-
-    #ifndef TEST
-    if (!enter_coeffs(&data)) return 0;
-    #else
+    EqSolverData data;
+    EqSolverData_init(&data);
+    
     FILE* file = NULL;
-    if (!test_read(&file, &data, test_name)) return 0;
-    #endif
+    MODE tests = TESTS_ENDED_MODE;
+    while ((int)(tests = have_tests(&file, &data, filename))) {
+        for (int i = 0; i < EqSolverData::COEFF_NUM; i++)
+            assert(!is_double_nan_inf(data.coeffs[i]));
+        
+        // Solve data
+        data.roots_num = solve_quad(&data);
+        
+        // Write data
+        if (tests == NORMAL_MODE) {
+            print_roots(&data);
+            break;
+        }
 
-    for (int i = 0; i < EqSolverData::COEFF_NUM; i++)
-        assert(!is_double_nan_inf(data.coeffs[i]));
+        // Or check data if test mode
+        if (!test_check(&data, &file)) return 0;
 
+        EqSolverData_init(&data);
+    }
 
-    // Solve data
-    for (int i = 0; i < EqSolverData::COEFF_NUM - 1; i++)
-        data.roots[i] = NAN;
-    data.roots_num = solve_quad(&data);
-
-
-    // Write data
-    #ifndef TEST
-    print_roots(&data);
-    #else
-    test_check(&data, &file);
-    #endif
-
-    printf("Bye!");
+    printf("Bye!\n");
     return 0;
 }
