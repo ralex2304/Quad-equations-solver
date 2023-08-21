@@ -59,6 +59,7 @@ int test_read_roots(const EqSolverData* data, EqSolverData* correct_data, FILE**
             return 0;
         }
     }
+    bubble_sort(correct_data->roots, correct_data->roots_num);
     return 1;
 }
 
