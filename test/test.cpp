@@ -19,6 +19,7 @@ int test_open_file(FILE** file, const char* filename) {
         printf("Error opening test file %s\n", filename);
         perror("Message");
         fclose(*file);
+        free((void*)filename);
         printf("Entering normal mode\n");
         return 0;
     }

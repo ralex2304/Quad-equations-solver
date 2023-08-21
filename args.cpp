@@ -9,7 +9,7 @@ void args_parse(int argc, char* argv[], char** filename) {
                 printf("No test file name found\n");
                 break;
             }
-            *filename = (char*)malloc(strlen(argv[i]));
+            *filename = (char*)malloc(strlen(argv[i]) * sizeof(char));
             strcpy(*filename, argv[i]); 
             continue;
         }
