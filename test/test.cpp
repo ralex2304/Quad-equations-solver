@@ -88,7 +88,7 @@ void test_compare_data(const EqSolverData* data, const EqSolverData* correct_dat
 
     int success = 1;
     for (int i = 0; i < (int) correct_data->roots_num; i++) {
-        assert(!is_double_nan_inf(data->roots[i]) && !is_double_nan_inf(correct_data->roots[i]));
+        assert(isfinite(data->roots[i]) && isfinite(correct_data->roots[i]));
         if (!is_double_equal(data->roots[i], correct_data->roots[i])) {
             printf("Test %d failed. Incorrect root %d\n", test_num, (i+1));
             printf("Correct root:  %lf\n", correct_data->roots[i]);

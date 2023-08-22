@@ -128,16 +128,6 @@ inline int is_double_equal(const double a, const double b) {
 };
 
 /**
- * @brief Tells if a double is NAN or infinite
- * 
- * @param a 
- * @return int 
- */
-inline int is_double_nan_inf(const double a) {
-    return isnan(a) || isinf(a);
-}
-
-/**
  * @brief Swaps values of two pointers
  * 
  * @param a First pointer

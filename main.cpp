@@ -33,7 +33,7 @@ int main(int argc, char* argv[]) {
     MODE tests = TESTS_ENDED_MODE;
     while ((int)(tests = have_tests(&file, &data, filename))) {
         for (int i = 0; i < EqSolverData::COEFF_NUM; i++)
-            assert(!is_double_nan_inf(data.coeffs[i]));
+            assert(isfinite(data.coeffs[i]));
         
         // Solve data
         solve_quad(&data);
