@@ -10,6 +10,7 @@
  * @brief Specifies program modes
  */
 enum MODE {
+    INPUT_ERROR_MODE = -2,
     NORMAL_MODE = -1,
     TESTS_ENDED_MODE = 0,
     TESTS_LEFT_MODE = 1
@@ -151,5 +152,10 @@ inline void bubble_sort(double arr[], int size) {
             if (arr[j] > arr[j+1])
                 swap(arr + j, arr + j + 1);
 }
+
+/**
+ * @brief Prints help
+ */
+void print_help();
 
 #endif

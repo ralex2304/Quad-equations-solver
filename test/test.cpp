@@ -5,12 +5,11 @@ MODE have_tests(FILE** file, EqSolverData* data, char* filename) {
 
     if (*file == NULL && (filename == NULL || !test_open_file(file, filename))) {
         if (!enter_coeffs(data))
-            return TESTS_ENDED_MODE;
+            return INPUT_ERROR_MODE;
         return NORMAL_MODE;
     }
 
-    if (!test_enter_coeffs(data, file)) return TESTS_ENDED_MODE;
-    return TESTS_LEFT_MODE;
+    return test_enter_coeffs(data, file);
 }
 
 int test_open_file(FILE** file, const char* filename) {
@@ -27,20 +26,23 @@ int test_open_file(FILE** file, const char* filename) {
     return 1;
 }
 
-int test_enter_coeffs(EqSolverData* data, FILE** file) {
+MODE test_enter_coeffs(EqSolverData* data, FILE** file) {
     assert(data && file);
 
     for (int i = 0; i < EqSolverData::COEFF_NUM; i++) {
         if (!read_num(data->coeffs + i, *file)) {
             int c = fgetc(*file);
-            if (c != EOF)
-                printf("Error reading coefficient from test file\n");
             ungetc(c, *file);
             fclose(*file);
-            return 0;
+            if (c != EOF) {
+                printf("Error reading coefficient from test file\n");
+                return INPUT_ERROR_MODE;
+            }
+            
+            return TESTS_ENDED_MODE;
         } 
     }
-    return 1;
+    return TESTS_LEFT_MODE;
 }
 
 int test_read_roots(const EqSolverData* data, EqSolverData* correct_data, FILE** file) {

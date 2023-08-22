@@ -28,9 +28,9 @@ int test_open_file(FILE** file, const char* filename);
  * 
  * @param[in] data 
  * @param[in] file 
- * @return int success
+ * @return MODE
  */
-int test_enter_coeffs(EqSolverData* data, FILE** file);
+MODE test_enter_coeffs(EqSolverData* data, FILE** file);
 
 /**
  * @brief Reads correct roots from test file

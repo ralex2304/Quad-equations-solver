@@ -116,3 +116,11 @@ void print_roots(const EqSolverData* data){
             break;
     }
 }
+
+void print_help() {
+    printf("# This program solves quad equations of the form a*x^2 + b*x + c = 0\n"
+           "# Where \"x\" is a variable and \"a\", \"b\", \"c\" are coefficients\n"
+           "# Console args\n"
+           "#   -h - prints help information\n"
+           "#   -t - specify test file name after this (works only if test mode enabled)\n");
+}
