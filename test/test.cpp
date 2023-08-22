@@ -1,48 +1,41 @@
 #include "test.h"
 
-MODE have_tests(FILE** file, EqSolverData* data, char* filename) {
-    assert(file && data);
+TestMode test_open_file(FILE** file, const char* filename) {
+    assert(file);
 
-    if (*file == NULL && (filename == NULL || !test_open_file(file, filename))) {
-        if (!enter_coeffs(data))
-            return INPUT_ERROR_MODE;
-        return NORMAL_MODE;
-    }
+    if (filename == nullptr)
+        return TestMode::NO_TESTS;
 
-    return test_enter_coeffs(data, file);
-}
-
-int test_open_file(FILE** file, const char* filename) {
     *file = fopen(filename, "r");
-    if (*file == NULL) {
+    if (*file == nullptr) {
         printf("Error opening test file %s\n", filename);
         perror("Message");
         fclose(*file);
-        free((void*)filename);
         printf("Entering normal mode\n");
-        return 0;
+        return TestMode::INPUT_ERROR;
     }
-    free((void*)filename);
-    return 1;
+    return TestMode::TESTS_LEFT;
 }
 
-MODE test_enter_coeffs(EqSolverData* data, FILE** file) {
+TestMode test_enter_coeffs(EqSolverData* data, FILE** file) {
     assert(data && file);
 
     for (int i = 0; i < EqSolverData::COEFF_NUM; i++) {
         if (!read_num(data->coeffs + i, *file)) {
             int c = fgetc(*file);
+
             ungetc(c, *file);
             fclose(*file);
+
             if (c != EOF) {
                 printf("Error reading coefficient from test file\n");
-                return INPUT_ERROR_MODE;
+                return TestMode::INPUT_ERROR;
             }
             
-            return TESTS_ENDED_MODE;
+            return TestMode::NO_TESTS;
         } 
     }
-    return TESTS_LEFT_MODE;
+    return TestMode::TESTS_LEFT;
 }
 
 int test_read_roots(const EqSolverData* data, EqSolverData* correct_data, FILE** file) {
@@ -66,6 +59,8 @@ int test_read_roots(const EqSolverData* data, EqSolverData* correct_data, FILE**
 }
 
 int test_check(const EqSolverData* data, FILE** file) {
+    assert(data && file);
+
     EqSolverData correct_data;
     for (int i = 0; i < EqSolverData::COEFF_NUM - 1; i++)
         correct_data.roots[i] = NAN;

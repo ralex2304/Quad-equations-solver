@@ -1,30 +1,5 @@
 #include "solver.h"
 
-int input_flush(FILE* stream) {
-    int c = 0;
-    int cnt = 0;
-    do {
-        cnt++;
-    } while ((c = fgetc(stream)) != '\n' && c != EOF && !feof(stream) && !ferror(stream));
-    
-    return cnt;
-}
-
-int read_num(double* x, FILE* stream) {
-    assert(x);
-
-    int res = fscanf(stream, "%lf", x);
-    return input_flush(stream) == 1 && res == 1
-           && isfinite(*x);  // check input errors and flush input
-}
-
-int read_num(int* x, FILE* stream) {
-    assert(x);
-
-    int res = fscanf(stream, "%d", x);
-    return input_flush(stream) == 1 && res == 1 && res != EOF;    // check input errors and flush input
-}
-
 int enter_coeffs(EqSolverData* data) {
     assert(data);
 
@@ -37,10 +12,10 @@ int enter_coeffs(EqSolverData* data) {
 
 int enter_coeff(char c, double* x) {
     assert(x && isalpha(c));
-    static const int ENTER_COEFF_TRIES = 5;
-    int tries = ENTER_COEFF_TRIES;
 
-    while (tries--) {
+    static const int ENTER_COEFF_TRIES = 5;
+
+    for (int tries = ENTER_COEFF_TRIES; tries > 0; tries++) {
         printf("Enter coefficient %c: ", c);
         if (read_num(x))
             return 1;           // exit if entered correctly
@@ -57,6 +32,7 @@ void solve_quad(EqSolverData* data){
     
     double a = data->coeffs[EqSolverData::COEFF_NUM - 3];
     double b = data->coeffs[EqSolverData::COEFF_NUM - 2];
+    if (is_double_equal(b, 0)) b = -0.0;
     double c = data->coeffs[EqSolverData::COEFF_NUM - 1];
 
     if (is_double_equal(a, 0)) {        // check if equation is quad (zero division check)
@@ -84,17 +60,20 @@ void solve_lin(EqSolverData* data) {
 
     double a = data->coeffs[EqSolverData::COEFF_NUM - 2];
     double b = data->coeffs[EqSolverData::COEFF_NUM - 1];
+    if (is_double_equal(b, 0)) b = -0.0;
 
     if (is_double_equal(a, 0)) {
         data->roots_num = is_double_equal(b, 0) ? INFINITE_SOLUTIONS : NO_SOLUTIONS;
         return;
     }
 
-    data->roots[0] = -b / a;
+    data->roots[0] = b / -a;
     data->roots_num = ONE_SOLUTION;
 }
 
 void print_roots(const EqSolverData* data){
+    assert(data);
+
     switch (data->roots_num) {
         case NO_SOLUTIONS:
             printf("No solutions\n");
@@ -122,5 +101,12 @@ void print_help() {
            "# Where \"x\" is a variable and \"a\", \"b\", \"c\" are coefficients\n"
            "# Console args\n"
            "#   -h - prints help information\n"
-           "#   -t - specify test file name after this (works only if test mode enabled)\n");
+           "#   -t - specify test file name after this (works only if test mode enabled)\n"
+           "# Test file format (there might be several such sections):\n"
+           "# <coeff a>\n"
+           "# <coeff b>\n"
+           "# <coeff c>\n"
+           "# <solutions number>\n"
+           "# <solution 1 (if exists)>\n"
+           "# <solution 2 (if exists)>\n");
 }

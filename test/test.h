@@ -4,24 +4,22 @@
 #include "../solver.h"
 
 /**
- * @brief Tells if there are tests for solving.
- *        If there aren't any, enters normal mode
- * 
- * @param[in] file test file pointer
- * @param[in] data
- * @param[in] filename
- * @return MODE
+ * @brief Specifies test modes
  */
-MODE have_tests(FILE** file, EqSolverData* data, char* filename);
+enum class TestMode {
+    INPUT_ERROR = -1,
+    NO_TESTS =  0,
+    TESTS_LEFT  =  1
+};
 
 /**
  * @brief Opens test file by filename
  * 
  * @param file - pointer 
  * @param filename - name of file
- * @return int success
+ * @return MODE
  */
-int test_open_file(FILE** file, const char* filename);
+TestMode test_open_file(FILE** file, const char* filename);
 
 /**
  * @brief Reads coeffs from test file
@@ -30,7 +28,7 @@ int test_open_file(FILE** file, const char* filename);
  * @param[in] file 
  * @return MODE
  */
-MODE test_enter_coeffs(EqSolverData* data, FILE** file);
+TestMode test_enter_coeffs(EqSolverData* data, FILE** file);
 
 /**
  * @brief Reads correct roots from test file

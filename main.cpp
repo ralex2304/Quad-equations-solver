@@ -2,55 +2,88 @@
  * @file main.cpp
  * @author ralex2304
  * @brief Quad equations solver
- * @version 0.8
+ * @version 0.9
  * @date 2023-08-17
  */
 
 #include "solver.h"
-#include "args.h"
-#include "test/test.h"
+#include "args_parser.h"
 
 /**
  * @brief Enables test mode
  */
 #define TEST
 
+#ifdef TEST
+#include "test/test.h"
+#endif
+
 int main(int argc, char* argv[]) {
     printf("# Hello!\n");
 
-    char* filename = NULL;
-    args_parse(argc, argv, &filename);
-    #ifndef TEST
-    filename = NULL;
-    #endif
+    char* filename = nullptr;
+    switch (args_parse(argc, argv, &filename)) {
+        case ProgramMode::ERROR:
+            return Error::raise(Error::ARGS);
+
+        case ProgramMode::HELP:
+            return Error::OK;
+
+        case ProgramMode::NORMAL:
+            break;
+
+        default:
+            assert(0 && "args_parse() returned wrong ProgramMode");
+            break;
+    };
 
     // Read data
-    EqSolverData data;
+    EqSolverData data = {};
     EqSolverData_init(&data);
     
-    FILE* file = NULL;
-    MODE tests = TESTS_ENDED_MODE;
-    while ((int)(tests = have_tests(&file, &data, filename))) {
-        if (tests == INPUT_ERROR_MODE) 
-            return (int)MAIN_RETURNS::COEFFS_INPUT_ERROR;
-        for (int i = 0; i < EqSolverData::COEFF_NUM; i++)
-            assert(isfinite(data.coeffs[i]));
-        
-        // Solve data
-        solve_quad(&data);
-        
-        // Write data
-        if (tests == NORMAL_MODE) {
-            print_roots(&data);
+#ifdef TEST
+    FILE* file = nullptr;
+    switch (test_open_file(&file, filename)) {
+        case TestMode::INPUT_ERROR:
+            return Error::raise(Error::TEST_INPUT);
+
+        case TestMode::TESTS_LEFT: // TEST mode
+        {
+            TestMode tests = TestMode::INPUT_ERROR;
+
+            while ((tests = test_enter_coeffs(&data, &file)) != TestMode::NO_TESTS) {
+                if (tests == TestMode::INPUT_ERROR) return Error::raise(Error::TEST_INPUT);
+
+                for (int i = 0; i < EqSolverData::COEFF_NUM; i++)
+                    assert(isfinite(data.coeffs[i]));
+
+                solve_quad(&data);
+
+                if (!test_check(&data, &file))
+                    return Error::raise(Error::TEST_INPUT);
+
+                EqSolverData_init(&data);
+            }
             break;
-        }
+        } 
 
-        // Or check data if test mode
-        if (!test_check(&data, &file)) return (int)MAIN_RETURNS::TEST_INPUT_ERROR;
+        case TestMode::NO_TESTS: // Normal mode
+#endif
+            if (!enter_coeffs(&data)) return Error::raise(Error::COEFFS_INPUT);
+            
+            for (int i = 0; i < EqSolverData::COEFF_NUM; i++)
+                    assert(isfinite(data.coeffs[i]));
 
-        EqSolverData_init(&data);
-    }
+            solve_quad(&data);
+
+            print_roots(&data);
+#ifdef TEST
+        break;
+        default:
+            assert(0 && "test_open_file() returned wrong mode");
+    };
+#endif
 
     printf("# Bye!\n");
-    return (int)MAIN_RETURNS::OK;
+    return Error::OK;
 }

@@ -5,26 +5,17 @@
 #include <ctype.h>
 #include <math.h>
 #include <assert.h>
-
-/**
- * @brief Specifies program modes
- */
-enum MODE {
-    INPUT_ERROR_MODE = -2,
-    NORMAL_MODE = -1,
-    TESTS_ENDED_MODE = 0,
-    TESTS_LEFT_MODE = 1
-};
+#include "input.h"
 
 /**
  * @brief Specifies number of soludions of the equation
  */
-enum SOLUTIONS {
-    NAN_SOLUTIONS = -2,
+enum Solutions {
+    NAN_SOLUTIONS      = -2,
     INFINITE_SOLUTIONS = -1,
-    NO_SOLUTIONS = 0,
-    ONE_SOLUTION = 1,
-    TWO_SOLUTIONS = 2
+    NO_SOLUTIONS       =  0,
+    ONE_SOLUTION       =  1,
+    TWO_SOLUTIONS      =  2
 };
 
 /**
@@ -32,9 +23,10 @@ enum SOLUTIONS {
  */
 struct EqSolverData {
     static const int COEFF_NUM = 3;
+
     double coeffs[COEFF_NUM] = {};
     double roots[COEFF_NUM - 1] = {};
-    SOLUTIONS roots_num = NAN_SOLUTIONS;
+    Solutions roots_num = NAN_SOLUTIONS;
 };
 
 /**
@@ -79,32 +71,6 @@ void solve_quad(EqSolverData* data);
  */
 void print_roots(const EqSolverData* data);
 
-
-/**
- * @brief Flushes input
- * 
- * @return int number of flushed symbols
- */
-int input_flush(FILE* stream = stdin);
-
-/**
- * @brief Reads double from input to pointer
- * 
- * @param[in] x
- * @param[in] stream 
- * @return int success
- */
-int read_num(double* x, FILE* stream = stdin);
-
-/**
- * @brief Reads int from input to pointer
- * 
- * @param[in] x 
- * @param[in] stream 
- * @return int success
- */
-int read_num(int* x, FILE* stream = stdin);
-
 /**
  * @brief Reads coefficient double from input
  * 
@@ -135,9 +101,12 @@ inline int is_double_equal(const double a, const double b) {
  * @param b Second pointer
  */
 inline void swap(double* a, double* b) {
-    double c = *a;
-    *a = *b;
-    *b = c;
+
+    //      --------------
+    //     |             |
+    double c = *a; //    |
+               *a = *b;//v
+                    *b = c;
 }
 
 /**
@@ -146,7 +115,7 @@ inline void swap(double* a, double* b) {
  * @param arr array
  * @param size array size
  */
-inline void bubble_sort(double arr[], int size) {
+inline void bubble_sort(double* arr, int size) {
     for (int i = 0; i < size - 1; i++)
         for (int j = 0; j < size - 1; j++)
             if (arr[j] > arr[j+1])

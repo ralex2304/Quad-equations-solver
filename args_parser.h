@@ -9,10 +9,20 @@
 /**
  * @brief Specifies int main() returns
  */
-enum class MAIN_RETURNS {
-    OK = 0,
-    COEFFS_INPUT_ERROR = 1,
-    TEST_INPUT_ERROR = 2
+struct Error {
+    enum Errors {
+        OK           = 0,
+        ARGS         = 1,
+        COEFFS_INPUT = 2,
+        TEST_INPUT   = 3
+    };
+    static Errors raise(Errors err);
+};
+
+enum class ProgramMode {
+    ERROR  = -1,
+    HELP   =  0,
+    NORMAL =  1,
 };
 
 const char ARGS_HELP[] = "-h";
@@ -24,7 +34,8 @@ const char ARGS_TEST_FILE_PATH[] = "-t";
  * @param argc 
  * @param argv 
  * @param filename for test mode
+ * @return int success
  */
-void args_parse(int argc, char* argv[], char** filename);
+ProgramMode args_parse(int argc, char* argv[], char** filename);
 
 #endif
