@@ -42,6 +42,16 @@ inline void EqSolverData_init(EqSolverData* data) {
     data->roots_num = NAN_SOLUTIONS;
 }
 
+
+/**
+ * @brief Reads coefficient double from input
+ * 
+ * @param[in] c coefficient name
+ * @param[in] x 
+ * @return int success
+ */
+int enter_coeff(const char c, double* x);
+
 /**
  * @brief Reads coefficients from input to data->coeffs, starting with name 'a'
  * 
@@ -70,15 +80,6 @@ void solve_quad(EqSolverData* data);
  * @param[in] data 
  */
 void print_roots(const EqSolverData* data);
-
-/**
- * @brief Reads coefficient double from input
- * 
- * @param[in] c coefficient name
- * @param[in] x 
- * @return int success
- */
-int enter_coeff(const char c, double* x);
 
 /**
  * @brief Tells if two doubles are equal with precision of DOUBLE_COMPARE_PRECISION

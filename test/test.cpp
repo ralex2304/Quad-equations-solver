@@ -58,18 +58,6 @@ int test_read_roots(const EqSolverData* data, EqSolverData* correct_data, FILE**
     return 1;
 }
 
-int test_check(const EqSolverData* data, FILE** file) {
-    assert(data && file);
-
-    EqSolverData correct_data;
-    for (int i = 0; i < EqSolverData::COEFF_NUM - 1; i++)
-        correct_data.roots[i] = NAN;
-    if (!test_read_roots(data, &correct_data, file)) return 0;
-
-    test_compare_data(data, &correct_data);
-    return 1;
-}
-
 void test_compare_data(const EqSolverData* data, const EqSolverData* correct_data) {
     assert(data && correct_data);
 
@@ -98,4 +86,16 @@ void test_compare_data(const EqSolverData* data, const EqSolverData* correct_dat
     if (!success) return;
 
     printf("Test %d completed successfully!\n", test_num);
+}
+
+int test_check(const EqSolverData* data, FILE** file) {
+    assert(data && file);
+
+    EqSolverData correct_data;
+    for (int i = 0; i < EqSolverData::COEFF_NUM - 1; i++)
+        correct_data.roots[i] = NAN;
+    if (!test_read_roots(data, &correct_data, file)) return 0;
+
+    test_compare_data(data, &correct_data);
+    return 1;
 }

@@ -6,13 +6,6 @@
 #include <assert.h>
 
 /**
- * @brief Flushes input
- * 
- * @return int number of flushed symbols
- */
-int input_flush(FILE* stream = stdin);
-
-/**
  * @brief Reads double from input to pointer
  * 
  * @param[in] x
@@ -29,5 +22,12 @@ int read_num(double* x, FILE* stream = stdin);
  * @return int success
  */
 int read_num(int* x, FILE* stream = stdin);
+
+/**
+ * @brief Flushes input
+ * 
+ * @return int number of flushed symbols
+ */
+int input_flush(FILE* stream = stdin);
 
 #endif

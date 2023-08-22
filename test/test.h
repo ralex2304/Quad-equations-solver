@@ -41,6 +41,14 @@ TestMode test_enter_coeffs(EqSolverData* data, FILE** file);
 int test_read_roots(const EqSolverData* data, EqSolverData* correc_data, FILE** file);
 
 /**
+ * @brief Compares solutinons number and roots
+ * 
+ * @param[in] data 
+ * @param[in] correct_data 
+ */
+void test_compare_data(const EqSolverData* data, const EqSolverData* correct_data);
+
+/**
  * @brief calls test_read_roots and test_compare_data
  * 
  * @param data 
@@ -48,13 +56,5 @@ int test_read_roots(const EqSolverData* data, EqSolverData* correc_data, FILE** 
  * @return int success 
  */
 int test_check(const EqSolverData* data, FILE** file);
-
-/**
- * @brief Compares solutinons number and roots
- * 
- * @param[in] data 
- * @param[in] correct_data 
- */
-void test_compare_data(const EqSolverData* data, const EqSolverData* correct_data);
 
 #endif

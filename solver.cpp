@@ -1,15 +1,5 @@
 #include "solver.h"
 
-int enter_coeffs(EqSolverData* data) {
-    assert(data);
-
-    for (int i = 0; i < EqSolverData::COEFF_NUM; i++) {
-        if (!enter_coeff('a' + (char)i, data->coeffs + i))
-            return 0;
-    }
-    return 1;
-}
-
 int enter_coeff(char c, double* x) {
     assert(x && isalpha(c));
 
@@ -25,6 +15,16 @@ int enter_coeff(char c, double* x) {
     printf("You tried to enter coefficient for %d times!"
            "Oh, come on, what's wrong with you?!\n", ENTER_COEFF_TRIES);
     return 0;
+}
+
+int enter_coeffs(EqSolverData* data) {
+    assert(data);
+
+    for (int i = 0; i < EqSolverData::COEFF_NUM; i++) {
+        if (!enter_coeff('a' + (char)i, data->coeffs + i))
+            return 0;
+    }
+    return 1;
 }
 
 void solve_quad(EqSolverData* data){
