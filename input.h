@@ -9,10 +9,10 @@
 /**
  * @brief Specifies input errors
  */
-enum class InputError {
-    END_OF_FILE = -1,
-    WRONG_DATA  =  0,
-    OK          =  1
+enum class InputStatus {
+    END_OF_FILE = -1, ///< End of file reached
+    WRONG_DATA  =  0, ///< Input error
+    OK          =  1  ///< OK
 };
 
 /**
@@ -22,7 +22,7 @@ enum class InputError {
  * @param[in] stream
  * @return int success
  */
-InputError read_num(double* x, FILE* stream = stdin, bool flush = true);
+InputStatus read_num(double* x, FILE* stream = stdin, bool flush = true);
 
 /**
  * @brief Reads int from input to pointer
@@ -31,7 +31,7 @@ InputError read_num(double* x, FILE* stream = stdin, bool flush = true);
  * @param[in] stream
  * @return int success
  */
-InputError read_num(int* x, FILE* stream = stdin, bool flush = true);
+InputStatus read_num(int* x, FILE* stream = stdin, bool flush = true);
 
 /**
  * @brief Flushes input

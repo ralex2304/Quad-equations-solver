@@ -40,7 +40,7 @@ TestMode test_enter_coeffs(EqSolverData* data, FILE* file);
  * @param filename
  * @return Error::Errors
  */
-Error::Errors test_or_normal(const char* filename);
+Status::Statuses test_or_normal(const char* filename);
 
 /**
  * @brief Main test proccess (read, test)
@@ -48,7 +48,7 @@ Error::Errors test_or_normal(const char* filename);
  * @param file
  * @return Error::Errors
  */
-Error::Errors test_proccess(FILE* file);
+Status::Statuses test_proccess(FILE* file);
 
 /**
  * @brief Reads correct roots from test file

@@ -1,28 +1,28 @@
 #include "input.h"
 
-InputError read_num(double* x, FILE* stream, bool flush) {
+InputStatus read_num(double* x, FILE* stream, bool flush) {
     assert(x && stream);
 
     int res = fscanf(stream, "%lf", x);
     if (res == EOF)
-        return InputError::END_OF_FILE;
+        return InputStatus::END_OF_FILE;
     else if (res == 1 && isfinite(*x) && (!flush || input_flush(stream))) {
-        return InputError::OK;
+        return InputStatus::OK;
     } else {
-        return InputError::WRONG_DATA;
+        return InputStatus::WRONG_DATA;
     }
 }
 
-InputError read_num(int* x, FILE* stream, bool flush) {
+InputStatus read_num(int* x, FILE* stream, bool flush) {
     assert(x && stream);
 
     int res = fscanf(stream, "%d", x);
     if (res == EOF)
-        return InputError::END_OF_FILE;
+        return InputStatus::END_OF_FILE;
     else if (res == 1 && (!flush || input_flush(stream))) {
-        return InputError::OK;
+        return InputStatus::OK;
     } else {
-        return InputError::WRONG_DATA;
+        return InputStatus::WRONG_DATA;
     }
 }
 
