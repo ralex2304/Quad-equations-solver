@@ -5,7 +5,31 @@
 #include <ctype.h>
 #include <math.h>
 #include <assert.h>
+
 #include "input.h"
+
+/**
+ * @brief Specifies functions errors
+ * 
+ */
+struct Error {
+    enum Errors {
+        NO_ERROR     = -1,
+        OK_EXIT      =  0,
+        ARGS         =  1,
+        COEFFS_INPUT =  2,
+        TEST_INPUT   =  3,
+        END_OF_FILE  =  4
+    };
+
+    /**
+     * @brief Prints and returns given error
+     * 
+     * @param err 
+     * @return Errors 
+     */
+    static Errors raise(const Errors err);
+};
 
 /**
  * @brief Specifies number of soludions of the equation
@@ -42,23 +66,21 @@ inline void EqSolverData_init(EqSolverData* data) {
     data->roots_num = NAN_SOLUTIONS;
 }
 
-
 /**
- * @brief Reads coefficient double from input
+ * @brief Main proccess (read, solve and print)
  * 
- * @param[in] c coefficient name
- * @param[in] x 
- * @return int success
+ * @param data 
+ * @return Error::Errors 
  */
-int enter_coeff(const char c, double* x);
+Error::Errors solver_proccess();
 
 /**
  * @brief Reads coefficients from input to data->coeffs, starting with name 'a'
  * 
  * @param[in] data 
- * @return int success
+ * @return InputError
  */
-int enter_coeffs(EqSolverData* data);
+InputError enter_coeffs(EqSolverData* data);
 
 /**
  * @brief Solves linear equations
@@ -96,6 +118,18 @@ inline int is_double_equal(const double a, const double b) {
 };
 
 /**
+ * @brief Returns valid root (check for -0.0)
+ * 
+ * @param root 
+ * @return double 
+ */
+inline double valid_root(double root) {
+    if (is_double_equal(root, 0))
+        return fabs(root);
+    return root;
+}
+
+/**
  * @brief Swaps values of two pointers
  * 
  * @param a First pointer
@@ -126,6 +160,6 @@ inline void bubble_sort(double* arr, int size) {
 /**
  * @brief Prints help
  */
-void print_help();
+void print_help(const bool help_en);
 
 #endif

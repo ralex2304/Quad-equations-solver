@@ -21,69 +21,36 @@
 int main(int argc, char* argv[]) {
     printf("# Hello!\n");
 
-    char* filename = nullptr;
-    switch (args_parse(argc, argv, &filename)) {
+    // Parse console args
+#ifdef TEST
+    ArgsTest args_test = {true, nullptr};
+#else
+    ArgsTest args_test = {false, nullptr};
+#endif
+    switch (args_parse(argc, argv, &args_test)) {
         case ProgramMode::ERROR:
             return Error::raise(Error::ARGS);
 
         case ProgramMode::HELP:
-            return Error::OK;
+            print_help(args_test.en);
+            return Error::raise(Error::OK_EXIT);
 
         case ProgramMode::NORMAL:
             break;
-
         default:
             assert(0 && "args_parse() returned wrong ProgramMode");
             break;
     };
 
-    // Read data
-    EqSolverData data = {};
-    EqSolverData_init(&data);
-    
+    // Proccess
 #ifdef TEST
-    FILE* file = nullptr;
-    switch (test_open_file(&file, filename)) {
-        case TestMode::INPUT_ERROR:
-            return Error::raise(Error::TEST_INPUT);
-
-        case TestMode::TESTS_LEFT: // TEST mode
-        {
-            TestMode tests = TestMode::INPUT_ERROR;
-
-            while ((tests = test_enter_coeffs(&data, &file)) != TestMode::NO_TESTS) {
-                if (tests == TestMode::INPUT_ERROR) return Error::raise(Error::TEST_INPUT);
-
-                for (int i = 0; i < EqSolverData::COEFF_NUM; i++)
-                    assert(isfinite(data.coeffs[i]));
-
-                solve_quad(&data);
-
-                if (!test_check(&data, &file))
-                    return Error::raise(Error::TEST_INPUT);
-
-                EqSolverData_init(&data);
-            }
-            break;
-        } 
-
-        case TestMode::NO_TESTS: // Normal mode
+    Error::Errors proccessed = test_or_normal(args_test.filename);
+#else
+    Error::Errors proccessed = solver_proccess();
 #endif
-            if (!enter_coeffs(&data)) return Error::raise(Error::COEFFS_INPUT);
-            
-            for (int i = 0; i < EqSolverData::COEFF_NUM; i++)
-                    assert(isfinite(data.coeffs[i]));
-
-            solve_quad(&data);
-
-            print_roots(&data);
-#ifdef TEST
-        break;
-        default:
-            assert(0 && "test_open_file() returned wrong mode");
-    };
-#endif
+    if (proccessed != Error::NO_ERROR)
+        return Error::raise(proccessed);
 
     printf("# Bye!\n");
-    return Error::OK;
+    return Error::raise(Error::OK_EXIT);
 }

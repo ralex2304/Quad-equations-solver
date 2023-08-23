@@ -1,26 +1,39 @@
 #include "input.h"
 
-int read_num(double* x, FILE* stream) {
-    assert(x);
+InputError read_num(double* x, FILE* stream, bool flush) {
+    assert(x && stream);
 
     int res = fscanf(stream, "%lf", x);
-    return input_flush(stream) == 1 && res == 1
-           && isfinite(*x);  // check input errors and flush input
+    if (res == EOF)
+        return InputError::END_OF_FILE;
+    else if (res == 1 && isfinite(*x) && (!flush || input_flush(stream))) {
+        return InputError::OK;
+    } else {
+        return InputError::WRONG_DATA;
+    }
 }
 
-int read_num(int* x, FILE* stream) {
-    assert(x);
+InputError read_num(int* x, FILE* stream, bool flush) {
+    assert(x && stream);
 
     int res = fscanf(stream, "%d", x);
-    return input_flush(stream) == 1 && res == 1 && res != EOF;    // check input errors and flush input
+    if (res == EOF)
+        return InputError::END_OF_FILE;
+    else if (res == 1 && (!flush || input_flush(stream))) {
+        return InputError::OK;
+    } else {
+        return InputError::WRONG_DATA;
+    }
 }
 
 int input_flush(FILE* stream) {
-    int c = 0;
-    int cnt = 0;
+    int c = ' ';
+    int non_space = 1;
+
     do {
-        cnt++;
+        if (!isspace(c))
+            non_space = 0;
     } while ((c = fgetc(stream)) != '\n' && c != EOF && !feof(stream) && !ferror(stream));
     
-    return cnt;
+    return non_space;
 }
