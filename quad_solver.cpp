@@ -7,21 +7,21 @@
  * @param[in] x
  * @return int success
  */
-static InputStatus enter_coeff(const char c, double* x);
+static InputError enter_coeff(const char c, double* x);
 
-Status::Statuses solver_proccess() {
+Error::Errors solver_proccess() {
     EqSolverData data = {};
     EqSolverData_init(&data);
 
     switch (enter_coeffs(&data)) {
-        case InputStatus::OK:
+        case InputError::OK:
             break;
-        case InputStatus::WRONG_DATA:
-            return Status::COEFFS_INPUT;
-        case InputStatus::END_OF_FILE:
-            return Status::END_OF_FILE;
+        case InputError::WRONG_DATA:
+            return Error::COEFFS_INPUT;
+        case InputError::END_OF_FILE:
+            return Error::END_OF_FILE;
         default:
-            assert(0 && "enter_coeffs() returned wrong InputStatus");
+            assert(0 && "enter_coeffs() returned wrong InputError");
             break;
     }
 
@@ -32,12 +32,11 @@ Status::Statuses solver_proccess() {
 
     print_roots(&data);
 
-    return Status::NO_ERROR;
+    return Error::NO_ERROR;
 }
 
-static InputStatus enter_coeff(const char c, double* x) {
-    assert(x);
-    assert(isalpha(c));
+static InputError enter_coeff(const char c, double* x) {
+    assert(x && isalpha(c));
 
     static const int ENTER_COEFF_TRIES = 5;
 
@@ -46,8 +45,8 @@ static InputStatus enter_coeff(const char c, double* x) {
 
         printf("Enter coefficient %c: ", c);
 
-        InputStatus res = read_num(x);
-        if (res != InputStatus::WRONG_DATA)
+        InputError res = read_num(x);
+        if (res != InputError::WRONG_DATA)
             return res;
 
         printf("Coefficient entered incorrectly. Try again\n");
@@ -55,23 +54,22 @@ static InputStatus enter_coeff(const char c, double* x) {
 
     printf("You tried to enter coefficient for %d times!"
            "Oh, come on, what's wrong with you?!\n", ENTER_COEFF_TRIES);
-    return InputStatus::WRONG_DATA;
+    return InputError::WRONG_DATA;
 }
 
-InputStatus enter_coeffs(EqSolverData* data) {
+InputError enter_coeffs(EqSolverData* data) {
     assert(data);
 
     for (int i = 0; i < EqSolverData::COEFF_NUM; i++) {
-        InputStatus res = enter_coeff('a' + (char)i, data->coeffs + i);
-        if (res != InputStatus::OK)
+        InputError res = enter_coeff('a' + (char)i, data->coeffs + i);
+        if (res != InputError::OK)
             return res;
     }
-    return InputStatus::OK;
+    return InputError::OK;
 }
 
 void solve_quad(EqSolverData* data){
-    assert(data);
-    assert(EqSolverData::COEFF_NUM >= 3);
+    assert(data && EqSolverData::COEFF_NUM >= 3);
 
     double a = data->coeffs[EqSolverData::COEFF_NUM - 3];
     double b = data->coeffs[EqSolverData::COEFF_NUM - 2];
@@ -96,17 +94,15 @@ void solve_quad(EqSolverData* data){
             D_sqrt = sqrt(D);
         assert(isfinite(D_sqrt));
 
-        double double_a = a * 2;
-        data->roots[0] = valid_root((-b - D_sqrt) / double_a);
-        data->roots[1] = valid_root((-b + D_sqrt) / double_a);
+        data->roots[0] = valid_root((-b - D_sqrt) / (2*a));
+        data->roots[1] = valid_root((-b + D_sqrt) / (2*a));
         data->roots_num = TWO_SOLUTIONS;
     }
     bubble_sort(data->roots, data->roots_num);
 }
 
 void solve_lin(EqSolverData* data) {
-    assert(data);
-    assert(EqSolverData::COEFF_NUM >= 2);
+    assert(data && EqSolverData::COEFF_NUM >= 2);
 
     double a = data->coeffs[EqSolverData::COEFF_NUM - 2];
     double b = data->coeffs[EqSolverData::COEFF_NUM - 1];
@@ -145,11 +141,25 @@ void print_roots(const EqSolverData* data){
     }
 }
 
-Status::Statuses Status::raise(const Statuses status) {
-    switch (status) {
-        case NORMAL_WORK:
-            assert(0 && "Status::raise(): NORMAL_WORK mustn't be raised");
-            break;
+void print_help(const bool help_is_enabled) {
+    printf("# This program solves quad equations of the form a*x^2 + b*x + c = 0\n"
+           "# Where \"x\" is a variable and \"a\", \"b\", \"c\" are coefficients\n"
+           "# Console args:\n"
+           "#   -h - prints help information\n");
+    if (help_is_enabled) {
+        printf("#   -t - specify test file name after this (works only if test mode enabled)\n"
+               "# Test file format (there might be several such sections):\n"
+               "# <coeff a> <coeff b> <coeff c>\n"
+               "# <solutions number>\n"
+               "# <solution 1 (if exists)> <solution 2 (if exists)>\n"
+               "# \n"
+               "# <Next test>\n");
+    }
+    printf("# End of help. Good luck using this program!\n");
+}
+
+Error::Errors Error::raise(const Errors err) {
+    switch (err) {
         case ARGS:
             printf("Exiting. Args error\n");
             break;
@@ -168,5 +178,5 @@ Status::Statuses Status::raise(const Statuses status) {
             assert(0 && "Error::raise(): wrong error");
             break;
     };
-    return status;
+    return err;
 }

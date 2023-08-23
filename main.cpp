@@ -27,19 +27,31 @@ int main(int argc, char* argv[]) {
 #else // ifndef TEST
     ArgsTest args_test = {false, nullptr};
 #endif //idfdef TEST
-    Status::Statuses args_parse_res = args_parse(argc, argv, &args_test);
-    if (args_parse_res != Status::NORMAL_WORK)
-        return Status::raise(args_parse_res);
+    switch (args_parse(argc, argv, &args_test)) {
+        case ProgramMode::ERROR:
+            return Error::raise(Error::ARGS);
+
+        case ProgramMode::HELP:
+            print_help(args_test.is_enabled);
+            return Error::raise(Error::OK_EXIT);
+
+        case ProgramMode::NORMAL:
+            break;
+
+        default:
+            assert(0 && "args_parse() returned wrong ProgramMode");
+            break;
+    };
 
     // Proccess
 #ifdef TEST
-    Status::Statuses proccessed = test_or_normal(args_test.filename);
-#else  // ifndef TEST
-    Status::Statuses proccessed = solver_proccess();
+    Error::Errors proccessed = test_or_normal(args_test.filename);
+#else // idndef TEST
+    Error::Errors proccessed = solver_proccess();
 #endif // ifdef TEST
-    if (proccessed != Status::NORMAL_WORK)
-        return Status::raise(proccessed);
+    if (proccessed != Error::NO_ERROR)
+        return Error::raise(proccessed);
 
     printf("# Bye!\n");
-    return Status::raise(Status::OK_EXIT);
+    return Error::raise(Error::OK_EXIT);
 }

@@ -11,9 +11,9 @@
  * @brief Specifies test modes
  */
 enum class TestMode {
-    INPUT_ERROR = -1,   ///< Error
-    NO_TESTS    =  0,   ///< No tests left or normal mode
-    TESTS_LEFT  =  1    ///< Tests left (test mode)
+    INPUT_ERROR = -1,
+    NO_TESTS    =  0,
+    TESTS_LEFT  =  1
 };
 
 /**
@@ -38,17 +38,17 @@ TestMode test_enter_coeffs(EqSolverData* data, FILE* file);
  * @brief Opens test file and decides: solver_proccess() or test_proccess()
  *
  * @param filename
- * @return Status::Statusses
+ * @return Error::Errors
  */
-Status::Statuses test_or_normal(const char* filename);
+Error::Errors test_or_normal(const char* filename);
 
 /**
  * @brief Main test proccess (read, test)
  *
  * @param file
- * @return Status::Statusses
+ * @return Error::Errors
  */
-Status::Statuses test_proccess(FILE* file);
+Error::Errors test_proccess(FILE* file);
 
 /**
  * @brief Reads correct roots from test file
@@ -65,9 +65,9 @@ bool test_read_roots(const EqSolverData* data, EqSolverData* correc_data, FILE* 
  *
  */
 enum class TestResult {
-    ERROR  = -1,    ///< Error
-    FAILED =  0,    ///< Test failed
-    PASSED =  1     ///< Test passed
+    ERROR  = -1,
+    FAILED =  0,
+    PASSED =  1
 };
 
 /**
