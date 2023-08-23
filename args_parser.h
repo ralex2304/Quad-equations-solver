@@ -1,10 +1,10 @@
-#ifndef ARGS_H_
-#define ARGS_H_
+#ifndef ARGS_PARSER_H_
+#define ARGS_PARSER_H_
 
 #include <stdio.h>
 #include <assert.h>
 #include <string.h>
-#include "solver.h"
+#include "quad_solver.h"
 
 /**
  * @brief Specifies int main() returns
@@ -18,19 +18,22 @@ enum class ProgramMode {
 const char ARGS_HELP[] = "-h";
 const char ARGS_TEST_FILE_PATH[] = "-t";
 
+/**
+ * @brief Specifies test mode parameters
+ */
 struct ArgsTest {
-    bool en = false;
-    const char* filename;
+    bool is_enabled = false;
+    const char* filename = nullptr;
 };
 
 /**
  * @brief Parses console arguments
- * 
- * @param argc 
- * @param argv 
+ *
+ * @param argc
+ * @param argv
  * @param filename for test mode
  * @return int success
  */
 ProgramMode args_parse(int argc, char* argv[], ArgsTest* test);
 
-#endif
+#endif // #ifndef ARGS_PARSER_H_

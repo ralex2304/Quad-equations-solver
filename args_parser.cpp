@@ -6,7 +6,7 @@ ProgramMode args_parse(int argc, char* argv[], ArgsTest* args_test) {
     for (int i = 1; i < argc; i++) {
         if (strcmp(argv[i], ARGS_HELP) == 0) {
             return ProgramMode::HELP;
-        } else if (args_test->en && strcmp(argv[i], ARGS_TEST_FILE_PATH) == 0) {
+        } else if (args_test->is_enabled && strcmp(argv[i], ARGS_TEST_FILE_PATH) == 0) {
             if (++i >= argc) {
                 printf("No test file name found\n");
                 return ProgramMode::ERROR;

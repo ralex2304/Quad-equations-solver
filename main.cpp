@@ -6,7 +6,7 @@
  * @date 2023-08-17
  */
 
-#include "solver.h"
+#include "quad_solver.h"
 #include "args_parser.h"
 
 /**
@@ -24,19 +24,20 @@ int main(int argc, char* argv[]) {
     // Parse console args
 #ifdef TEST
     ArgsTest args_test = {true, nullptr};
-#else
+#else // ifndef TEST
     ArgsTest args_test = {false, nullptr};
-#endif
+#endif //idfdef TEST
     switch (args_parse(argc, argv, &args_test)) {
         case ProgramMode::ERROR:
             return Error::raise(Error::ARGS);
 
         case ProgramMode::HELP:
-            print_help(args_test.en);
+            print_help(args_test.is_enabled);
             return Error::raise(Error::OK_EXIT);
 
         case ProgramMode::NORMAL:
             break;
+
         default:
             assert(0 && "args_parse() returned wrong ProgramMode");
             break;
@@ -45,9 +46,9 @@ int main(int argc, char* argv[]) {
     // Proccess
 #ifdef TEST
     Error::Errors proccessed = test_or_normal(args_test.filename);
-#else
+#else // idndef TEST
     Error::Errors proccessed = solver_proccess();
-#endif
+#endif // ifdef TEST
     if (proccessed != Error::NO_ERROR)
         return Error::raise(proccessed);
 

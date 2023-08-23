@@ -1,10 +1,10 @@
-#include "solver.h"
+#include "quad_solver.h"
 
 /**
  * @brief Reads coefficient double from input
- * 
+ *
  * @param[in] c coefficient name
- * @param[in] x 
+ * @param[in] x
  * @return int success
  */
 static InputError enter_coeff(const char c, double* x);
@@ -24,13 +24,14 @@ Error::Errors solver_proccess() {
             assert(0 && "enter_coeffs() returned wrong InputError");
             break;
     }
-    
+
     for (int i = 0; i < EqSolverData::COEFF_NUM; i++)
         assert(isfinite(data.coeffs[i]));
 
     solve_quad(&data);
 
     print_roots(&data);
+
     return Error::NO_ERROR;
 }
 
@@ -40,12 +41,14 @@ static InputError enter_coeff(const char c, double* x) {
     static const int ENTER_COEFF_TRIES = 5;
 
     for (int tries = ENTER_COEFF_TRIES; tries > 0; tries--) {
+        assert(1 <= tries && tries <= ENTER_COEFF_TRIES);
+
         printf("Enter coefficient %c: ", c);
 
         InputError res = read_num(x);
         if (res != InputError::WRONG_DATA)
             return res;
-        
+
         printf("Coefficient entered incorrectly. Try again\n");
     }
 
@@ -67,7 +70,7 @@ InputError enter_coeffs(EqSolverData* data) {
 
 void solve_quad(EqSolverData* data){
     assert(data && EqSolverData::COEFF_NUM >= 3);
-    
+
     double a = data->coeffs[EqSolverData::COEFF_NUM - 3];
     double b = data->coeffs[EqSolverData::COEFF_NUM - 2];
     double c = data->coeffs[EqSolverData::COEFF_NUM - 1];
@@ -84,7 +87,13 @@ void solve_quad(EqSolverData* data){
     } else if (D < 0) {
         data->roots_num = NO_SOLUTIONS;
     } else {
-        double D_sqrt = sqrt(D);
+        double D_sqrt = NAN;
+        if (is_double_equal(c, 0))
+            D_sqrt = b;
+        else
+            D_sqrt = sqrt(D);
+        assert(isfinite(D_sqrt));
+
         data->roots[0] = valid_root((-b - D_sqrt) / (2*a));
         data->roots[1] = valid_root((-b + D_sqrt) / (2*a));
         data->roots_num = TWO_SOLUTIONS;
@@ -132,12 +141,12 @@ void print_roots(const EqSolverData* data){
     }
 }
 
-void print_help(const bool hepl_en) {
+void print_help(const bool help_is_enabled) {
     printf("# This program solves quad equations of the form a*x^2 + b*x + c = 0\n"
            "# Where \"x\" is a variable and \"a\", \"b\", \"c\" are coefficients\n"
            "# Console args:\n"
            "#   -h - prints help information\n");
-    if (hepl_en)
+    if (help_is_enabled) {
         printf("#   -t - specify test file name after this (works only if test mode enabled)\n"
                "# Test file format (there might be several such sections):\n"
                "# <coeff a> <coeff b> <coeff c>\n"
@@ -145,6 +154,7 @@ void print_help(const bool hepl_en) {
                "# <solution 1 (if exists)> <solution 2 (if exists)>\n"
                "# \n"
                "# <Next test>\n");
+    }
     printf("# End of help. Good luck using this program!\n");
 }
 

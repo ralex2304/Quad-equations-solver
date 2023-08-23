@@ -10,7 +10,7 @@
 
 /**
  * @brief Specifies functions errors
- * 
+ *
  */
 struct Error {
     enum Errors {
@@ -24,9 +24,9 @@ struct Error {
 
     /**
      * @brief Prints and returns given error
-     * 
-     * @param err 
-     * @return Errors 
+     *
+     * @param err
+     * @return Errors
      */
     static Errors raise(const Errors err);
 };
@@ -55,62 +55,62 @@ struct EqSolverData {
 
 /**
  * @brief Inits EqSolverData struct
- * 
+ *
  * @param data pointer
  */
 inline void EqSolverData_init(EqSolverData* data) {
+    data->roots_num = NAN_SOLUTIONS;
     for (int i = 0; i < EqSolverData::COEFF_NUM; i++)
         data->coeffs[i] = NAN;
     for (int i = 0; i < EqSolverData::COEFF_NUM - 1; i++)
         data->roots[i] = NAN;
-    data->roots_num = NAN_SOLUTIONS;
 }
 
 /**
  * @brief Main proccess (read, solve and print)
- * 
- * @param data 
- * @return Error::Errors 
+ *
+ * @param data
+ * @return Error::Errors
  */
 Error::Errors solver_proccess();
 
 /**
  * @brief Reads coefficients from input to data->coeffs, starting with name 'a'
- * 
- * @param[in] data 
+ *
+ * @param[in] data
  * @return InputError
  */
 InputError enter_coeffs(EqSolverData* data);
 
 /**
  * @brief Solves linear equations
- * 
- * @param[in] data 
+ *
+ * @param[in] data
  */
 void solve_lin(EqSolverData* data);
 
 /**
  * @brief Solves quad equations
- * 
+ *
  * @param[in] data
  */
 void solve_quad(EqSolverData* data);
 
 /**
  * @brief Prints roots
- * 
- * @param[in] data 
+ *
+ * @param[in] data
  */
 void print_roots(const EqSolverData* data);
 
 /**
  * @brief Tells if two doubles are equal with precision of DOUBLE_COMPARE_PRECISION
- * 
+ *
  * @param[in] a First double
  * @param[in] b Second double
- * @return int (a == b)
+ * @return bool (a == b)
  */
-inline int is_double_equal(const double a, const double b) {
+inline bool is_double_equal(const double a, const double b) {
     assert(!isnan(a) && !isinf(a) && !isnan(b) && !isinf(b));
 
     static const double DOUBLE_COMPARE_PREC = 0.000001;
@@ -119,9 +119,9 @@ inline int is_double_equal(const double a, const double b) {
 
 /**
  * @brief Returns valid root (check for -0.0)
- * 
- * @param root 
- * @return double 
+ *
+ * @param root
+ * @return double
  */
 inline double valid_root(double root) {
     if (is_double_equal(root, 0))
@@ -131,7 +131,7 @@ inline double valid_root(double root) {
 
 /**
  * @brief Swaps values of two pointers
- * 
+ *
  * @param a First pointer
  * @param b Second pointer
  */
@@ -146,7 +146,7 @@ inline void swap(double* a, double* b) {
 
 /**
  * @brief Bubble sorting algorithm
- * 
+ *
  * @param arr array
  * @param size array size
  */
@@ -160,6 +160,6 @@ inline void bubble_sort(double* arr, int size) {
 /**
  * @brief Prints help
  */
-void print_help(const bool help_en);
+void print_help(const bool help_is_enabled);
 
-#endif
+#endif // #ifndef SOLVER_H_

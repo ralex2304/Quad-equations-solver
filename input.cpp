@@ -26,14 +26,14 @@ InputError read_num(int* x, FILE* stream, bool flush) {
     }
 }
 
-int input_flush(FILE* stream) {
+bool input_flush(FILE* stream) {
     int c = ' ';
-    int non_space = 1;
+    bool non_space = true;
 
     do {
         if (!isspace(c))
-            non_space = 0;
+            non_space = false;
     } while ((c = fgetc(stream)) != '\n' && c != EOF && !feof(stream) && !ferror(stream));
-    
+
     return non_space;
 }

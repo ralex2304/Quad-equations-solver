@@ -17,18 +17,18 @@ enum class InputError {
 
 /**
  * @brief Reads double from input to pointer
- * 
+ *
  * @param[in] x
- * @param[in] stream 
+ * @param[in] stream
  * @return int success
  */
 InputError read_num(double* x, FILE* stream = stdin, bool flush = true);
 
 /**
  * @brief Reads int from input to pointer
- * 
- * @param[in] x 
- * @param[in] stream 
+ *
+ * @param[in] x
+ * @param[in] stream
  * @return int success
  */
 InputError read_num(int* x, FILE* stream = stdin, bool flush = true);
@@ -36,9 +36,9 @@ InputError read_num(int* x, FILE* stream = stdin, bool flush = true);
 /**
  * @brief Flushes input
  * @param[in] stream
- * 
- * @return int 0 - if there are non space symbols in stream left
+ *
+ * @return bool false - if there are non space symbols in stream left
  */
-int input_flush(FILE* stream = stdin);
+bool input_flush(FILE* stream = stdin);
 
-#endif
+#endif // #ifndef INPUT_H_
