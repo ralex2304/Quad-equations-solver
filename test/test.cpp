@@ -1,10 +1,10 @@
 #include "test.h"
 
-Error::Errors test_or_normal(const char* filename) {
+Status::Statuses test_or_normal(const char* filename) {
     FILE* file = nullptr;
     switch (test_open_file(&file, filename)) {
         case TestMode::INPUT_ERROR:
-            return Error::TEST_INPUT;
+            return Status::TEST_INPUT;
         case TestMode::TESTS_LEFT: // TEST mode
             return test_proccess(file);
         case TestMode::NO_TESTS: // Normal mode
@@ -13,10 +13,10 @@ Error::Errors test_or_normal(const char* filename) {
             assert(0 && "test_open_file() returned wrong TestMode");
             break;
     }
-    return Error::NO_ERROR;
+    return Status::NO_ERROR;
 }
 
-Error::Errors test_proccess(FILE* file) {
+Status::Statuses test_proccess(FILE* file) {
     TestMode tests = TestMode::INPUT_ERROR;
 
     int test_num = 0;
@@ -27,7 +27,7 @@ Error::Errors test_proccess(FILE* file) {
 
     while ((tests = test_enter_coeffs(&data, file)) != TestMode::NO_TESTS) {
         if (tests == TestMode::INPUT_ERROR)
-            return Error::TEST_INPUT;
+            return Status::TEST_INPUT;
 
         for (int i = 0; i < EqSolverData::COEFF_NUM; i++)
             assert(isfinite(data.coeffs[i]));
@@ -37,7 +37,7 @@ Error::Errors test_proccess(FILE* file) {
         test_num++;
         switch (test_read_and_compare(&data, file, test_num)) {
             case TestResult::ERROR:
-                return Error::TEST_INPUT;
+                return Status::TEST_INPUT;
             case TestResult::FAILED:
                 break;
             case TestResult::PASSED:
@@ -53,7 +53,7 @@ Error::Errors test_proccess(FILE* file) {
 
     test_print_summary(test_num, passed_test_num);
 
-    return Error::NO_ERROR;
+    return Status::NORMAL_WORK;
 }
 
 TestMode test_open_file(FILE** file, const char* filename) {
@@ -77,12 +77,12 @@ TestMode test_enter_coeffs(EqSolverData* data, FILE* file) {
 
     for (int i = 0; i < EqSolverData::COEFF_NUM; i++) {
         switch (read_num(data->coeffs + i, file, false)) {
-            case InputError::END_OF_FILE:
+            case InputStatus::END_OF_FILE:
                 return TestMode::NO_TESTS;
-            case InputError::WRONG_DATA:
+            case InputStatus::WRONG_DATA:
                 printf("Error reading coefficient from test file\n");
                 return TestMode::INPUT_ERROR;
-            case InputError::OK:
+            case InputStatus::OK:
                 break;
             default:
                 assert(0 && "read_num() returned wrong InputError");
@@ -99,14 +99,14 @@ TestMode test_enter_coeffs(EqSolverData* data, FILE* file) {
 bool test_read_roots(const EqSolverData* data, EqSolverData* correct_data, FILE* file) {
     assert(data && correct_data && file);
 
-    if (read_num(((int*)&correct_data->roots_num), file) != InputError::OK) {
+    if (read_num(((int*)&correct_data->roots_num), file) != InputStatus::OK) {
         printf("Error reading number of solutions from test file\n");
         fclose(file);
         return false;
     }
 
     for (int i = 0; i < (int)correct_data->roots_num; i++) {
-        if(read_num(&correct_data->roots[i], file, false) != InputError::OK) {
+        if(read_num(&correct_data->roots[i], file, false) != InputStatus::OK) {
             printf("Error reading solution from test file\n");
             fclose(file);
             return false;

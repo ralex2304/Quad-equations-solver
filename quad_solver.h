@@ -9,48 +9,48 @@
 #include "input.h"
 
 /**
- * @brief Specifies functions errors
- *
+ * @brief Specifies functions status
  */
-struct Error {
-    enum Errors {
-        NO_ERROR     = -1,
-        OK_EXIT      =  0,
-        ARGS         =  1,
-        COEFFS_INPUT =  2,
-        TEST_INPUT   =  3,
-        END_OF_FILE  =  4
+struct Status {
+    enum Statuses {
+        NO_ERROR     = -2,  ///< Poison value
+        NORMAL_WORK  = -1,  ///< Normal mode system value (isn't returned in main())
+        OK_EXIT      =  0,  ///< OK
+        ARGS         =  1,  ///< Console arguments error
+        COEFFS_INPUT =  2,  ///< User input error
+        TEST_INPUT   =  3,  ///< Test file input error
+        END_OF_FILE  =  4   ///< End of file reached unexpectedly
     };
 
     /**
-     * @brief Prints and returns given error
+     * @brief Prints and returns given status
      *
-     * @param err
-     * @return Errors
+     * @param status
+     * @return Statuses
      */
-    static Errors raise(const Errors err);
+    static Statuses raise(const Statuses status);
 };
 
 /**
  * @brief Specifies number of soludions of the equation
  */
 enum Solutions {
-    NAN_SOLUTIONS      = -2,
-    INFINITE_SOLUTIONS = -1,
-    NO_SOLUTIONS       =  0,
-    ONE_SOLUTION       =  1,
-    TWO_SOLUTIONS      =  2
+    NAN_SOLUTIONS      = -2,    ///< Poison value
+    INFINITE_SOLUTIONS = -1,    ///< Infinite number of solutions
+    NO_SOLUTIONS       =  0,    ///< 0 solutions
+    ONE_SOLUTION       =  1,    ///< 1 solutions
+    TWO_SOLUTIONS      =  2     ///< 2 solutions
 };
 
 /**
  * @brief Contains input and output data for solver
  */
 struct EqSolverData {
-    static const int COEFF_NUM = 3;
+    static const int COEFF_NUM = 3;         ///< Number of equation coefficients
 
-    double coeffs[COEFF_NUM] = {};
-    double roots[COEFF_NUM - 1] = {};
-    Solutions roots_num = NAN_SOLUTIONS;
+    double coeffs[COEFF_NUM] = {};          ///< Coeffs array
+    double roots[COEFF_NUM - 1] = {};       ///< Roots array
+    Solutions roots_num = NAN_SOLUTIONS;    ///< Number of solutions
 };
 
 /**
@@ -69,18 +69,17 @@ inline void EqSolverData_init(EqSolverData* data) {
 /**
  * @brief Main proccess (read, solve and print)
  *
- * @param data
- * @return Error::Errors
+ * @return Status::Statuses
  */
-Error::Errors solver_proccess();
+Status::Statuses solver_proccess();
 
 /**
  * @brief Reads coefficients from input to data->coeffs, starting with name 'a'
  *
  * @param[in] data
- * @return InputError
+ * @return InputStatus
  */
-InputError enter_coeffs(EqSolverData* data);
+InputStatus enter_coeffs(EqSolverData* data);
 
 /**
  * @brief Solves linear equations
@@ -156,10 +155,5 @@ inline void bubble_sort(double* arr, int size) {
             if (arr[j] > arr[j+1])
                 swap(arr + j, arr + j + 1);
 }
-
-/**
- * @brief Prints help
- */
-void print_help(const bool help_is_enabled);
 
 #endif // #ifndef SOLVER_H_
