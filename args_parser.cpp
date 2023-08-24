@@ -6,13 +6,33 @@ Status::Statuses args_parse(int argc, char* argv[], ArgsTest* args_test) {
     assert(args_test);
     assert(args_test->filename == nullptr);
 
+    static const int ARGS_DICT_LEN = 2; ///< args_dict array len
+
+    /**
+     * @brief This array contains console options, their functions and descriptions
+     */
+    static Argument args_dict[ARGS_DICT_LEN] = {
+        {"-h", print_help,         "#   -h - prints help information\n", true}, ///< Help option
+
+        {"-t", read_test_filename, "#   -t - specify test file name after this (works only if test mode enabled)\n"
+                                    "# Test file format (there might be several such sections):\n"
+                                    "# <coeff a> <coeff b> <coeff c>\n"
+                                    "# <solutions number>\n"
+                                    "# <solution 1 (if exists)> <solution 2 (if exists)>\n"
+                                    "# \n"
+                                    "# <Next test>\n", false}                   ///< Test option
+    };
+
+    if(args_test->is_enabled)
+        enable_test_args(args_dict, ARGS_DICT_LEN);
+
     bool exit = false;
     for (int i = 1; i < argc; i++) {
         bool is_found = false;
 
-        for (int j = 0; j < ARGS_STRUCT_COUNT; j++) {
-            if (strcmp(argv[i], args[j].arg) == 0) {
-                switch (args[j].func(&i, argc, argv, args_test)) {
+        for (int j = 0; j < ARGS_DICT_LEN; j++) {
+            if (args_dict[j].is_enabled && strcmp(argv[i], args_dict[j].arg) == 0) {
+                switch (args_dict[j].func(args_dict, ARGS_DICT_LEN, &i, argc, argv, args_test)) {
                     case ArgsMode::CONTINUE:
                         break;
                     case ArgsMode::EXIT:
@@ -32,7 +52,7 @@ Status::Statuses args_parse(int argc, char* argv[], ArgsTest* args_test) {
             continue;
 
         printf("Wrong console argument: %s\n"
-               "Use -h for help", argv[i]);
+               "Use -h for help\n", argv[i]);
         return Status::ARGS;
     }
     if (exit)
@@ -41,7 +61,10 @@ Status::Statuses args_parse(int argc, char* argv[], ArgsTest* args_test) {
     return Status::NORMAL_WORK;
 }
 
-ArgsMode print_help(int* arg_i, const int argc, char* argv[], ArgsTest* args_test) {
+ArgsMode print_help(const Argument args_list[], const int args_list_len,
+                    int* arg_i, const int argc, char* argv[], ArgsTest* args_test) {
+    assert(args_list);
+    assert(args_list_len >= 0);
     assert(arg_i);
     assert(argc);
     assert(argv);
@@ -51,29 +74,30 @@ ArgsMode print_help(int* arg_i, const int argc, char* argv[], ArgsTest* args_tes
            "# Where \"x\" is a variable and \"a\", \"b\", \"c\" are coefficients\n"
            "# Console args:\n");
 
-    for (int i = 0; i < ARGS_STRUCT_COUNT; i++) {
-        if (!args_test->is_enabled && strcmp(args[i].arg, "-t") == 0)
+    for (int i = 0; i < args_list_len; i++) {
+        if (!args_list[i].is_enabled)
             continue;
-        printf("%s", args[i].description);
+
+        printf("%s", args_list[i].description);
     }
 
     printf("# End of help. Good luck using this program!\n");
     return ArgsMode::EXIT;
 }
 
-ArgsMode read_test_filename(int* arg_i, int argc, char* argv[], ArgsTest* args_test) {
+ArgsMode read_test_filename(const Argument args_list[], const int args_list_len,
+                            int* arg_i, int argc, char* argv[], ArgsTest* args_test) {
+    assert(args_list);
+    assert(args_list_len >= 0);
     assert(arg_i);
     assert(argv);
     assert(args_test);
 
-    if (!args_test->is_enabled) {
-        printf("Test mode is disabled! Wrong argument.\n");
-        return ArgsMode::ERROR;
-    }
     if (++(*arg_i) >= argc) {
         printf("No test file name found\n");
         return ArgsMode::ERROR;
     }
+
     args_test->filename = argv[*arg_i];
     return ArgsMode::CONTINUE;
 }

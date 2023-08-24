@@ -1,7 +1,8 @@
 #include "input.h"
 
 InputStatus read_num(double* x, FILE* stream, bool flush) {
-    assert(x && stream);
+    assert(x);
+    assert(stream);
 
     int res = fscanf(stream, "%lf", x);
     if (res == EOF)
@@ -14,7 +15,8 @@ InputStatus read_num(double* x, FILE* stream, bool flush) {
 }
 
 InputStatus read_num(int* x, FILE* stream, bool flush) {
-    assert(x && stream);
+    assert(x);
+    assert(stream);
 
     int res = fscanf(stream, "%d", x);
     if (res == EOF)
@@ -27,6 +29,8 @@ InputStatus read_num(int* x, FILE* stream, bool flush) {
 }
 
 bool input_flush(FILE* stream) {
+    assert(stream);
+
     int c = ' ';
     bool non_space = true;
 

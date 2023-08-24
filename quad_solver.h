@@ -25,7 +25,7 @@ struct Status {
     /**
      * @brief Prints and returns given status
      *
-     * @param status
+     * @param[in] status
      * @return Statuses
      */
     static Statuses raise(const Statuses status);
@@ -56,7 +56,7 @@ struct EqSolverData {
 /**
  * @brief Inits EqSolverData struct
  *
- * @param data pointer
+ * @param[in] data pointer
  */
 inline void EqSolverData_init(EqSolverData* data) {
     data->roots_num = NAN_SOLUTIONS;

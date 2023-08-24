@@ -31,6 +31,6 @@
 
 // Macros:
 #define CONSOLE_RED(str)   COLOR_RED str STYLE_RESET
-#define CONSOLE_GREEN(str) COLOR_RED str STYLE_RESET
+#define CONSOLE_GREEN(str) COLOR_GREEN str STYLE_RESET
 
 #endif // #ifndef COSOLE_H_

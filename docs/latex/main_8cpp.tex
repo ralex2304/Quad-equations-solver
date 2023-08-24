@@ -1,0 +1,101 @@
+\doxysection{main.\+cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{main.cpp@{main.cpp}}
+
+
+Quad equations solver.  
+
+
+{\ttfamily \#include \"{}quad\+\_\+solver.\+h\"{}}\newline
+{\ttfamily \#include \"{}args\+\_\+parser.\+h\"{}}\newline
+{\ttfamily \#include \"{}test/test.\+h\"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{main_8cpp_ab946e2e7f7679350627acfded8e2658b}{TEST}}
+\begin{DoxyCompactList}\small\item\em Enables test mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Quad equations solver. 
+
+\begin{DoxyAuthor}{Author}
+ralex2304 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+9 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2023-\/08-\/17 
+\end{DoxyDate}
+
+
+Definition in file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{main_8cpp_ab946e2e7f7679350627acfded8e2658b}\label{main_8cpp_ab946e2e7f7679350627acfded8e2658b} 
+\index{main.cpp@{main.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST}{TEST}}
+{\footnotesize\ttfamily \#define TEST}
+
+
+
+Enables test mode. 
+
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00015}{15}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00022\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\#\ Hello!\(\backslash\)n"{}});}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{comment}{//\ Parse\ console\ args}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#ifdef\ TEST }}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{struct_args_test}{ArgsTest}}\ args\_test\ =\ \{\textcolor{keyword}{true},\ \textcolor{keyword}{nullptr}\};}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#else\ }\textcolor{comment}{//\ ifndef\ TEST}}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{struct_args_test}{ArgsTest}}\ args\_test\ =\ \{\textcolor{keyword}{false},\ \textcolor{keyword}{nullptr}\};}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//idfdef\ TEST}}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{struct_status_ab31bb94cc29a302cab703638615b604c}{Status::Statuses}}\ args\_parse\_res\ =\ \mbox{\hyperlink{args__parser_8cpp_a7f6690e6eea3fd85e554812059bbeaac}{args\_parse}}(argc,\ argv,\ \&args\_test);}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordflow}{if}\ (args\_parse\_res\ !=\ \mbox{\hyperlink{struct_status_ab31bb94cc29a302cab703638615b604ca7f9c6609a744cdaac1a9e27306d8f8b0}{Status::NORMAL\_WORK}})}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_status_a30c8084592b2ff90cfc22c1860e58dab}{Status::raise}}(args\_parse\_res);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{comment}{//\ Proccess}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#ifdef\ TEST }}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{struct_status_ab31bb94cc29a302cab703638615b604c}{Status::Statuses}}\ proccessed\ =\ \mbox{\hyperlink{test_8cpp_a30aa4299045c457921a27ab1df50cdbe}{test\_or\_normal}}(args\_test.\mbox{\hyperlink{struct_args_test_ab0eda4c64f5a5b655b2967e34881f8f4}{filename}});}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#else\ \ }\textcolor{comment}{//\ ifndef\ TEST}}
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{struct_status_ab31bb94cc29a302cab703638615b604c}{Status::Statuses}}\ proccessed\ =\ \mbox{\hyperlink{quad__solver_8cpp_a424d1b3daea4a14b1c473306dca90dad}{solver\_proccess}}();}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ ifdef\ TEST}}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{if}\ (proccessed\ !=\ \mbox{\hyperlink{struct_status_ab31bb94cc29a302cab703638615b604ca7f9c6609a744cdaac1a9e27306d8f8b0}{Status::NORMAL\_WORK}})}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_status_a30c8084592b2ff90cfc22c1860e58dab}{Status::raise}}(proccessed);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\#\ Bye!\(\backslash\)n"{}});}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_status_a30c8084592b2ff90cfc22c1860e58dab}{Status::raise}}(\mbox{\hyperlink{struct_status_ab31bb94cc29a302cab703638615b604cabd71500b14c23ba35ba380809d51f33a}{Status::OK\_EXIT}});}
+\DoxyCodeLine{00045\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{args__parser_8cpp_source_l00003}{args\+\_\+parse()}}, \mbox{\hyperlink{args__parser_8h_source_l00024}{Args\+Test\+::filename}}, \mbox{\hyperlink{quad__solver_8h_source_l00017}{Status\+::\+NORMAL\+\_\+\+WORK}}, \mbox{\hyperlink{quad__solver_8h_source_l00018}{Status\+::\+OK\+\_\+\+EXIT}}, \mbox{\hyperlink{quad__solver_8cpp_source_l00148}{Status\+::raise()}}, \mbox{\hyperlink{quad__solver_8cpp_source_l00012}{solver\+\_\+proccess()}}, and \mbox{\hyperlink{test_8cpp_source_l00003}{test\+\_\+or\+\_\+normal()}}.
+

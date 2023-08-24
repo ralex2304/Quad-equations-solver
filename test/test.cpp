@@ -17,6 +17,8 @@ Status::Statuses test_or_normal(const char* filename) {
 }
 
 Status::Statuses test_proccess(FILE* file) {
+    assert(file);
+
     TestMode tests = TestMode::INPUT_ERROR;
 
     int test_num = 0;
@@ -73,7 +75,8 @@ TestMode test_open_file(FILE** file, const char* filename) {
 }
 
 TestMode test_enter_coeffs(EqSolverData* data, FILE* file) {
-    assert(data && file);
+    assert(data);
+    assert(file);
 
     for (int i = 0; i < EqSolverData::COEFF_NUM; i++) {
         switch (read_num(data->coeffs + i, file, false)) {
@@ -97,7 +100,9 @@ TestMode test_enter_coeffs(EqSolverData* data, FILE* file) {
 }
 
 bool test_read_roots(const EqSolverData* data, EqSolverData* correct_data, FILE* file) {
-    assert(data && correct_data && file);
+    assert(data);
+    assert(correct_data);
+    assert(file);
 
     if (read_num(((int*)&correct_data->roots_num), file) != InputStatus::OK) {
         printf("Error reading number of solutions from test file\n");
@@ -122,7 +127,8 @@ bool test_read_roots(const EqSolverData* data, EqSolverData* correct_data, FILE*
 }
 
 TestResult test_compare_data(const EqSolverData* data, const EqSolverData* correct_data, const int test_n) {
-    assert(data && correct_data);
+    assert(data);
+    assert(correct_data);
 
     printf("Test %d. ", test_n);
 
@@ -152,7 +158,8 @@ TestResult test_compare_data(const EqSolverData* data, const EqSolverData* corre
 }
 
 TestResult test_read_and_compare(const EqSolverData* data, FILE* file, const int test_n) {
-    assert(data && file);
+    assert(data);
+    assert(file);
 
     EqSolverData correct_data = {};
     for (int i = 0; i < EqSolverData::COEFF_NUM - 1; i++)

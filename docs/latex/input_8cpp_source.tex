@@ -1,0 +1,48 @@
+\doxysection{input.\+cpp}
+\hypertarget{input_8cpp_source}{}\label{input_8cpp_source}\mbox{\hyperlink{input_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{input_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{input_8h}{input.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{input_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{input_8cpp_source_l00003}\mbox{\hyperlink{input_8cpp_a5c1257bfc941d8fc8789cc74c869bd0e}{00003}}\ \mbox{\hyperlink{input_8h_aef35fc440c8029ffabbdc082f7c0a891}{InputStatus}}\ \mbox{\hyperlink{input_8cpp_a5c1257bfc941d8fc8789cc74c869bd0e}{read\_num}}(\textcolor{keywordtype}{double}*\ x,\ FILE*\ stream,\ \textcolor{keywordtype}{bool}\ flush)\ \{}
+\DoxyCodeLine{\Hypertarget{input_8cpp_source_l00004}00004\ \ \ \ \ assert(x);}
+\DoxyCodeLine{\Hypertarget{input_8cpp_source_l00005}00005\ \ \ \ \ assert(stream);}
+\DoxyCodeLine{\Hypertarget{input_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{input_8cpp_source_l00007}00007\ \ \ \ \ \textcolor{keywordtype}{int}\ res\ =\ fscanf(stream,\ \textcolor{stringliteral}{"{}\%lf"{}},\ x);}
+\DoxyCodeLine{\Hypertarget{input_8cpp_source_l00008}00008\ \ \ \ \ \textcolor{keywordflow}{if}\ (res\ ==\ EOF)}
+\DoxyCodeLine{\Hypertarget{input_8cpp_source_l00009}00009\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{input_8h_aef35fc440c8029ffabbdc082f7c0a891a581953f6b20ad7f993b64b1dc632032e}{InputStatus::END\_OF\_FILE}};}
+\DoxyCodeLine{\Hypertarget{input_8cpp_source_l00010}00010\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (res\ ==\ 1\ \&\&\ isfinite(*x)\ \&\&\ (!flush\ ||\ \mbox{\hyperlink{input_8cpp_a14c079b8b3cf9b7d954c006cdedf2735}{input\_flush}}(stream)))\ \{}
+\DoxyCodeLine{\Hypertarget{input_8cpp_source_l00011}00011\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{input_8h_aef35fc440c8029ffabbdc082f7c0a891ae0aa021e21dddbd6d8cecec71e9cf564}{InputStatus::OK}};}
+\DoxyCodeLine{\Hypertarget{input_8cpp_source_l00012}00012\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{input_8cpp_source_l00013}00013\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{input_8h_aef35fc440c8029ffabbdc082f7c0a891a3ce48bd9ee0e102c023533c6d283aaff}{InputStatus::WRONG\_DATA}};}
+\DoxyCodeLine{\Hypertarget{input_8cpp_source_l00014}00014\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{input_8cpp_source_l00015}00015\ \}}
+\DoxyCodeLine{\Hypertarget{input_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{input_8cpp_source_l00017}\mbox{\hyperlink{input_8cpp_a0d515a69e7ab4dea9d165c57e66ea723}{00017}}\ \mbox{\hyperlink{input_8h_aef35fc440c8029ffabbdc082f7c0a891}{InputStatus}}\ \mbox{\hyperlink{input_8cpp_a5c1257bfc941d8fc8789cc74c869bd0e}{read\_num}}(\textcolor{keywordtype}{int}*\ x,\ FILE*\ stream,\ \textcolor{keywordtype}{bool}\ flush)\ \{}
+\DoxyCodeLine{\Hypertarget{input_8cpp_source_l00018}00018\ \ \ \ \ assert(x);}
+\DoxyCodeLine{\Hypertarget{input_8cpp_source_l00019}00019\ \ \ \ \ assert(stream);}
+\DoxyCodeLine{\Hypertarget{input_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{input_8cpp_source_l00021}00021\ \ \ \ \ \textcolor{keywordtype}{int}\ res\ =\ fscanf(stream,\ \textcolor{stringliteral}{"{}\%d"{}},\ x);}
+\DoxyCodeLine{\Hypertarget{input_8cpp_source_l00022}00022\ \ \ \ \ \textcolor{keywordflow}{if}\ (res\ ==\ EOF)}
+\DoxyCodeLine{\Hypertarget{input_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{input_8h_aef35fc440c8029ffabbdc082f7c0a891a581953f6b20ad7f993b64b1dc632032e}{InputStatus::END\_OF\_FILE}};}
+\DoxyCodeLine{\Hypertarget{input_8cpp_source_l00024}00024\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (res\ ==\ 1\ \&\&\ (!flush\ ||\ \mbox{\hyperlink{input_8cpp_a14c079b8b3cf9b7d954c006cdedf2735}{input\_flush}}(stream)))\ \{}
+\DoxyCodeLine{\Hypertarget{input_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{input_8h_aef35fc440c8029ffabbdc082f7c0a891ae0aa021e21dddbd6d8cecec71e9cf564}{InputStatus::OK}};}
+\DoxyCodeLine{\Hypertarget{input_8cpp_source_l00026}00026\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{input_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{input_8h_aef35fc440c8029ffabbdc082f7c0a891a3ce48bd9ee0e102c023533c6d283aaff}{InputStatus::WRONG\_DATA}};}
+\DoxyCodeLine{\Hypertarget{input_8cpp_source_l00028}00028\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{input_8cpp_source_l00029}00029\ \}}
+\DoxyCodeLine{\Hypertarget{input_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{input_8cpp_source_l00031}\mbox{\hyperlink{input_8cpp_a14c079b8b3cf9b7d954c006cdedf2735}{00031}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{input_8cpp_a14c079b8b3cf9b7d954c006cdedf2735}{input\_flush}}(FILE*\ stream)\ \{}
+\DoxyCodeLine{\Hypertarget{input_8cpp_source_l00032}00032\ \ \ \ \ assert(stream);}
+\DoxyCodeLine{\Hypertarget{input_8cpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{input_8cpp_source_l00034}00034\ \ \ \ \ \textcolor{keywordtype}{int}\ c\ =\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{\Hypertarget{input_8cpp_source_l00035}00035\ \ \ \ \ \textcolor{keywordtype}{bool}\ non\_space\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{input_8cpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{input_8cpp_source_l00037}00037\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{input_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!isspace(c))}
+\DoxyCodeLine{\Hypertarget{input_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ non\_space\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{input_8cpp_source_l00040}00040\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ ((c\ =\ fgetc(stream))\ !=\ \textcolor{charliteral}{'\(\backslash\)n'}\ \&\&\ c\ !=\ EOF\ \&\&\ !feof(stream)\ \&\&\ !ferror(stream));}
+\DoxyCodeLine{\Hypertarget{input_8cpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{input_8cpp_source_l00042}00042\ \ \ \ \ \textcolor{keywordflow}{return}\ non\_space;}
+\DoxyCodeLine{\Hypertarget{input_8cpp_source_l00043}00043\ \}}
+
+\end{DoxyCode}

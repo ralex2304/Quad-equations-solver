@@ -20,6 +20,7 @@ enum class InputStatus {
  *
  * @param[in] x
  * @param[in] stream
+ * @param[in] flush enables input_flush() at the end
  * @return int success
  */
 InputStatus read_num(double* x, FILE* stream = stdin, bool flush = true);
@@ -29,6 +30,7 @@ InputStatus read_num(double* x, FILE* stream = stdin, bool flush = true);
  *
  * @param[in] x
  * @param[in] stream
+ * @param[in] flush enables input_flush() at the end
  * @return int success
  */
 InputStatus read_num(int* x, FILE* stream = stdin, bool flush = true);

@@ -2,20 +2,20 @@
 
 "The best quad equations solver ever" © Steve Jobs
 
-### Build
+## Build
 Repo includes Makefile. Build with `make`.
 
 **Note:** In `main.cpp` you can find `TEST` define. Undefine it for disabling test mode.
 
-### Usage
+## Usage
 Type in terminal: `.\main.exe`
 
-#### Available flags:
+### Available flags:
 
 1. `-h` - help
 2. `-t` - works only when `TEST` was defined. After it, you must specify file with tests
 
-#### Available return values:
+### Available return values:
 
 `0` - `OK`
 
@@ -27,7 +27,7 @@ Type in terminal: `.\main.exe`
 
 `4` - `End of input stream reached`
 
-### Test mode
+## Test mode
 In this test program with test itself. You must specify test file in format (there might be multiple tests):
 ```
 <coeff a> <coeff b> <coeff c>

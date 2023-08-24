@@ -1,0 +1,489 @@
+\doxysection{test/test.cpp File Reference}
+\hypertarget{test_8cpp}{}\label{test_8cpp}\index{test/test.cpp@{test/test.cpp}}
+{\ttfamily \#include \"{}test.\+h\"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_status_ab31bb94cc29a302cab703638615b604c}{Status\+::\+Statuses}} \mbox{\hyperlink{test_8cpp_a30aa4299045c457921a27ab1df50cdbe}{test\+\_\+or\+\_\+normal}} (const char \texorpdfstring{$\ast$}{*}filename)
+\begin{DoxyCompactList}\small\item\em Opens test file and decides\+: \doxylink{quad__solver_8cpp_a424d1b3daea4a14b1c473306dca90dad}{solver\+\_\+proccess()} or \doxylink{test_8h_a77907adcdfbf0797ed43ec180f9ca36d}{test\+\_\+proccess()} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_status_ab31bb94cc29a302cab703638615b604c}{Status\+::\+Statuses}} \mbox{\hyperlink{test_8cpp_a77907adcdfbf0797ed43ec180f9ca36d}{test\+\_\+proccess}} (FILE \texorpdfstring{$\ast$}{*}file)
+\begin{DoxyCompactList}\small\item\em Main test proccess (read, test) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{test_8h_a09366493e3cac06e426bc89dd1c8561a}{Test\+Mode}} \mbox{\hyperlink{test_8cpp_ac4a984567eda8c0303b41a854f59f143}{test\+\_\+open\+\_\+file}} (FILE \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}file, const char \texorpdfstring{$\ast$}{*}filename)
+\begin{DoxyCompactList}\small\item\em Opens test file by filename. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{test_8h_a09366493e3cac06e426bc89dd1c8561a}{Test\+Mode}} \mbox{\hyperlink{test_8cpp_a443e969e29b64d3f5ab41023ce50bca0}{test\+\_\+enter\+\_\+coeffs}} (\mbox{\hyperlink{struct_eq_solver_data}{Eq\+Solver\+Data}} \texorpdfstring{$\ast$}{*}data, FILE \texorpdfstring{$\ast$}{*}file)
+\begin{DoxyCompactList}\small\item\em Reads coeffs from test file. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{test_8cpp_a7624bda7e747ca3f32708e7d10549527}{test\+\_\+read\+\_\+roots}} (const \mbox{\hyperlink{struct_eq_solver_data}{Eq\+Solver\+Data}} \texorpdfstring{$\ast$}{*}data, \mbox{\hyperlink{struct_eq_solver_data}{Eq\+Solver\+Data}} \texorpdfstring{$\ast$}{*}correct\+\_\+data, FILE \texorpdfstring{$\ast$}{*}file)
+\begin{DoxyCompactList}\small\item\em Reads correct roots from test file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{test_8h_aae529400284a6182b4bdb3a5596bd093}{Test\+Result}} \mbox{\hyperlink{test_8cpp_a40e541008a5f4eb3388d7678139b5f10}{test\+\_\+compare\+\_\+data}} (const \mbox{\hyperlink{struct_eq_solver_data}{Eq\+Solver\+Data}} \texorpdfstring{$\ast$}{*}data, const \mbox{\hyperlink{struct_eq_solver_data}{Eq\+Solver\+Data}} \texorpdfstring{$\ast$}{*}correct\+\_\+data, const int test\+\_\+n)
+\begin{DoxyCompactList}\small\item\em Compares solutinons number and roots. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{test_8h_aae529400284a6182b4bdb3a5596bd093}{Test\+Result}} \mbox{\hyperlink{test_8cpp_ad202e8623146748badb2959904d4cb76}{test\+\_\+read\+\_\+and\+\_\+compare}} (const \mbox{\hyperlink{struct_eq_solver_data}{Eq\+Solver\+Data}} \texorpdfstring{$\ast$}{*}data, FILE \texorpdfstring{$\ast$}{*}file, const int test\+\_\+n)
+\begin{DoxyCompactList}\small\item\em calls test\+\_\+read\+\_\+roots and test\+\_\+compare\+\_\+data \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{test_8cpp_a84e0b866a278075815ed65a57eee0f3a}{test\+\_\+print\+\_\+summary}} (const int test\+\_\+num, const int passed\+\_\+test\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Prints summary about all tests. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{test_8cpp_a40e541008a5f4eb3388d7678139b5f10}\label{test_8cpp_a40e541008a5f4eb3388d7678139b5f10} 
+\index{test.cpp@{test.cpp}!test\_compare\_data@{test\_compare\_data}}
+\index{test\_compare\_data@{test\_compare\_data}!test.cpp@{test.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_compare\_data()}{test\_compare\_data()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{test_8h_aae529400284a6182b4bdb3a5596bd093}{Test\+Result}} test\+\_\+compare\+\_\+data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_eq_solver_data}{Eq\+Solver\+Data}} \texorpdfstring{$\ast$}{*}}]{data,  }\item[{const \mbox{\hyperlink{struct_eq_solver_data}{Eq\+Solver\+Data}} \texorpdfstring{$\ast$}{*}}]{correct\+\_\+data,  }\item[{const int}]{test\+\_\+n }\end{DoxyParamCaption})}
+
+
+
+Compares solutinons number and roots. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em data} & \\
+\hline
+\mbox{\texttt{ in}}  & {\em correct\+\_\+data} & \\
+\hline
+\mbox{\texttt{ in}}  & {\em test\+\_\+n} & number of test \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{test_8cpp_source_l00129}{129}} of file \mbox{\hyperlink{test_8cpp_source}{test.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00130\ \ \ \ \ assert(data);}
+\DoxyCodeLine{00131\ \ \ \ \ assert(correct\_data);}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Test\ \%d.\ "{}},\ test\_n);}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordflow}{if}\ (data-\/>\mbox{\hyperlink{struct_eq_solver_data_ad5266aea4617131bfbbf70ecba10e30c}{roots\_num}}\ !=\ correct\_data-\/>\mbox{\hyperlink{struct_eq_solver_data_ad5266aea4617131bfbbf70ecba10e30c}{roots\_num}})\ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Incorrect\ number\ of\ solutions.\(\backslash\)n"{}}}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{console_8h_ad220b7c98ce4bd06bf25860ca62d7aba}{CONSOLE\_RED}}(\textcolor{stringliteral}{"{}Test\ \%d\ FAILED!\(\backslash\)n"{}}),\ test\_n);}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{test_8h_aae529400284a6182b4bdb3a5596bd093ab9e14d9b2886bcff408b85aefa780419}{TestResult::FAILED}};}
+\DoxyCodeLine{00139\ \ \ \ \ \}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordtype}{bool}\ passed\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ (int)\ correct\_data-\/>\mbox{\hyperlink{struct_eq_solver_data_ad5266aea4617131bfbbf70ecba10e30c}{roots\_num}};\ i++)\ \{}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ assert(isfinite(data-\/>\mbox{\hyperlink{struct_eq_solver_data_ac163e2c541b81208f906dae978b1bb66}{roots}}[i])\ \&\&\ isfinite(correct\_data-\/>\mbox{\hyperlink{struct_eq_solver_data_ac163e2c541b81208f906dae978b1bb66}{roots}}[i]));}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{quad__solver_8h_ad87362093e8560478a496a6ed4a06ef0}{is\_double\_equal}}(data-\/>\mbox{\hyperlink{struct_eq_solver_data_ac163e2c541b81208f906dae978b1bb66}{roots}}[i],\ correct\_data-\/>\mbox{\hyperlink{struct_eq_solver_data_ac163e2c541b81208f906dae978b1bb66}{roots}}[i]))\ \{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Incorrect\ root\ \%d\(\backslash\)n"{}},\ (i+1));}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ \ Correct\ root:\ \ \%lf\(\backslash\)n"{}},\ correct\_data-\/>\mbox{\hyperlink{struct_eq_solver_data_ac163e2c541b81208f906dae978b1bb66}{roots}}[i]);}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ \ \ Received\ root:\ \%lf\(\backslash\)n"{}},\ data-\/>\mbox{\hyperlink{struct_eq_solver_data_ac163e2c541b81208f906dae978b1bb66}{roots}}[i]);}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ passed\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00150\ \ \ \ \ \}}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordflow}{if}\ (!passed)\ \{}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ printf(\mbox{\hyperlink{console_8h_ad220b7c98ce4bd06bf25860ca62d7aba}{CONSOLE\_RED}}(\textcolor{stringliteral}{"{}Test\ \%d\ FAILED!\(\backslash\)n"{}}),\ test\_n);}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{test_8h_aae529400284a6182b4bdb3a5596bd093ab9e14d9b2886bcff408b85aefa780419}{TestResult::FAILED}};}
+\DoxyCodeLine{00154\ \ \ \ \ \}}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Passed\(\backslash\)n"{}});}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{test_8h_aae529400284a6182b4bdb3a5596bd093a269f3d1562cbd15624e7d2c4b10122e3}{TestResult::PASSED}};}
+\DoxyCodeLine{00158\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{console_8h_source_l00033}{CONSOLE\+\_\+\+RED}}, \mbox{\hyperlink{test_8h_aae529400284a6182b4bdb3a5596bd093ab9e14d9b2886bcff408b85aefa780419}{FAILED}}, \mbox{\hyperlink{quad__solver_8h_source_l00112}{is\+\_\+double\+\_\+equal()}}, \mbox{\hyperlink{test_8h_aae529400284a6182b4bdb3a5596bd093a269f3d1562cbd15624e7d2c4b10122e3}{PASSED}}, \mbox{\hyperlink{quad__solver_8h_source_l00052}{Eq\+Solver\+Data\+::roots}}, and \mbox{\hyperlink{quad__solver_8h_source_l00053}{Eq\+Solver\+Data\+::roots\+\_\+num}}.
+
+
+
+Referenced by \mbox{\hyperlink{test_8cpp_source_l00160}{test\+\_\+read\+\_\+and\+\_\+compare()}}.
+
+\Hypertarget{test_8cpp_a443e969e29b64d3f5ab41023ce50bca0}\label{test_8cpp_a443e969e29b64d3f5ab41023ce50bca0} 
+\index{test.cpp@{test.cpp}!test\_enter\_coeffs@{test\_enter\_coeffs}}
+\index{test\_enter\_coeffs@{test\_enter\_coeffs}!test.cpp@{test.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_enter\_coeffs()}{test\_enter\_coeffs()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{test_8h_a09366493e3cac06e426bc89dd1c8561a}{Test\+Mode}} test\+\_\+enter\+\_\+coeffs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_eq_solver_data}{Eq\+Solver\+Data}} \texorpdfstring{$\ast$}{*}}]{data,  }\item[{FILE \texorpdfstring{$\ast$}{*}}]{file }\end{DoxyParamCaption})}
+
+
+
+Reads coeffs from test file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em data} & \\
+\hline
+\mbox{\texttt{ in}}  & {\em file} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Test\+Mode 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{test_8cpp_source_l00077}{77}} of file \mbox{\hyperlink{test_8cpp_source}{test.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00078\ \ \ \ \ assert(data);}
+\DoxyCodeLine{00079\ \ \ \ \ assert(file);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{struct_eq_solver_data_a088c567e4699d9a5bc1e63610728ed9e}{EqSolverData::COEFF\_NUM}};\ i++)\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (\mbox{\hyperlink{input_8cpp_a5c1257bfc941d8fc8789cc74c869bd0e}{read\_num}}(data-\/>\mbox{\hyperlink{struct_eq_solver_data_a38021481c2a3c7e8d2469bd6140fc7e3}{coeffs}}\ +\ i,\ file,\ \textcolor{keyword}{false}))\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{input_8h_aef35fc440c8029ffabbdc082f7c0a891a581953f6b20ad7f993b64b1dc632032e}{InputStatus::END\_OF\_FILE}}:}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{test_8h_a09366493e3cac06e426bc89dd1c8561aa9e1c2670274eb1b1baa5209197adef09}{TestMode::NO\_TESTS}};}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{input_8h_aef35fc440c8029ffabbdc082f7c0a891a3ce48bd9ee0e102c023533c6d283aaff}{InputStatus::WRONG\_DATA}}:}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error\ reading\ coefficient\ from\ test\ file\(\backslash\)n"{}});}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{test_8h_a09366493e3cac06e426bc89dd1c8561aad307c747dc4b0d01887e1708287a1248}{TestMode::INPUT\_ERROR}};}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{input_8h_aef35fc440c8029ffabbdc082f7c0a891ae0aa021e21dddbd6d8cecec71e9cf564}{InputStatus::OK}}:}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ assert(0\ \&\&\ \textcolor{stringliteral}{"{}read\_num()\ returned\ wrong\ InputStatus"{}});}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00094\ \ \ \ \ \}}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{input_8cpp_a14c079b8b3cf9b7d954c006cdedf2735}{input\_flush}}(file))\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error\ reading\ coefficient\ from\ test\ file\(\backslash\)n"{}});}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{test_8h_a09366493e3cac06e426bc89dd1c8561aad307c747dc4b0d01887e1708287a1248}{TestMode::INPUT\_ERROR}};}
+\DoxyCodeLine{00098\ \ \ \ \ \}}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{test_8h_a09366493e3cac06e426bc89dd1c8561aacf2a2c7b58f5fdc3e9a6be99f01535e5}{TestMode::TESTS\_LEFT}};}
+\DoxyCodeLine{00100\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{quad__solver_8h_source_l00049}{Eq\+Solver\+Data\+::\+COEFF\+\_\+\+NUM}}, \mbox{\hyperlink{quad__solver_8h_source_l00051}{Eq\+Solver\+Data\+::coeffs}}, \mbox{\hyperlink{input_8h_aef35fc440c8029ffabbdc082f7c0a891a581953f6b20ad7f993b64b1dc632032e}{END\+\_\+\+OF\+\_\+\+FILE}}, \mbox{\hyperlink{test_8h_a09366493e3cac06e426bc89dd1c8561aad307c747dc4b0d01887e1708287a1248}{INPUT\+\_\+\+ERROR}}, \mbox{\hyperlink{input_8cpp_source_l00031}{input\+\_\+flush()}}, \mbox{\hyperlink{test_8h_a09366493e3cac06e426bc89dd1c8561aa9e1c2670274eb1b1baa5209197adef09}{NO\+\_\+\+TESTS}}, \mbox{\hyperlink{input_8h_aef35fc440c8029ffabbdc082f7c0a891ae0aa021e21dddbd6d8cecec71e9cf564}{OK}}, \mbox{\hyperlink{input_8cpp_source_l00003}{read\+\_\+num()}}, \mbox{\hyperlink{test_8h_a09366493e3cac06e426bc89dd1c8561aacf2a2c7b58f5fdc3e9a6be99f01535e5}{TESTS\+\_\+\+LEFT}}, and \mbox{\hyperlink{input_8h_aef35fc440c8029ffabbdc082f7c0a891a3ce48bd9ee0e102c023533c6d283aaff}{WRONG\+\_\+\+DATA}}.
+
+
+
+Referenced by \mbox{\hyperlink{test_8cpp_source_l00019}{test\+\_\+proccess()}}.
+
+\Hypertarget{test_8cpp_ac4a984567eda8c0303b41a854f59f143}\label{test_8cpp_ac4a984567eda8c0303b41a854f59f143} 
+\index{test.cpp@{test.cpp}!test\_open\_file@{test\_open\_file}}
+\index{test\_open\_file@{test\_open\_file}!test.cpp@{test.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_open\_file()}{test\_open\_file()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{test_8h_a09366493e3cac06e426bc89dd1c8561a}{Test\+Mode}} test\+\_\+open\+\_\+file (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{file,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{filename }\end{DoxyParamCaption})}
+
+
+
+Opens test file by filename. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em file} & -\/ pointer \\
+\hline
+\mbox{\texttt{ in}}  & {\em filename} & -\/ name of file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Test\+Mode 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{test_8cpp_source_l00061}{61}} of file \mbox{\hyperlink{test_8cpp_source}{test.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00062\ \ \ \ \ assert(file);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordflow}{if}\ (filename\ ==\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{test_8h_a09366493e3cac06e426bc89dd1c8561aa9e1c2670274eb1b1baa5209197adef09}{TestMode::NO\_TESTS}};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ *file\ =\ fopen(filename,\ \textcolor{stringliteral}{"{}r"{}});}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordflow}{if}\ (*file\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error\ opening\ test\ file\ \%s\(\backslash\)n"{}},\ filename);}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ perror(\textcolor{stringliteral}{"{}Message"{}});}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ fclose(*file);}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{test_8h_a09366493e3cac06e426bc89dd1c8561aad307c747dc4b0d01887e1708287a1248}{TestMode::INPUT\_ERROR}};}
+\DoxyCodeLine{00073\ \ \ \ \ \}}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{test_8h_a09366493e3cac06e426bc89dd1c8561aacf2a2c7b58f5fdc3e9a6be99f01535e5}{TestMode::TESTS\_LEFT}};}
+\DoxyCodeLine{00075\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{test_8h_a09366493e3cac06e426bc89dd1c8561aad307c747dc4b0d01887e1708287a1248}{INPUT\+\_\+\+ERROR}}, \mbox{\hyperlink{test_8h_a09366493e3cac06e426bc89dd1c8561aa9e1c2670274eb1b1baa5209197adef09}{NO\+\_\+\+TESTS}}, and \mbox{\hyperlink{test_8h_a09366493e3cac06e426bc89dd1c8561aacf2a2c7b58f5fdc3e9a6be99f01535e5}{TESTS\+\_\+\+LEFT}}.
+
+
+
+Referenced by \mbox{\hyperlink{test_8cpp_source_l00003}{test\+\_\+or\+\_\+normal()}}.
+
+\Hypertarget{test_8cpp_a30aa4299045c457921a27ab1df50cdbe}\label{test_8cpp_a30aa4299045c457921a27ab1df50cdbe} 
+\index{test.cpp@{test.cpp}!test\_or\_normal@{test\_or\_normal}}
+\index{test\_or\_normal@{test\_or\_normal}!test.cpp@{test.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_or\_normal()}{test\_or\_normal()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_status_ab31bb94cc29a302cab703638615b604c}{Status\+::\+Statuses}} test\+\_\+or\+\_\+normal (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename }\end{DoxyParamCaption})}
+
+
+
+Opens test file and decides\+: \doxylink{quad__solver_8cpp_a424d1b3daea4a14b1c473306dca90dad}{solver\+\_\+proccess()} or \doxylink{test_8h_a77907adcdfbf0797ed43ec180f9ca36d}{test\+\_\+proccess()} 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em filename} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error\+::\+Errors 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{test_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{test_8cpp_source}{test.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00003\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00004\ \ \ \ \ FILE*\ file\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00005\ \ \ \ \ \textcolor{keywordflow}{switch}\ (\mbox{\hyperlink{test_8cpp_ac4a984567eda8c0303b41a854f59f143}{test\_open\_file}}(\&file,\ filename))\ \{}
+\DoxyCodeLine{00006\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{test_8h_a09366493e3cac06e426bc89dd1c8561aad307c747dc4b0d01887e1708287a1248}{TestMode::INPUT\_ERROR}}:}
+\DoxyCodeLine{00007\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_status_ab31bb94cc29a302cab703638615b604ca30c0c71beaf203b0a3d8e76451b92174}{Status::TEST\_INPUT}};}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{test_8h_a09366493e3cac06e426bc89dd1c8561aacf2a2c7b58f5fdc3e9a6be99f01535e5}{TestMode::TESTS\_LEFT}}:\ \textcolor{comment}{//\ TEST\ mode}}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{test_8cpp_a77907adcdfbf0797ed43ec180f9ca36d}{test\_proccess}}(file);}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{test_8h_a09366493e3cac06e426bc89dd1c8561aa9e1c2670274eb1b1baa5209197adef09}{TestMode::NO\_TESTS}}:\ \textcolor{comment}{//\ Normal\ mode}}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{quad__solver_8cpp_a424d1b3daea4a14b1c473306dca90dad}{solver\_proccess}}();}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \ \ \ \ assert(0\ \&\&\ \textcolor{stringliteral}{"{}test\_open\_file()\ returned\ wrong\ TestMode"{}});}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00015\ \ \ \ \ \}}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_status_ab31bb94cc29a302cab703638615b604ca8f997129dcd342bd9c93377de25f68bd}{Status::NO\_ERROR}};}
+\DoxyCodeLine{00017\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{test_8h_a09366493e3cac06e426bc89dd1c8561aad307c747dc4b0d01887e1708287a1248}{INPUT\+\_\+\+ERROR}}, \mbox{\hyperlink{quad__solver_8h_source_l00016}{Status\+::\+NO\+\_\+\+ERROR}}, \mbox{\hyperlink{test_8h_a09366493e3cac06e426bc89dd1c8561aa9e1c2670274eb1b1baa5209197adef09}{NO\+\_\+\+TESTS}}, \mbox{\hyperlink{quad__solver_8cpp_source_l00012}{solver\+\_\+proccess()}}, \mbox{\hyperlink{quad__solver_8h_source_l00021}{Status\+::\+TEST\+\_\+\+INPUT}}, \mbox{\hyperlink{test_8cpp_source_l00061}{test\+\_\+open\+\_\+file()}}, \mbox{\hyperlink{test_8cpp_source_l00019}{test\+\_\+proccess()}}, and \mbox{\hyperlink{test_8h_a09366493e3cac06e426bc89dd1c8561aacf2a2c7b58f5fdc3e9a6be99f01535e5}{TESTS\+\_\+\+LEFT}}.
+
+
+
+Referenced by \mbox{\hyperlink{main_8cpp_source_l00021}{main()}}.
+
+\Hypertarget{test_8cpp_a84e0b866a278075815ed65a57eee0f3a}\label{test_8cpp_a84e0b866a278075815ed65a57eee0f3a} 
+\index{test.cpp@{test.cpp}!test\_print\_summary@{test\_print\_summary}}
+\index{test\_print\_summary@{test\_print\_summary}!test.cpp@{test.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_print\_summary()}{test\_print\_summary()}}
+{\footnotesize\ttfamily void test\+\_\+print\+\_\+summary (\begin{DoxyParamCaption}\item[{const int}]{test\+\_\+num,  }\item[{const int}]{passed\+\_\+test\+\_\+num }\end{DoxyParamCaption})}
+
+
+
+Prints summary about all tests. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em test\+\_\+num} & \\
+\hline
+\mbox{\texttt{ in}}  & {\em passed\+\_\+test\+\_\+num} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{test_8cpp_source_l00174}{174}} of file \mbox{\hyperlink{test_8cpp_source}{test.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keywordflow}{if}\ (test\_num\ ==\ passed\_test\_num)\ \{}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (test\_num\ ==\ 1)}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\mbox{\hyperlink{console_8h_a3d65c0a458538bfc412e586e89dbf130}{CONSOLE\_GREEN}}(\textcolor{stringliteral}{"{}Test\ passed."{}})\ \textcolor{stringliteral}{"{}\ Congrats!\(\backslash\)n"{}});}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\mbox{\hyperlink{console_8h_a3d65c0a458538bfc412e586e89dbf130}{CONSOLE\_GREEN}}(\textcolor{stringliteral}{"{}All\ \%d\ tests\ passed."{}})\ \textcolor{stringliteral}{"{}\ Congrats!\(\backslash\)n"{}},\ test\_num);}
+\DoxyCodeLine{00180\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (test\_num\ ==\ 1)}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\mbox{\hyperlink{console_8h_ad220b7c98ce4bd06bf25860ca62d7aba}{CONSOLE\_RED}}(\textcolor{stringliteral}{"{}WARNING!\ "{}})\ \textcolor{stringliteral}{"{}Test\ failed\(\backslash\)n"{}});}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ success\_percent\ =\ (double)passed\_test\_num\ *\ 100\ /\ (\textcolor{keywordtype}{double})test\_num;}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\mbox{\hyperlink{console_8h_ad220b7c98ce4bd06bf25860ca62d7aba}{CONSOLE\_RED}}(\textcolor{stringliteral}{"{}WARNING!\ "{}})\ \textcolor{stringliteral}{"{}Passed\ \%d\ of\ \%d\ tests.\ It's\ \%.1f\%\%\(\backslash\)n"{}},}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ passed\_test\_num,\ test\_num,\ success\_percent);}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00188\ \ \ \ \ \}}
+\DoxyCodeLine{00189\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{console_8h_source_l00034}{CONSOLE\+\_\+\+GREEN}}, and \mbox{\hyperlink{console_8h_source_l00033}{CONSOLE\+\_\+\+RED}}.
+
+
+
+Referenced by \mbox{\hyperlink{test_8cpp_source_l00019}{test\+\_\+proccess()}}.
+
+\Hypertarget{test_8cpp_a77907adcdfbf0797ed43ec180f9ca36d}\label{test_8cpp_a77907adcdfbf0797ed43ec180f9ca36d} 
+\index{test.cpp@{test.cpp}!test\_proccess@{test\_proccess}}
+\index{test\_proccess@{test\_proccess}!test.cpp@{test.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_proccess()}{test\_proccess()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_status_ab31bb94cc29a302cab703638615b604c}{Status\+::\+Statuses}} test\+\_\+proccess (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{file }\end{DoxyParamCaption})}
+
+
+
+Main test proccess (read, test) 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em file} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error\+::\+Errors 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{test_8cpp_source_l00019}{19}} of file \mbox{\hyperlink{test_8cpp_source}{test.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00020\ \ \ \ \ assert(file);}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{test_8h_a09366493e3cac06e426bc89dd1c8561a}{TestMode}}\ tests\ =\ \mbox{\hyperlink{test_8h_a09366493e3cac06e426bc89dd1c8561aad307c747dc4b0d01887e1708287a1248}{TestMode::INPUT\_ERROR}};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{int}\ test\_num\ =\ 0;}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{int}\ passed\_test\_num\ =\ 0;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{struct_eq_solver_data}{EqSolverData}}\ data\ =\ \{\};}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{quad__solver_8h_a132325d5598740553490b04c3f6929bf}{EqSolverData\_init}}(\&data);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{while}\ ((tests\ =\ \mbox{\hyperlink{test_8cpp_a443e969e29b64d3f5ab41023ce50bca0}{test\_enter\_coeffs}}(\&data,\ file))\ !=\ \mbox{\hyperlink{test_8h_a09366493e3cac06e426bc89dd1c8561aa9e1c2670274eb1b1baa5209197adef09}{TestMode::NO\_TESTS}})\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (tests\ ==\ \mbox{\hyperlink{test_8h_a09366493e3cac06e426bc89dd1c8561aad307c747dc4b0d01887e1708287a1248}{TestMode::INPUT\_ERROR}})}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_status_ab31bb94cc29a302cab703638615b604ca30c0c71beaf203b0a3d8e76451b92174}{Status::TEST\_INPUT}};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{struct_eq_solver_data_a088c567e4699d9a5bc1e63610728ed9e}{EqSolverData::COEFF\_NUM}};\ i++)}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ assert(isfinite(data.\mbox{\hyperlink{struct_eq_solver_data_a38021481c2a3c7e8d2469bd6140fc7e3}{coeffs}}[i]));}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{quad__solver_8cpp_a5947cf1f98f8c24826b8a839209c0799}{solve\_quad}}(\&data);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ test\_num++;}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (\mbox{\hyperlink{test_8cpp_ad202e8623146748badb2959904d4cb76}{test\_read\_and\_compare}}(\&data,\ file,\ test\_num))\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{test_8h_aae529400284a6182b4bdb3a5596bd093abb1ca97ec761fc37101737ba0aa2e7c5}{TestResult::ERROR}}:}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_status_ab31bb94cc29a302cab703638615b604ca30c0c71beaf203b0a3d8e76451b92174}{Status::TEST\_INPUT}};}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{test_8h_aae529400284a6182b4bdb3a5596bd093ab9e14d9b2886bcff408b85aefa780419}{TestResult::FAILED}}:}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{test_8h_aae529400284a6182b4bdb3a5596bd093a269f3d1562cbd15624e7d2c4b10122e3}{TestResult::PASSED}}:}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ passed\_test\_num++;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ assert(0\ \&\&\ \textcolor{stringliteral}{"{}test\_check()\ returned\ incorrect\ TestResult"{}});}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{quad__solver_8h_a132325d5598740553490b04c3f6929bf}{EqSolverData\_init}}(\&data);}
+\DoxyCodeLine{00054\ \ \ \ \ \}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{test_8cpp_a84e0b866a278075815ed65a57eee0f3a}{test\_print\_summary}}(test\_num,\ passed\_test\_num);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_status_ab31bb94cc29a302cab703638615b604ca8f997129dcd342bd9c93377de25f68bd}{Status::NO\_ERROR}};}
+\DoxyCodeLine{00059\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{quad__solver_8h_source_l00049}{Eq\+Solver\+Data\+::\+COEFF\+\_\+\+NUM}}, \mbox{\hyperlink{quad__solver_8h_source_l00051}{Eq\+Solver\+Data\+::coeffs}}, \mbox{\hyperlink{quad__solver_8h_source_l00061}{Eq\+Solver\+Data\+\_\+init()}}, \mbox{\hyperlink{test_8h_aae529400284a6182b4bdb3a5596bd093abb1ca97ec761fc37101737ba0aa2e7c5}{ERROR}}, \mbox{\hyperlink{test_8h_aae529400284a6182b4bdb3a5596bd093ab9e14d9b2886bcff408b85aefa780419}{FAILED}}, \mbox{\hyperlink{test_8h_a09366493e3cac06e426bc89dd1c8561aad307c747dc4b0d01887e1708287a1248}{INPUT\+\_\+\+ERROR}}, \mbox{\hyperlink{quad__solver_8h_source_l00016}{Status\+::\+NO\+\_\+\+ERROR}}, \mbox{\hyperlink{test_8h_a09366493e3cac06e426bc89dd1c8561aa9e1c2670274eb1b1baa5209197adef09}{NO\+\_\+\+TESTS}}, \mbox{\hyperlink{test_8h_aae529400284a6182b4bdb3a5596bd093a269f3d1562cbd15624e7d2c4b10122e3}{PASSED}}, \mbox{\hyperlink{quad__solver_8cpp_source_l00072}{solve\+\_\+quad()}}, \mbox{\hyperlink{test_8cpp_source_l00077}{test\+\_\+enter\+\_\+coeffs()}}, \mbox{\hyperlink{quad__solver_8h_source_l00021}{Status\+::\+TEST\+\_\+\+INPUT}}, \mbox{\hyperlink{test_8cpp_source_l00174}{test\+\_\+print\+\_\+summary()}}, and \mbox{\hyperlink{test_8cpp_source_l00160}{test\+\_\+read\+\_\+and\+\_\+compare()}}.
+
+
+
+Referenced by \mbox{\hyperlink{test_8cpp_source_l00003}{test\+\_\+or\+\_\+normal()}}.
+
+\Hypertarget{test_8cpp_ad202e8623146748badb2959904d4cb76}\label{test_8cpp_ad202e8623146748badb2959904d4cb76} 
+\index{test.cpp@{test.cpp}!test\_read\_and\_compare@{test\_read\_and\_compare}}
+\index{test\_read\_and\_compare@{test\_read\_and\_compare}!test.cpp@{test.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_read\_and\_compare()}{test\_read\_and\_compare()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{test_8h_aae529400284a6182b4bdb3a5596bd093}{Test\+Result}} test\+\_\+read\+\_\+and\+\_\+compare (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_eq_solver_data}{Eq\+Solver\+Data}} \texorpdfstring{$\ast$}{*}}]{data,  }\item[{FILE \texorpdfstring{$\ast$}{*}}]{file,  }\item[{const int}]{test\+\_\+n }\end{DoxyParamCaption})}
+
+
+
+calls test\+\_\+read\+\_\+roots and test\+\_\+compare\+\_\+data 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em data} & \\
+\hline
+\mbox{\texttt{ in}}  & {\em file} & \\
+\hline
+\mbox{\texttt{ in}}  & {\em test\+\_\+n} & number of test \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int success 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{test_8cpp_source_l00160}{160}} of file \mbox{\hyperlink{test_8cpp_source}{test.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00161\ \ \ \ \ assert(data);}
+\DoxyCodeLine{00162\ \ \ \ \ assert(file);}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ \mbox{\hyperlink{struct_eq_solver_data}{EqSolverData}}\ correct\_data\ =\ \{\};}
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{struct_eq_solver_data_a088c567e4699d9a5bc1e63610728ed9e}{EqSolverData::COEFF\_NUM}}\ -\/\ 1;\ i++)}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ correct\_data.\mbox{\hyperlink{struct_eq_solver_data_ac163e2c541b81208f906dae978b1bb66}{roots}}[i]\ =\ NAN;}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{test_8cpp_a7624bda7e747ca3f32708e7d10549527}{test\_read\_roots}}(data,\ \&correct\_data,\ file))}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{test_8h_aae529400284a6182b4bdb3a5596bd093abb1ca97ec761fc37101737ba0aa2e7c5}{TestResult::ERROR}};}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{test_8cpp_a40e541008a5f4eb3388d7678139b5f10}{test\_compare\_data}}(data,\ \&correct\_data,\ test\_n);}
+\DoxyCodeLine{00172\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{quad__solver_8h_source_l00049}{Eq\+Solver\+Data\+::\+COEFF\+\_\+\+NUM}}, \mbox{\hyperlink{test_8h_aae529400284a6182b4bdb3a5596bd093abb1ca97ec761fc37101737ba0aa2e7c5}{ERROR}}, \mbox{\hyperlink{quad__solver_8h_source_l00052}{Eq\+Solver\+Data\+::roots}}, \mbox{\hyperlink{test_8cpp_source_l00129}{test\+\_\+compare\+\_\+data()}}, and \mbox{\hyperlink{test_8cpp_source_l00102}{test\+\_\+read\+\_\+roots()}}.
+
+
+
+Referenced by \mbox{\hyperlink{test_8cpp_source_l00019}{test\+\_\+proccess()}}.
+
+\Hypertarget{test_8cpp_a7624bda7e747ca3f32708e7d10549527}\label{test_8cpp_a7624bda7e747ca3f32708e7d10549527} 
+\index{test.cpp@{test.cpp}!test\_read\_roots@{test\_read\_roots}}
+\index{test\_read\_roots@{test\_read\_roots}!test.cpp@{test.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_read\_roots()}{test\_read\_roots()}}
+{\footnotesize\ttfamily bool test\+\_\+read\+\_\+roots (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_eq_solver_data}{Eq\+Solver\+Data}} \texorpdfstring{$\ast$}{*}}]{data,  }\item[{\mbox{\hyperlink{struct_eq_solver_data}{Eq\+Solver\+Data}} \texorpdfstring{$\ast$}{*}}]{correc\+\_\+data,  }\item[{FILE \texorpdfstring{$\ast$}{*}}]{file }\end{DoxyParamCaption})}
+
+
+
+Reads correct roots from test file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em data} & \\
+\hline
+\mbox{\texttt{ in}}  & {\em correct\+\_\+data} & \\
+\hline
+\mbox{\texttt{ in}}  & {\em file} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool success 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{test_8cpp_source_l00102}{102}} of file \mbox{\hyperlink{test_8cpp_source}{test.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00103\ \ \ \ \ assert(data);}
+\DoxyCodeLine{00104\ \ \ \ \ assert(correct\_data);}
+\DoxyCodeLine{00105\ \ \ \ \ assert(file);}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{input_8cpp_a5c1257bfc941d8fc8789cc74c869bd0e}{read\_num}}(((\textcolor{keywordtype}{int}*)\&correct\_data-\/>\mbox{\hyperlink{struct_eq_solver_data_ad5266aea4617131bfbbf70ecba10e30c}{roots\_num}}),\ file)\ !=\ \mbox{\hyperlink{input_8h_aef35fc440c8029ffabbdc082f7c0a891ae0aa021e21dddbd6d8cecec71e9cf564}{InputStatus::OK}})\ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error\ reading\ number\ of\ solutions\ from\ test\ file\(\backslash\)n"{}});}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ fclose(file);}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00111\ \ \ \ \ \}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ (int)correct\_data-\/>\mbox{\hyperlink{struct_eq_solver_data_ad5266aea4617131bfbbf70ecba10e30c}{roots\_num}};\ i++)\ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{input_8cpp_a5c1257bfc941d8fc8789cc74c869bd0e}{read\_num}}(\&correct\_data-\/>\mbox{\hyperlink{struct_eq_solver_data_ac163e2c541b81208f906dae978b1bb66}{roots}}[i],\ file,\ \textcolor{keyword}{false})\ !=\ \mbox{\hyperlink{input_8h_aef35fc440c8029ffabbdc082f7c0a891ae0aa021e21dddbd6d8cecec71e9cf564}{InputStatus::OK}})\ \{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error\ reading\ solution\ from\ test\ file\(\backslash\)n"{}});}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ fclose(file);}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00119\ \ \ \ \ \}}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{input_8cpp_a14c079b8b3cf9b7d954c006cdedf2735}{input\_flush}}(file))\ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error\ reading\ solution\ from\ test\ file\(\backslash\)n"{}});}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00123\ \ \ \ \ \}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \mbox{\hyperlink{quad__solver_8h_a0c4485f320334b39ba88c2ef0f51ad09}{bubble\_sort}}(correct\_data-\/>\mbox{\hyperlink{struct_eq_solver_data_ac163e2c541b81208f906dae978b1bb66}{roots}},\ correct\_data-\/>\mbox{\hyperlink{struct_eq_solver_data_ad5266aea4617131bfbbf70ecba10e30c}{roots\_num}});}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00127\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{quad__solver_8h_source_l00152}{bubble\+\_\+sort()}}, \mbox{\hyperlink{input_8cpp_source_l00031}{input\+\_\+flush()}}, \mbox{\hyperlink{input_8h_aef35fc440c8029ffabbdc082f7c0a891ae0aa021e21dddbd6d8cecec71e9cf564}{OK}}, \mbox{\hyperlink{input_8cpp_source_l00003}{read\+\_\+num()}}, \mbox{\hyperlink{quad__solver_8h_source_l00052}{Eq\+Solver\+Data\+::roots}}, and \mbox{\hyperlink{quad__solver_8h_source_l00053}{Eq\+Solver\+Data\+::roots\+\_\+num}}.
+
+
+
+Referenced by \mbox{\hyperlink{test_8cpp_source_l00160}{test\+\_\+read\+\_\+and\+\_\+compare()}}.
+

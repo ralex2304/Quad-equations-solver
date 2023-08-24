@@ -1,0 +1,43 @@
+\chapter{Quad equations solver}
+\hypertarget{md__r_e_a_d_m_e}{}\label{md__r_e_a_d_m_e}\index{Quad equations solver@{Quad equations solver}}
+\label{md__r_e_a_d_m_e_autotoc_md0}%
+\Hypertarget{md__r_e_a_d_m_e_autotoc_md0}%
+ \"{}\+The best quad equations solver ever\"{} © Steve Jobs\hypertarget{md__r_e_a_d_m_e_autotoc_md1}{}\doxysection{\texorpdfstring{Build}{Build}}\label{md__r_e_a_d_m_e_autotoc_md1}
+Repo includes Makefile. Build with {\ttfamily make}.
+
+{\bfseries{Note\+:}} In {\ttfamily \doxylink{main_8cpp}{main.\+cpp}} you can find {\ttfamily TEST} define. Undefine it for disabling test mode.\hypertarget{md__r_e_a_d_m_e_autotoc_md2}{}\doxysection{\texorpdfstring{Usage}{Usage}}\label{md__r_e_a_d_m_e_autotoc_md2}
+Type in terminal\+: {\ttfamily .\textbackslash{}main.\+exe}\hypertarget{md__r_e_a_d_m_e_autotoc_md3}{}\doxysubsection{\texorpdfstring{Available flags\+:}{Available flags:}}\label{md__r_e_a_d_m_e_autotoc_md3}
+
+\begin{DoxyEnumerate}
+\item {\ttfamily -\/h} -\/ help
+\item {\ttfamily -\/t} -\/ works only when {\ttfamily TEST} was defined. After it, you must specify file with tests
+\end{DoxyEnumerate}\hypertarget{md__r_e_a_d_m_e_autotoc_md4}{}\doxysubsection{\texorpdfstring{Available return values\+:}{Available return values:}}\label{md__r_e_a_d_m_e_autotoc_md4}
+{\ttfamily 0} -\/ {\ttfamily OK}
+
+{\ttfamily 1} -\/ {\ttfamily Wrong arguments given}
+
+{\ttfamily 2} -\/ {\ttfamily User input error}
+
+{\ttfamily 3} -\/ {\ttfamily Test file input error}
+
+{\ttfamily 4} -\/ {\ttfamily End of input stream reached}\hypertarget{md__r_e_a_d_m_e_autotoc_md5}{}\doxysection{\texorpdfstring{Test mode}{Test mode}}\label{md__r_e_a_d_m_e_autotoc_md5}
+In this test program with test itself. You must specify test file in format (there might be multiple tests)\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<coeff\ a>\ <coeff\ b>\ <coeff\ c>}
+\DoxyCodeLine{<solutions\ number>}
+\DoxyCodeLine{<solution\ 1\ (if\ exists)>\ <solution\ 2\ (if\ exists)>}
+
+\end{DoxyCode}
+ E.\+g. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1\ -\/10\ 1}
+\DoxyCodeLine{2}
+\DoxyCodeLine{0.101021\ 9.898979}
+\DoxyCodeLine{}
+\DoxyCodeLine{1\ 1}
+\DoxyCodeLine{1}
+\DoxyCodeLine{0}
+
+\end{DoxyCode}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md6}{}\doxysection{\texorpdfstring{Credits}{Credits}}\label{md__r_e_a_d_m_e_autotoc_md6}
+This is MIPT summer school project. DED and DRA forever 

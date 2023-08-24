@@ -1,0 +1,112 @@
+\doxysection{Eq\+Solver\+Data Struct Reference}
+\hypertarget{struct_eq_solver_data}{}\label{struct_eq_solver_data}\index{EqSolverData@{EqSolverData}}
+
+
+Contains input and output data for solver.  
+
+
+
+
+{\ttfamily \#include $<$quad\+\_\+solver.\+h$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{struct_eq_solver_data_a38021481c2a3c7e8d2469bd6140fc7e3}{coeffs}} \mbox{[}\mbox{\hyperlink{struct_eq_solver_data_a088c567e4699d9a5bc1e63610728ed9e}{COEFF\+\_\+\+NUM}}\mbox{]} = \{\}
+\begin{DoxyCompactList}\small\item\em Coeffs array. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{struct_eq_solver_data_ac163e2c541b81208f906dae978b1bb66}{roots}} \mbox{[}\mbox{\hyperlink{struct_eq_solver_data_a088c567e4699d9a5bc1e63610728ed9e}{COEFF\+\_\+\+NUM}} -\/ 1\mbox{]} = \{\}
+\begin{DoxyCompactList}\small\item\em Roots array. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{quad__solver_8h_a8fb10b5c28258c04db1cbd258f6048b0}{Solutions}} \mbox{\hyperlink{struct_eq_solver_data_ad5266aea4617131bfbbf70ecba10e30c}{roots\+\_\+num}} = \mbox{\hyperlink{quad__solver_8h_a8fb10b5c28258c04db1cbd258f6048b0a50ce7bc5afe6cb6fb6376805fa705f6c}{NAN\+\_\+\+SOLUTIONS}}
+\begin{DoxyCompactList}\small\item\em Number of solutions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const int \mbox{\hyperlink{struct_eq_solver_data_a088c567e4699d9a5bc1e63610728ed9e}{COEFF\+\_\+\+NUM}} = 3
+\begin{DoxyCompactList}\small\item\em Number of equation coefficients. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains input and output data for solver. 
+
+Definition at line \mbox{\hyperlink{quad__solver_8h_source_l00048}{48}} of file \mbox{\hyperlink{quad__solver_8h_source}{quad\+\_\+solver.\+h}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{struct_eq_solver_data_a088c567e4699d9a5bc1e63610728ed9e}\label{struct_eq_solver_data_a088c567e4699d9a5bc1e63610728ed9e} 
+\index{EqSolverData@{EqSolverData}!COEFF\_NUM@{COEFF\_NUM}}
+\index{COEFF\_NUM@{COEFF\_NUM}!EqSolverData@{EqSolverData}}
+\doxysubsubsection{\texorpdfstring{COEFF\_NUM}{COEFF\_NUM}}
+{\footnotesize\ttfamily const int Eq\+Solver\+Data\+::\+COEFF\+\_\+\+NUM = 3\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Number of equation coefficients. 
+
+
+
+Definition at line \mbox{\hyperlink{quad__solver_8h_source_l00049}{49}} of file \mbox{\hyperlink{quad__solver_8h_source}{quad\+\_\+solver.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{quad__solver_8cpp_source_l00061}{enter\+\_\+coeffs()}}, \mbox{\hyperlink{quad__solver_8h_source_l00061}{Eq\+Solver\+Data\+\_\+init()}}, \mbox{\hyperlink{quad__solver_8cpp_source_l00107}{solve\+\_\+lin()}}, \mbox{\hyperlink{quad__solver_8cpp_source_l00072}{solve\+\_\+quad()}}, \mbox{\hyperlink{quad__solver_8cpp_source_l00012}{solver\+\_\+proccess()}}, \mbox{\hyperlink{test_8cpp_source_l00077}{test\+\_\+enter\+\_\+coeffs()}}, \mbox{\hyperlink{test_8cpp_source_l00019}{test\+\_\+proccess()}}, and \mbox{\hyperlink{test_8cpp_source_l00160}{test\+\_\+read\+\_\+and\+\_\+compare()}}.
+
+\Hypertarget{struct_eq_solver_data_a38021481c2a3c7e8d2469bd6140fc7e3}\label{struct_eq_solver_data_a38021481c2a3c7e8d2469bd6140fc7e3} 
+\index{EqSolverData@{EqSolverData}!coeffs@{coeffs}}
+\index{coeffs@{coeffs}!EqSolverData@{EqSolverData}}
+\doxysubsubsection{\texorpdfstring{coeffs}{coeffs}}
+{\footnotesize\ttfamily double Eq\+Solver\+Data\+::coeffs\mbox{[}\mbox{\hyperlink{struct_eq_solver_data_a088c567e4699d9a5bc1e63610728ed9e}{COEFF\+\_\+\+NUM}}\mbox{]} = \{\}}
+
+
+
+Coeffs array. 
+
+
+
+Definition at line \mbox{\hyperlink{quad__solver_8h_source_l00051}{51}} of file \mbox{\hyperlink{quad__solver_8h_source}{quad\+\_\+solver.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{quad__solver_8cpp_source_l00061}{enter\+\_\+coeffs()}}, \mbox{\hyperlink{quad__solver_8h_source_l00061}{Eq\+Solver\+Data\+\_\+init()}}, \mbox{\hyperlink{quad__solver_8cpp_source_l00107}{solve\+\_\+lin()}}, \mbox{\hyperlink{quad__solver_8cpp_source_l00072}{solve\+\_\+quad()}}, \mbox{\hyperlink{quad__solver_8cpp_source_l00012}{solver\+\_\+proccess()}}, \mbox{\hyperlink{test_8cpp_source_l00077}{test\+\_\+enter\+\_\+coeffs()}}, and \mbox{\hyperlink{test_8cpp_source_l00019}{test\+\_\+proccess()}}.
+
+\Hypertarget{struct_eq_solver_data_ac163e2c541b81208f906dae978b1bb66}\label{struct_eq_solver_data_ac163e2c541b81208f906dae978b1bb66} 
+\index{EqSolverData@{EqSolverData}!roots@{roots}}
+\index{roots@{roots}!EqSolverData@{EqSolverData}}
+\doxysubsubsection{\texorpdfstring{roots}{roots}}
+{\footnotesize\ttfamily double Eq\+Solver\+Data\+::roots\mbox{[}\mbox{\hyperlink{struct_eq_solver_data_a088c567e4699d9a5bc1e63610728ed9e}{COEFF\+\_\+\+NUM}} -\/ 1\mbox{]} = \{\}}
+
+
+
+Roots array. 
+
+
+
+Definition at line \mbox{\hyperlink{quad__solver_8h_source_l00052}{52}} of file \mbox{\hyperlink{quad__solver_8h_source}{quad\+\_\+solver.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{quad__solver_8h_source_l00061}{Eq\+Solver\+Data\+\_\+init()}}, \mbox{\hyperlink{quad__solver_8cpp_source_l00123}{print\+\_\+roots()}}, \mbox{\hyperlink{quad__solver_8cpp_source_l00107}{solve\+\_\+lin()}}, \mbox{\hyperlink{quad__solver_8cpp_source_l00072}{solve\+\_\+quad()}}, \mbox{\hyperlink{test_8cpp_source_l00129}{test\+\_\+compare\+\_\+data()}}, \mbox{\hyperlink{test_8cpp_source_l00160}{test\+\_\+read\+\_\+and\+\_\+compare()}}, and \mbox{\hyperlink{test_8cpp_source_l00102}{test\+\_\+read\+\_\+roots()}}.
+
+\Hypertarget{struct_eq_solver_data_ad5266aea4617131bfbbf70ecba10e30c}\label{struct_eq_solver_data_ad5266aea4617131bfbbf70ecba10e30c} 
+\index{EqSolverData@{EqSolverData}!roots\_num@{roots\_num}}
+\index{roots\_num@{roots\_num}!EqSolverData@{EqSolverData}}
+\doxysubsubsection{\texorpdfstring{roots\_num}{roots\_num}}
+{\footnotesize\ttfamily \mbox{\hyperlink{quad__solver_8h_a8fb10b5c28258c04db1cbd258f6048b0}{Solutions}} Eq\+Solver\+Data\+::roots\+\_\+num = \mbox{\hyperlink{quad__solver_8h_a8fb10b5c28258c04db1cbd258f6048b0a50ce7bc5afe6cb6fb6376805fa705f6c}{NAN\+\_\+\+SOLUTIONS}}}
+
+
+
+Number of solutions. 
+
+
+
+Definition at line \mbox{\hyperlink{quad__solver_8h_source_l00053}{53}} of file \mbox{\hyperlink{quad__solver_8h_source}{quad\+\_\+solver.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{quad__solver_8h_source_l00061}{Eq\+Solver\+Data\+\_\+init()}}, \mbox{\hyperlink{quad__solver_8cpp_source_l00123}{print\+\_\+roots()}}, \mbox{\hyperlink{quad__solver_8cpp_source_l00107}{solve\+\_\+lin()}}, \mbox{\hyperlink{quad__solver_8cpp_source_l00072}{solve\+\_\+quad()}}, \mbox{\hyperlink{test_8cpp_source_l00129}{test\+\_\+compare\+\_\+data()}}, and \mbox{\hyperlink{test_8cpp_source_l00102}{test\+\_\+read\+\_\+roots()}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{quad__solver_8h}{quad\+\_\+solver.\+h}}\end{DoxyCompactItemize}

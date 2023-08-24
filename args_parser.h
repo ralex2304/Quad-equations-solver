@@ -30,60 +30,63 @@ struct ArgsTest {
  */
 struct Argument {
     const char* arg;                                                              ///< Argument name
-    ArgsMode (*func) (int* arg_i, int argc, char* argv[], ArgsTest* args_test);   ///< Function
+    ArgsMode (*func) (const Argument args_dict[], const int args_dict_len,
+                      int* arg_i, int argc, char* argv[], ArgsTest* args_test);   ///< Function
     const char* description;                                                      ///< Description
+    bool is_enabled = true;
 };
 
 /**
  * @brief Prints help
  *
- * @param arg_i number of current argument
- * @param argc  int main() argc
- * @param argv  int main() argv
- * @param args_test
+ * @param[in] args_dict
+ * @param[in] args_dict_len
+ * @param[in] arg_i number of current argument
+ * @param[in] argc  int main() argc
+ * @param[in] argv  int main() argv
+ * @param[in] args_test
  * @return ArgsMode
  */
-ArgsMode print_help(int* arg_i, int argc, char* argv[], ArgsTest* args_test);
+ArgsMode print_help(const Argument args_dict[], const int args_dict_len,
+                    int* arg_i, int argc, char* argv[], ArgsTest* args_test);
 
 /**
  * @brief Reads test file name from console
  *
- * @param arg_i number of current argument
- * @param argc  int main() argc
- * @param argv  int main() argv
- * @param args_test
+ * @param[in] args_dict
+ * @param[in] args_dict_len
+ * @param[in] arg_i number of current argument
+ * @param[in] argc  int main() argc
+ * @param[in] argv  int main() argv
+ * @param[out] args_test
  * @return ArgsMode
  */
-ArgsMode read_test_filename(int* arg_i, int argc, char* argv[], ArgsTest* args_test);
-
-/**
- * @brief Specifies console arguments types number
- */
-const int ARGS_STRUCT_COUNT = 2;
-
-/**
- * @brief This array contains console options, their functions and descriptions
- */
-const Argument args[ARGS_STRUCT_COUNT] = {
-    {"-h", print_help,          "#   -h - prints help information\n"}, ///< Help option
-
-    {"-t", read_test_filename, "#   -t - specify test file name after this (works only if test mode enabled)\n"
-                                "# Test file format (there might be several such sections):\n"
-                                "# <coeff a> <coeff b> <coeff c>\n"
-                                "# <solutions number>\n"
-                                "# <solution 1 (if exists)> <solution 2 (if exists)>\n"
-                                "# \n"
-                                "# <Next test>\n"}                     ///< Test option
-};
+ArgsMode read_test_filename(const Argument args_dict[], const int args_dict_len,
+                            int* arg_i, int argc, char* argv[], ArgsTest* args_test);
 
 /**
  * @brief Parses console arguments
  *
- * @param argc
- * @param argv
- * @param filename for test mode
+ * @param[in] argc
+ * @param[in] argv
+ * @param[out] filename for test mode
  * @return Status::Statuses
  */
 Status::Statuses args_parse(int argc, char* argv[], ArgsTest* test);
+
+/**
+ * @brief Enables test mode args in args_dict
+ *
+ * @param[out] args_dict
+ * @param[in] args_dict_len
+ */
+inline void enable_test_args(Argument args_dict[], const int args_dict_len) {
+    assert(args_dict);
+
+    for (int i = 0; i < args_dict_len; i++) {
+        if (strcmp(args_dict[i].arg, "-t") == 0)
+            args_dict[i].is_enabled = true;
+    }
+}
 
 #endif // #ifndef ARGS_PARSER_H_

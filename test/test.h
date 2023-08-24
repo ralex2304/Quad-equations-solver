@@ -11,16 +11,16 @@
  * @brief Specifies test modes
  */
 enum class TestMode {
-    INPUT_ERROR = -1,
-    NO_TESTS    =  0,
-    TESTS_LEFT  =  1
+    INPUT_ERROR = -1,   ///< Input error
+    NO_TESTS    =  0,   ///< No tests left in file or user didn't dpecified test mode
+    TESTS_LEFT  =  1    ///< There are tests left in the file
 };
 
 /**
  * @brief Opens test file by filename
  *
- * @param file - pointer
- * @param filename - name of file
+ * @param[out] file - pointer
+ * @param[in] filename - name of file
  * @return TestMode
  */
 TestMode test_open_file(FILE** file, const char* filename);
@@ -37,7 +37,7 @@ TestMode test_enter_coeffs(EqSolverData* data, FILE* file);
 /**
  * @brief Opens test file and decides: solver_proccess() or test_proccess()
  *
- * @param filename
+ * @param[in] filename
  * @return Error::Errors
  */
 Status::Statuses test_or_normal(const char* filename);
@@ -45,7 +45,7 @@ Status::Statuses test_or_normal(const char* filename);
 /**
  * @brief Main test proccess (read, test)
  *
- * @param file
+ * @param[in] file
  * @return Error::Errors
  */
 Status::Statuses test_proccess(FILE* file);

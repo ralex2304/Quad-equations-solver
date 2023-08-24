@@ -9,28 +9,41 @@ CFLAGS= -fdiagnostics-color=always -Wshadow -Winit-self -Wredundant-decls -Wcast
 		-Wpointer-arith -Wsign-promo -Wstack-usage=8192 -Wstrict-aliasing -Wstrict-null-sentinel 		\
 		-Wtype-limits -Wwrite-strings -Werror=vla -D_DEBUG -D_EJUDGE_CLIENT_SIDE
 
-BUILD_DIR = build/
+CD = $(shell cd)
+
+BUILD_DIR = build
+NESTED_DIRS = test
+
 TARGET = main.exe
 
-FILES = main.cpp quad_solver.cpp input.cpp args_parser.cpp test/test.cpp
+FILES = $(shell dir /s /a /b *.cpp)
 
-OBJ = $(FILES:%=$(BUILD_DIR)%)
+MAKE_DIRS = $(NESTED_DIRS:%=$(BUILD_DIR)\\%)
+OBJ = $(FILES:$(CD)\\%=$(BUILD_DIR)\\%)
 DEPENDS = $(OBJ:%.cpp=%.d)
 OBJECTS = $(OBJ:%.cpp=%.o)
 
 all: $(TARGET)
 
-main.exe: $(OBJECTS)
-	$(CC) $^ -o $@
+$(TARGET): $(OBJECTS)
+	@$(CC) $^ -o $@
+
+$(BUILD_DIR):
+	@if not exist $@ md $@
+
+$(MAKE_DIRS): | $(BUILD_DIR)
+	@if not exist $@ md $@
 
 -include $(DEPENDS)
 
-$(BUILD_DIR)%.o: %.cpp
-	$(CC) $(CFLAGS) -MMD -MP -c $< -o $@
+$(BUILD_DIR)\\%.o: %.cpp docs | $(MAKE_DIRS)
+	@$(CC) $(CFLAGS) -MMD -MP -c $< -o $@
+
+docs:
+	@doxygen.exe docs/Doxyfile
 
 clean:
-	del *.o /a /s
-	del $(TARGET)
+	@del *.o /a /s
+	@del *.d /a /s
+	@del $(TARGET)
 
-echo:
-	@echo $(DEPENDS)

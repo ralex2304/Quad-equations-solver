@@ -1,0 +1,156 @@
+\doxysection{input.\+cpp File Reference}
+\hypertarget{input_8cpp}{}\label{input_8cpp}\index{input.cpp@{input.cpp}}
+{\ttfamily \#include \"{}input.\+h\"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{input_8h_aef35fc440c8029ffabbdc082f7c0a891}{Input\+Status}} \mbox{\hyperlink{input_8cpp_a5c1257bfc941d8fc8789cc74c869bd0e}{read\+\_\+num}} (double \texorpdfstring{$\ast$}{*}x, FILE \texorpdfstring{$\ast$}{*}stream, bool flush)
+\begin{DoxyCompactList}\small\item\em Reads double from input to pointer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{input_8h_aef35fc440c8029ffabbdc082f7c0a891}{Input\+Status}} \mbox{\hyperlink{input_8cpp_a0d515a69e7ab4dea9d165c57e66ea723}{read\+\_\+num}} (int \texorpdfstring{$\ast$}{*}x, FILE \texorpdfstring{$\ast$}{*}stream, bool flush)
+\begin{DoxyCompactList}\small\item\em Reads int from input to pointer. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{input_8cpp_a14c079b8b3cf9b7d954c006cdedf2735}{input\+\_\+flush}} (FILE \texorpdfstring{$\ast$}{*}stream)
+\begin{DoxyCompactList}\small\item\em Flushes input. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{input_8cpp_a14c079b8b3cf9b7d954c006cdedf2735}\label{input_8cpp_a14c079b8b3cf9b7d954c006cdedf2735} 
+\index{input.cpp@{input.cpp}!input\_flush@{input\_flush}}
+\index{input\_flush@{input\_flush}!input.cpp@{input.cpp}}
+\doxysubsubsection{\texorpdfstring{input\_flush()}{input\_flush()}}
+{\footnotesize\ttfamily bool input\+\_\+flush (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{stream = {\ttfamily stdin} }\end{DoxyParamCaption})}
+
+
+
+Flushes input. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em stream} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool false -\/ if there are non space symbols in stream left 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{input_8cpp_source_l00031}{31}} of file \mbox{\hyperlink{input_8cpp_source}{input.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ assert(stream);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{int}\ c\ =\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{bool}\ non\_space\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!isspace(c))}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ non\_space\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00040\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ ((c\ =\ fgetc(stream))\ !=\ \textcolor{charliteral}{'\(\backslash\)n'}\ \&\&\ c\ !=\ EOF\ \&\&\ !feof(stream)\ \&\&\ !ferror(stream));}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{return}\ non\_space;}
+\DoxyCodeLine{00043\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{input_8cpp_source_l00003}{read\+\_\+num()}}, \mbox{\hyperlink{input_8cpp_source_l00017}{read\+\_\+num()}}, \mbox{\hyperlink{test_8cpp_source_l00077}{test\+\_\+enter\+\_\+coeffs()}}, and \mbox{\hyperlink{test_8cpp_source_l00102}{test\+\_\+read\+\_\+roots()}}.
+
+\Hypertarget{input_8cpp_a5c1257bfc941d8fc8789cc74c869bd0e}\label{input_8cpp_a5c1257bfc941d8fc8789cc74c869bd0e} 
+\index{input.cpp@{input.cpp}!read\_num@{read\_num}}
+\index{read\_num@{read\_num}!input.cpp@{input.cpp}}
+\doxysubsubsection{\texorpdfstring{read\_num()}{read\_num()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{input_8h_aef35fc440c8029ffabbdc082f7c0a891}{Input\+Status}} read\+\_\+num (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}}]{x,  }\item[{FILE \texorpdfstring{$\ast$}{*}}]{stream = {\ttfamily stdin},  }\item[{bool}]{flush = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Reads double from input to pointer. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em x} & \\
+\hline
+\mbox{\texttt{ in}}  & {\em stream} & \\
+\hline
+\mbox{\texttt{ in}}  & {\em flush} & enables \doxylink{input_8h_a6e77a53adc07c0ed11c75fa3e1422be3}{input\+\_\+flush()} at the end \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int success 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{input_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{input_8cpp_source}{input.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00003\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00004\ \ \ \ \ assert(x);}
+\DoxyCodeLine{00005\ \ \ \ \ assert(stream);}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keywordtype}{int}\ res\ =\ fscanf(stream,\ \textcolor{stringliteral}{"{}\%lf"{}},\ x);}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keywordflow}{if}\ (res\ ==\ EOF)}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{input_8h_aef35fc440c8029ffabbdc082f7c0a891a581953f6b20ad7f993b64b1dc632032e}{InputStatus::END\_OF\_FILE}};}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (res\ ==\ 1\ \&\&\ isfinite(*x)\ \&\&\ (!flush\ ||\ \mbox{\hyperlink{input_8cpp_a14c079b8b3cf9b7d954c006cdedf2735}{input\_flush}}(stream)))\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{input_8h_aef35fc440c8029ffabbdc082f7c0a891ae0aa021e21dddbd6d8cecec71e9cf564}{InputStatus::OK}};}
+\DoxyCodeLine{00012\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{input_8h_aef35fc440c8029ffabbdc082f7c0a891a3ce48bd9ee0e102c023533c6d283aaff}{InputStatus::WRONG\_DATA}};}
+\DoxyCodeLine{00014\ \ \ \ \ \}}
+\DoxyCodeLine{00015\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{input_8h_aef35fc440c8029ffabbdc082f7c0a891a581953f6b20ad7f993b64b1dc632032e}{END\+\_\+\+OF\+\_\+\+FILE}}, \mbox{\hyperlink{input_8cpp_source_l00031}{input\+\_\+flush()}}, \mbox{\hyperlink{input_8h_aef35fc440c8029ffabbdc082f7c0a891ae0aa021e21dddbd6d8cecec71e9cf564}{OK}}, and \mbox{\hyperlink{input_8h_aef35fc440c8029ffabbdc082f7c0a891a3ce48bd9ee0e102c023533c6d283aaff}{WRONG\+\_\+\+DATA}}.
+
+
+
+Referenced by \mbox{\hyperlink{test_8cpp_source_l00077}{test\+\_\+enter\+\_\+coeffs()}}, and \mbox{\hyperlink{test_8cpp_source_l00102}{test\+\_\+read\+\_\+roots()}}.
+
+\Hypertarget{input_8cpp_a0d515a69e7ab4dea9d165c57e66ea723}\label{input_8cpp_a0d515a69e7ab4dea9d165c57e66ea723} 
+\index{input.cpp@{input.cpp}!read\_num@{read\_num}}
+\index{read\_num@{read\_num}!input.cpp@{input.cpp}}
+\doxysubsubsection{\texorpdfstring{read\_num()}{read\_num()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{input_8h_aef35fc440c8029ffabbdc082f7c0a891}{Input\+Status}} read\+\_\+num (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{x,  }\item[{FILE \texorpdfstring{$\ast$}{*}}]{stream = {\ttfamily stdin},  }\item[{bool}]{flush = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Reads int from input to pointer. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em x} & \\
+\hline
+\mbox{\texttt{ in}}  & {\em stream} & \\
+\hline
+\mbox{\texttt{ in}}  & {\em flush} & enables \doxylink{input_8h_a6e77a53adc07c0ed11c75fa3e1422be3}{input\+\_\+flush()} at the end \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int success 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{input_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{input_8cpp_source}{input.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00018\ \ \ \ \ assert(x);}
+\DoxyCodeLine{00019\ \ \ \ \ assert(stream);}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ res\ =\ fscanf(stream,\ \textcolor{stringliteral}{"{}\%d"{}},\ x);}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordflow}{if}\ (res\ ==\ EOF)}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{input_8h_aef35fc440c8029ffabbdc082f7c0a891a581953f6b20ad7f993b64b1dc632032e}{InputStatus::END\_OF\_FILE}};}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (res\ ==\ 1\ \&\&\ (!flush\ ||\ \mbox{\hyperlink{input_8cpp_a14c079b8b3cf9b7d954c006cdedf2735}{input\_flush}}(stream)))\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{input_8h_aef35fc440c8029ffabbdc082f7c0a891ae0aa021e21dddbd6d8cecec71e9cf564}{InputStatus::OK}};}
+\DoxyCodeLine{00026\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{input_8h_aef35fc440c8029ffabbdc082f7c0a891a3ce48bd9ee0e102c023533c6d283aaff}{InputStatus::WRONG\_DATA}};}
+\DoxyCodeLine{00028\ \ \ \ \ \}}
+\DoxyCodeLine{00029\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{input_8h_aef35fc440c8029ffabbdc082f7c0a891a581953f6b20ad7f993b64b1dc632032e}{END\+\_\+\+OF\+\_\+\+FILE}}, \mbox{\hyperlink{input_8cpp_source_l00031}{input\+\_\+flush()}}, \mbox{\hyperlink{input_8h_aef35fc440c8029ffabbdc082f7c0a891ae0aa021e21dddbd6d8cecec71e9cf564}{OK}}, and \mbox{\hyperlink{input_8h_aef35fc440c8029ffabbdc082f7c0a891a3ce48bd9ee0e102c023533c6d283aaff}{WRONG\+\_\+\+DATA}}.
+
