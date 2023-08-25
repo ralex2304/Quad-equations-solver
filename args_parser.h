@@ -69,10 +69,10 @@ ArgsMode read_test_filename(const Argument args_dict[], const int args_dict_len,
  *
  * @param[in] argc
  * @param[in] argv
- * @param[out] filename for test mode
+ * @param[out] args_test
  * @return Status::Statuses
  */
-Status::Statuses args_parse(int argc, char* argv[], ArgsTest* test);
+Status::Statuses args_parse(int argc, char* argv[], ArgsTest* args_test);
 
 /**
  * @brief Enables test mode args in args_dict

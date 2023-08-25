@@ -9,6 +9,7 @@
  */
 static InputStatus enter_coeff(const char c, double* x);
 
+
 Status::Statuses solver_proccess() {
     EqSolverData data = {};
     EqSolverData_init(&data);

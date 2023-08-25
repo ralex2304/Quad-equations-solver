@@ -210,32 +210,32 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Statuses </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="quad__solver_8cpp_source.html#l00148">148</a> of file <a class="el" href="quad__solver_8cpp_source.html">quad_solver.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  148</span>                                                  {</div>
-<div class="line"><span class="lineno">  149</span>    <span class="keywordflow">switch</span> (status) {</div>
-<div class="line"><span class="lineno">  150</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="struct_status.html#ab31bb94cc29a302cab703638615b604ca7f9c6609a744cdaac1a9e27306d8f8b0">NORMAL_WORK</a>:</div>
-<div class="line"><span class="lineno">  151</span>            assert(0 &amp;&amp; <span class="stringliteral">&quot;Status::raise(): NORMAL_WORK mustn&#39;t be raised&quot;</span>);</div>
-<div class="line"><span class="lineno">  152</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  153</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="struct_status.html#ab31bb94cc29a302cab703638615b604ca481f326f37ebd974f7ffa9196da04a9a">ARGS</a>:</div>
-<div class="line"><span class="lineno">  154</span>            printf(<span class="stringliteral">&quot;Exiting. Args error\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  155</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  156</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="struct_status.html#ab31bb94cc29a302cab703638615b604caf324ca3638c77f98a84e69b3cecf1c77">COEFFS_INPUT</a>:</div>
-<div class="line"><span class="lineno">  157</span>            printf(<span class="stringliteral">&quot;Exiting. Coefficients input error&quot;</span>);</div>
-<div class="line"><span class="lineno">  158</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  159</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="struct_status.html#ab31bb94cc29a302cab703638615b604ca30c0c71beaf203b0a3d8e76451b92174">TEST_INPUT</a>:</div>
-<div class="line"><span class="lineno">  160</span>            printf(<span class="stringliteral">&quot;Exiting. Test file input error&quot;</span>);</div>
-<div class="line"><span class="lineno">  161</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  162</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="struct_status.html#ab31bb94cc29a302cab703638615b604ca2a46c26417945d83f0757a8668ce582a">END_OF_FILE</a>:</div>
-<div class="line"><span class="lineno">  163</span>            printf(<span class="stringliteral">&quot;Exiting. End of file reached&quot;</span>);</div>
-<div class="line"><span class="lineno">  164</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="struct_status.html#ab31bb94cc29a302cab703638615b604cabd71500b14c23ba35ba380809d51f33a">OK_EXIT</a>:</div>
-<div class="line"><span class="lineno">  165</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="struct_status.html#ab31bb94cc29a302cab703638615b604ca8f997129dcd342bd9c93377de25f68bd">NO_ERROR</a>:</div>
-<div class="line"><span class="lineno">  166</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  167</span>        <span class="keywordflow">default</span>:</div>
-<div class="line"><span class="lineno">  168</span>            assert(0 &amp;&amp; <span class="stringliteral">&quot;Error::raise(): wrong error&quot;</span>);</div>
-<div class="line"><span class="lineno">  169</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  170</span>    };</div>
-<div class="line"><span class="lineno">  171</span>    <span class="keywordflow">return</span> status;</div>
-<div class="line"><span class="lineno">  172</span>}</div>
+<p class="definition">Definition at line <a class="el" href="quad__solver_8cpp_source.html#l00149">149</a> of file <a class="el" href="quad__solver_8cpp_source.html">quad_solver.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  149</span>                                                  {</div>
+<div class="line"><span class="lineno">  150</span>    <span class="keywordflow">switch</span> (status) {</div>
+<div class="line"><span class="lineno">  151</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="struct_status.html#ab31bb94cc29a302cab703638615b604ca7f9c6609a744cdaac1a9e27306d8f8b0">NORMAL_WORK</a>:</div>
+<div class="line"><span class="lineno">  152</span>            assert(0 &amp;&amp; <span class="stringliteral">&quot;Status::raise(): NORMAL_WORK mustn&#39;t be raised&quot;</span>);</div>
+<div class="line"><span class="lineno">  153</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  154</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="struct_status.html#ab31bb94cc29a302cab703638615b604ca481f326f37ebd974f7ffa9196da04a9a">ARGS</a>:</div>
+<div class="line"><span class="lineno">  155</span>            printf(<span class="stringliteral">&quot;Exiting. Args error\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  156</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  157</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="struct_status.html#ab31bb94cc29a302cab703638615b604caf324ca3638c77f98a84e69b3cecf1c77">COEFFS_INPUT</a>:</div>
+<div class="line"><span class="lineno">  158</span>            printf(<span class="stringliteral">&quot;Exiting. Coefficients input error&quot;</span>);</div>
+<div class="line"><span class="lineno">  159</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  160</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="struct_status.html#ab31bb94cc29a302cab703638615b604ca30c0c71beaf203b0a3d8e76451b92174">TEST_INPUT</a>:</div>
+<div class="line"><span class="lineno">  161</span>            printf(<span class="stringliteral">&quot;Exiting. Test file input error&quot;</span>);</div>
+<div class="line"><span class="lineno">  162</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  163</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="struct_status.html#ab31bb94cc29a302cab703638615b604ca2a46c26417945d83f0757a8668ce582a">END_OF_FILE</a>:</div>
+<div class="line"><span class="lineno">  164</span>            printf(<span class="stringliteral">&quot;Exiting. End of file reached&quot;</span>);</div>
+<div class="line"><span class="lineno">  165</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="struct_status.html#ab31bb94cc29a302cab703638615b604cabd71500b14c23ba35ba380809d51f33a">OK_EXIT</a>:</div>
+<div class="line"><span class="lineno">  166</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="struct_status.html#ab31bb94cc29a302cab703638615b604ca8f997129dcd342bd9c93377de25f68bd">NO_ERROR</a>:</div>
+<div class="line"><span class="lineno">  167</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  168</span>        <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">  169</span>            assert(0 &amp;&amp; <span class="stringliteral">&quot;Error::raise(): wrong error&quot;</span>);</div>
+<div class="line"><span class="lineno">  170</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  171</span>    };</div>
+<div class="line"><span class="lineno">  172</span>    <span class="keywordflow">return</span> status;</div>
+<div class="line"><span class="lineno">  173</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="quad__solver_8h_source.html#l00019">ARGS</a>, <a class="el" href="quad__solver_8h_source.html#l00020">COEFFS_INPUT</a>, <a class="el" href="quad__solver_8h_source.html#l00022">END_OF_FILE</a>, <a class="el" href="quad__solver_8h_source.html#l00016">NO_ERROR</a>, <a class="el" href="quad__solver_8h_source.html#l00017">NORMAL_WORK</a>, <a class="el" href="quad__solver_8h_source.html#l00018">OK_EXIT</a>, and <a class="el" href="quad__solver_8h_source.html#l00021">TEST_INPUT</a>.</p>
 

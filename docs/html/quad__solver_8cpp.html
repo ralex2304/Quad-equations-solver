@@ -142,17 +142,17 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>InputStatus </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="quad__solver_8cpp_source.html#l00061">61</a> of file <a class="el" href="quad__solver_8cpp_source.html">quad_solver.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   61</span>                                             {</div>
-<div class="line"><span class="lineno">   62</span>    assert(data);</div>
-<div class="line"><span class="lineno">   63</span> </div>
-<div class="line"><span class="lineno">   64</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_variable" href="struct_eq_solver_data.html#a088c567e4699d9a5bc1e63610728ed9e">EqSolverData::COEFF_NUM</a>; i++) {</div>
-<div class="line"><span class="lineno">   65</span>        <a class="code hl_enumeration" href="input_8h.html#aef35fc440c8029ffabbdc082f7c0a891">InputStatus</a> res = enter_coeff(<span class="charliteral">&#39;a&#39;</span> + (<span class="keywordtype">char</span>)i, data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#a38021481c2a3c7e8d2469bd6140fc7e3">coeffs</a> + i);</div>
-<div class="line"><span class="lineno">   66</span>        <span class="keywordflow">if</span> (res != <a class="code hl_enumvalue" href="input_8h.html#aef35fc440c8029ffabbdc082f7c0a891ae0aa021e21dddbd6d8cecec71e9cf564">InputStatus::OK</a>)</div>
-<div class="line"><span class="lineno">   67</span>            <span class="keywordflow">return</span> res;</div>
-<div class="line"><span class="lineno">   68</span>    }</div>
-<div class="line"><span class="lineno">   69</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="input_8h.html#aef35fc440c8029ffabbdc082f7c0a891ae0aa021e21dddbd6d8cecec71e9cf564">InputStatus::OK</a>;</div>
-<div class="line"><span class="lineno">   70</span>}</div>
+<p class="definition">Definition at line <a class="el" href="quad__solver_8cpp_source.html#l00062">62</a> of file <a class="el" href="quad__solver_8cpp_source.html">quad_solver.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   62</span>                                             {</div>
+<div class="line"><span class="lineno">   63</span>    assert(data);</div>
+<div class="line"><span class="lineno">   64</span> </div>
+<div class="line"><span class="lineno">   65</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_variable" href="struct_eq_solver_data.html#a088c567e4699d9a5bc1e63610728ed9e">EqSolverData::COEFF_NUM</a>; i++) {</div>
+<div class="line"><span class="lineno">   66</span>        <a class="code hl_enumeration" href="input_8h.html#aef35fc440c8029ffabbdc082f7c0a891">InputStatus</a> res = enter_coeff(<span class="charliteral">&#39;a&#39;</span> + (<span class="keywordtype">char</span>)i, data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#a38021481c2a3c7e8d2469bd6140fc7e3">coeffs</a> + i);</div>
+<div class="line"><span class="lineno">   67</span>        <span class="keywordflow">if</span> (res != <a class="code hl_enumvalue" href="input_8h.html#aef35fc440c8029ffabbdc082f7c0a891ae0aa021e21dddbd6d8cecec71e9cf564">InputStatus::OK</a>)</div>
+<div class="line"><span class="lineno">   68</span>            <span class="keywordflow">return</span> res;</div>
+<div class="line"><span class="lineno">   69</span>    }</div>
+<div class="line"><span class="lineno">   70</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="input_8h.html#aef35fc440c8029ffabbdc082f7c0a891ae0aa021e21dddbd6d8cecec71e9cf564">InputStatus::OK</a>;</div>
+<div class="line"><span class="lineno">   71</span>}</div>
 <div class="ttc" id="ainput_8h_html_aef35fc440c8029ffabbdc082f7c0a891"><div class="ttname"><a href="input_8h.html#aef35fc440c8029ffabbdc082f7c0a891">InputStatus</a></div><div class="ttdeci">InputStatus</div><div class="ttdoc">Specifies input errors.</div><div class="ttdef"><b>Definition</b> <a href="input_8h_source.html#l00012">input.h:12</a></div></div>
 <div class="ttc" id="ainput_8h_html_aef35fc440c8029ffabbdc082f7c0a891ae0aa021e21dddbd6d8cecec71e9cf564"><div class="ttname"><a href="input_8h.html#aef35fc440c8029ffabbdc082f7c0a891ae0aa021e21dddbd6d8cecec71e9cf564">InputStatus::OK</a></div><div class="ttdeci">@ OK</div><div class="ttdoc">OK.</div></div>
 <div class="ttc" id="astruct_eq_solver_data_html_a088c567e4699d9a5bc1e63610728ed9e"><div class="ttname"><a href="struct_eq_solver_data.html#a088c567e4699d9a5bc1e63610728ed9e">EqSolverData::COEFF_NUM</a></div><div class="ttdeci">static const int COEFF_NUM</div><div class="ttdoc">Number of equation coefficients.</div><div class="ttdef"><b>Definition</b> <a href="quad__solver_8h_source.html#l00049">quad_solver.h:49</a></div></div>
@@ -160,7 +160,7 @@ Functions</h2></td></tr>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="quad__solver_8h_source.html#l00049">EqSolverData::COEFF_NUM</a>, <a class="el" href="quad__solver_8h_source.html#l00051">EqSolverData::coeffs</a>, and <a class="el" href="input_8h.html#aef35fc440c8029ffabbdc082f7c0a891ae0aa021e21dddbd6d8cecec71e9cf564">OK</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="quad__solver_8cpp_source.html#l00012">solver_proccess()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="quad__solver_8cpp_source.html#l00013">solver_proccess()</a>.</p>
 
 </div>
 </div>
@@ -188,31 +188,31 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="quad__solver_8cpp_source.html#l00123">123</a> of file <a class="el" href="quad__solver_8cpp_source.html">quad_solver.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  123</span>                                          {</div>
-<div class="line"><span class="lineno">  124</span>    assert(data);</div>
-<div class="line"><span class="lineno">  125</span> </div>
-<div class="line"><span class="lineno">  126</span>    <span class="keywordflow">switch</span> (data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#ad5266aea4617131bfbbf70ecba10e30c">roots_num</a>) {</div>
-<div class="line"><span class="lineno">  127</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="quad__solver_8h.html#a8fb10b5c28258c04db1cbd258f6048b0a7ba2733ae0b3f049b4fcd4afedd9b980">NO_SOLUTIONS</a>:</div>
-<div class="line"><span class="lineno">  128</span>            printf(<span class="stringliteral">&quot;No solutions\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  129</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  130</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="quad__solver_8h.html#a8fb10b5c28258c04db1cbd258f6048b0a0451cd6d5aa789cdc383e452dd2c0bd7">ONE_SOLUTION</a>:</div>
-<div class="line"><span class="lineno">  131</span>            assert(isfinite(data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#ac163e2c541b81208f906dae978b1bb66">roots</a>[0]));</div>
-<div class="line"><span class="lineno">  132</span>            printf(<span class="stringliteral">&quot;1 solution:\nx = %lf\n&quot;</span>, data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#ac163e2c541b81208f906dae978b1bb66">roots</a>[0]);</div>
-<div class="line"><span class="lineno">  133</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  134</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="quad__solver_8h.html#a8fb10b5c28258c04db1cbd258f6048b0a7b4b3bca57d544a80aaed928315a1c75">TWO_SOLUTIONS</a>:</div>
-<div class="line"><span class="lineno">  135</span>            assert(isfinite(data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#ac163e2c541b81208f906dae978b1bb66">roots</a>[0]) &amp;&amp; isfinite(data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#ac163e2c541b81208f906dae978b1bb66">roots</a>[1]));</div>
-<div class="line"><span class="lineno">  136</span>            printf(<span class="stringliteral">&quot;2 solutions:\nx1 = %lf\nx2 = %lf\n&quot;</span>, data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#ac163e2c541b81208f906dae978b1bb66">roots</a>[0], data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#ac163e2c541b81208f906dae978b1bb66">roots</a>[1]);</div>
-<div class="line"><span class="lineno">  137</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  138</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="quad__solver_8h.html#a8fb10b5c28258c04db1cbd258f6048b0a4a35ce5439852531bcfa0a73b967840e">INFINITE_SOLUTIONS</a>:</div>
-<div class="line"><span class="lineno">  139</span>            printf(<span class="stringliteral">&quot;Infinite number of solutions:\nx belongs to the set (-inf; +inf)\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  140</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  141</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="quad__solver_8h.html#a8fb10b5c28258c04db1cbd258f6048b0a50ce7bc5afe6cb6fb6376805fa705f6c">NAN_SOLUTIONS</a>:</div>
-<div class="line"><span class="lineno">  142</span>        <span class="keywordflow">default</span>:</div>
-<div class="line"><span class="lineno">  143</span>            assert(0 &amp;&amp; <span class="stringliteral">&quot;Incorrect solutions number&quot;</span>);</div>
-<div class="line"><span class="lineno">  144</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  145</span>    }</div>
-<div class="line"><span class="lineno">  146</span>}</div>
+<p class="definition">Definition at line <a class="el" href="quad__solver_8cpp_source.html#l00124">124</a> of file <a class="el" href="quad__solver_8cpp_source.html">quad_solver.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  124</span>                                          {</div>
+<div class="line"><span class="lineno">  125</span>    assert(data);</div>
+<div class="line"><span class="lineno">  126</span> </div>
+<div class="line"><span class="lineno">  127</span>    <span class="keywordflow">switch</span> (data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#ad5266aea4617131bfbbf70ecba10e30c">roots_num</a>) {</div>
+<div class="line"><span class="lineno">  128</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="quad__solver_8h.html#a8fb10b5c28258c04db1cbd258f6048b0a7ba2733ae0b3f049b4fcd4afedd9b980">NO_SOLUTIONS</a>:</div>
+<div class="line"><span class="lineno">  129</span>            printf(<span class="stringliteral">&quot;No solutions\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  130</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  131</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="quad__solver_8h.html#a8fb10b5c28258c04db1cbd258f6048b0a0451cd6d5aa789cdc383e452dd2c0bd7">ONE_SOLUTION</a>:</div>
+<div class="line"><span class="lineno">  132</span>            assert(isfinite(data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#ac163e2c541b81208f906dae978b1bb66">roots</a>[0]));</div>
+<div class="line"><span class="lineno">  133</span>            printf(<span class="stringliteral">&quot;1 solution:\nx = %lf\n&quot;</span>, data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#ac163e2c541b81208f906dae978b1bb66">roots</a>[0]);</div>
+<div class="line"><span class="lineno">  134</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  135</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="quad__solver_8h.html#a8fb10b5c28258c04db1cbd258f6048b0a7b4b3bca57d544a80aaed928315a1c75">TWO_SOLUTIONS</a>:</div>
+<div class="line"><span class="lineno">  136</span>            assert(isfinite(data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#ac163e2c541b81208f906dae978b1bb66">roots</a>[0]) &amp;&amp; isfinite(data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#ac163e2c541b81208f906dae978b1bb66">roots</a>[1]));</div>
+<div class="line"><span class="lineno">  137</span>            printf(<span class="stringliteral">&quot;2 solutions:\nx1 = %lf\nx2 = %lf\n&quot;</span>, data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#ac163e2c541b81208f906dae978b1bb66">roots</a>[0], data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#ac163e2c541b81208f906dae978b1bb66">roots</a>[1]);</div>
+<div class="line"><span class="lineno">  138</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  139</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="quad__solver_8h.html#a8fb10b5c28258c04db1cbd258f6048b0a4a35ce5439852531bcfa0a73b967840e">INFINITE_SOLUTIONS</a>:</div>
+<div class="line"><span class="lineno">  140</span>            printf(<span class="stringliteral">&quot;Infinite number of solutions:\nx belongs to the set (-inf; +inf)\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  141</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  142</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="quad__solver_8h.html#a8fb10b5c28258c04db1cbd258f6048b0a50ce7bc5afe6cb6fb6376805fa705f6c">NAN_SOLUTIONS</a>:</div>
+<div class="line"><span class="lineno">  143</span>        <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">  144</span>            assert(0 &amp;&amp; <span class="stringliteral">&quot;Incorrect solutions number&quot;</span>);</div>
+<div class="line"><span class="lineno">  145</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  146</span>    }</div>
+<div class="line"><span class="lineno">  147</span>}</div>
 <div class="ttc" id="aquad__solver_8h_html_a8fb10b5c28258c04db1cbd258f6048b0a0451cd6d5aa789cdc383e452dd2c0bd7"><div class="ttname"><a href="quad__solver_8h.html#a8fb10b5c28258c04db1cbd258f6048b0a0451cd6d5aa789cdc383e452dd2c0bd7">ONE_SOLUTION</a></div><div class="ttdeci">@ ONE_SOLUTION</div><div class="ttdoc">1 solutions</div><div class="ttdef"><b>Definition</b> <a href="quad__solver_8h_source.html#l00041">quad_solver.h:41</a></div></div>
 <div class="ttc" id="aquad__solver_8h_html_a8fb10b5c28258c04db1cbd258f6048b0a4a35ce5439852531bcfa0a73b967840e"><div class="ttname"><a href="quad__solver_8h.html#a8fb10b5c28258c04db1cbd258f6048b0a4a35ce5439852531bcfa0a73b967840e">INFINITE_SOLUTIONS</a></div><div class="ttdeci">@ INFINITE_SOLUTIONS</div><div class="ttdoc">Infinite number of solutions.</div><div class="ttdef"><b>Definition</b> <a href="quad__solver_8h_source.html#l00039">quad_solver.h:39</a></div></div>
 <div class="ttc" id="aquad__solver_8h_html_a8fb10b5c28258c04db1cbd258f6048b0a50ce7bc5afe6cb6fb6376805fa705f6c"><div class="ttname"><a href="quad__solver_8h.html#a8fb10b5c28258c04db1cbd258f6048b0a50ce7bc5afe6cb6fb6376805fa705f6c">NAN_SOLUTIONS</a></div><div class="ttdeci">@ NAN_SOLUTIONS</div><div class="ttdoc">Poison value.</div><div class="ttdef"><b>Definition</b> <a href="quad__solver_8h_source.html#l00038">quad_solver.h:38</a></div></div>
@@ -223,7 +223,7 @@ Functions</h2></td></tr>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="quad__solver_8h_source.html#l00039">INFINITE_SOLUTIONS</a>, <a class="el" href="quad__solver_8h_source.html#l00038">NAN_SOLUTIONS</a>, <a class="el" href="quad__solver_8h_source.html#l00040">NO_SOLUTIONS</a>, <a class="el" href="quad__solver_8h_source.html#l00041">ONE_SOLUTION</a>, <a class="el" href="quad__solver_8h_source.html#l00052">EqSolverData::roots</a>, <a class="el" href="quad__solver_8h_source.html#l00053">EqSolverData::roots_num</a>, and <a class="el" href="quad__solver_8h_source.html#l00042">TWO_SOLUTIONS</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="quad__solver_8cpp_source.html#l00012">solver_proccess()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="quad__solver_8cpp_source.html#l00013">solver_proccess()</a>.</p>
 
 </div>
 </div>
@@ -251,28 +251,28 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="quad__solver_8cpp_source.html#l00107">107</a> of file <a class="el" href="quad__solver_8cpp_source.html">quad_solver.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  107</span>                                   {</div>
-<div class="line"><span class="lineno">  108</span>    assert(data);</div>
-<div class="line"><span class="lineno">  109</span>    assert(<a class="code hl_variable" href="struct_eq_solver_data.html#a088c567e4699d9a5bc1e63610728ed9e">EqSolverData::COEFF_NUM</a> &gt;= 2);</div>
-<div class="line"><span class="lineno">  110</span> </div>
-<div class="line"><span class="lineno">  111</span>    <span class="keywordtype">double</span> a = data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#a38021481c2a3c7e8d2469bd6140fc7e3">coeffs</a>[<a class="code hl_variable" href="struct_eq_solver_data.html#a088c567e4699d9a5bc1e63610728ed9e">EqSolverData::COEFF_NUM</a> - 2];</div>
-<div class="line"><span class="lineno">  112</span>    <span class="keywordtype">double</span> b = data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#a38021481c2a3c7e8d2469bd6140fc7e3">coeffs</a>[<a class="code hl_variable" href="struct_eq_solver_data.html#a088c567e4699d9a5bc1e63610728ed9e">EqSolverData::COEFF_NUM</a> - 1];</div>
-<div class="line"><span class="lineno">  113</span> </div>
-<div class="line"><span class="lineno">  114</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="quad__solver_8h.html#ad87362093e8560478a496a6ed4a06ef0">is_double_equal</a>(a, 0)) {</div>
-<div class="line"><span class="lineno">  115</span>        data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#ad5266aea4617131bfbbf70ecba10e30c">roots_num</a> = <a class="code hl_function" href="quad__solver_8h.html#ad87362093e8560478a496a6ed4a06ef0">is_double_equal</a>(b, 0) ? <a class="code hl_enumvalue" href="quad__solver_8h.html#a8fb10b5c28258c04db1cbd258f6048b0a4a35ce5439852531bcfa0a73b967840e">INFINITE_SOLUTIONS</a> : <a class="code hl_enumvalue" href="quad__solver_8h.html#a8fb10b5c28258c04db1cbd258f6048b0a7ba2733ae0b3f049b4fcd4afedd9b980">NO_SOLUTIONS</a>;</div>
-<div class="line"><span class="lineno">  116</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  117</span>    }</div>
-<div class="line"><span class="lineno">  118</span> </div>
-<div class="line"><span class="lineno">  119</span>    data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#ac163e2c541b81208f906dae978b1bb66">roots</a>[0] = <a class="code hl_function" href="quad__solver_8h.html#ae7eab71653e0eafed76e60501737c2a3">valid_root</a>(b / -a);</div>
-<div class="line"><span class="lineno">  120</span>    data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#ad5266aea4617131bfbbf70ecba10e30c">roots_num</a> = <a class="code hl_enumvalue" href="quad__solver_8h.html#a8fb10b5c28258c04db1cbd258f6048b0a0451cd6d5aa789cdc383e452dd2c0bd7">ONE_SOLUTION</a>;</div>
-<div class="line"><span class="lineno">  121</span>}</div>
+<p class="definition">Definition at line <a class="el" href="quad__solver_8cpp_source.html#l00108">108</a> of file <a class="el" href="quad__solver_8cpp_source.html">quad_solver.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  108</span>                                   {</div>
+<div class="line"><span class="lineno">  109</span>    assert(data);</div>
+<div class="line"><span class="lineno">  110</span>    assert(<a class="code hl_variable" href="struct_eq_solver_data.html#a088c567e4699d9a5bc1e63610728ed9e">EqSolverData::COEFF_NUM</a> &gt;= 2);</div>
+<div class="line"><span class="lineno">  111</span> </div>
+<div class="line"><span class="lineno">  112</span>    <span class="keywordtype">double</span> a = data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#a38021481c2a3c7e8d2469bd6140fc7e3">coeffs</a>[<a class="code hl_variable" href="struct_eq_solver_data.html#a088c567e4699d9a5bc1e63610728ed9e">EqSolverData::COEFF_NUM</a> - 2];</div>
+<div class="line"><span class="lineno">  113</span>    <span class="keywordtype">double</span> b = data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#a38021481c2a3c7e8d2469bd6140fc7e3">coeffs</a>[<a class="code hl_variable" href="struct_eq_solver_data.html#a088c567e4699d9a5bc1e63610728ed9e">EqSolverData::COEFF_NUM</a> - 1];</div>
+<div class="line"><span class="lineno">  114</span> </div>
+<div class="line"><span class="lineno">  115</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="quad__solver_8h.html#ad87362093e8560478a496a6ed4a06ef0">is_double_equal</a>(a, 0)) {</div>
+<div class="line"><span class="lineno">  116</span>        data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#ad5266aea4617131bfbbf70ecba10e30c">roots_num</a> = <a class="code hl_function" href="quad__solver_8h.html#ad87362093e8560478a496a6ed4a06ef0">is_double_equal</a>(b, 0) ? <a class="code hl_enumvalue" href="quad__solver_8h.html#a8fb10b5c28258c04db1cbd258f6048b0a4a35ce5439852531bcfa0a73b967840e">INFINITE_SOLUTIONS</a> : <a class="code hl_enumvalue" href="quad__solver_8h.html#a8fb10b5c28258c04db1cbd258f6048b0a7ba2733ae0b3f049b4fcd4afedd9b980">NO_SOLUTIONS</a>;</div>
+<div class="line"><span class="lineno">  117</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  118</span>    }</div>
+<div class="line"><span class="lineno">  119</span> </div>
+<div class="line"><span class="lineno">  120</span>    data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#ac163e2c541b81208f906dae978b1bb66">roots</a>[0] = <a class="code hl_function" href="quad__solver_8h.html#ae7eab71653e0eafed76e60501737c2a3">valid_root</a>(b / -a);</div>
+<div class="line"><span class="lineno">  121</span>    data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#ad5266aea4617131bfbbf70ecba10e30c">roots_num</a> = <a class="code hl_enumvalue" href="quad__solver_8h.html#a8fb10b5c28258c04db1cbd258f6048b0a0451cd6d5aa789cdc383e452dd2c0bd7">ONE_SOLUTION</a>;</div>
+<div class="line"><span class="lineno">  122</span>}</div>
 <div class="ttc" id="aquad__solver_8h_html_ad87362093e8560478a496a6ed4a06ef0"><div class="ttname"><a href="quad__solver_8h.html#ad87362093e8560478a496a6ed4a06ef0">is_double_equal</a></div><div class="ttdeci">bool is_double_equal(const double a, const double b)</div><div class="ttdoc">Tells if two doubles are equal with precision of DOUBLE_COMPARE_PRECISION.</div><div class="ttdef"><b>Definition</b> <a href="quad__solver_8h_source.html#l00112">quad_solver.h:112</a></div></div>
 <div class="ttc" id="aquad__solver_8h_html_ae7eab71653e0eafed76e60501737c2a3"><div class="ttname"><a href="quad__solver_8h.html#ae7eab71653e0eafed76e60501737c2a3">valid_root</a></div><div class="ttdeci">double valid_root(double root)</div><div class="ttdoc">Returns valid root (check for -0.0)</div><div class="ttdef"><b>Definition</b> <a href="quad__solver_8h_source.html#l00125">quad_solver.h:125</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="quad__solver_8h_source.html#l00049">EqSolverData::COEFF_NUM</a>, <a class="el" href="quad__solver_8h_source.html#l00051">EqSolverData::coeffs</a>, <a class="el" href="quad__solver_8h_source.html#l00039">INFINITE_SOLUTIONS</a>, <a class="el" href="quad__solver_8h_source.html#l00112">is_double_equal()</a>, <a class="el" href="quad__solver_8h_source.html#l00040">NO_SOLUTIONS</a>, <a class="el" href="quad__solver_8h_source.html#l00041">ONE_SOLUTION</a>, <a class="el" href="quad__solver_8h_source.html#l00052">EqSolverData::roots</a>, <a class="el" href="quad__solver_8h_source.html#l00053">EqSolverData::roots_num</a>, and <a class="el" href="quad__solver_8h_source.html#l00125">valid_root()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="quad__solver_8cpp_source.html#l00072">solve_quad()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="quad__solver_8cpp_source.html#l00073">solve_quad()</a>.</p>
 
 </div>
 </div>
@@ -300,47 +300,47 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="quad__solver_8cpp_source.html#l00072">72</a> of file <a class="el" href="quad__solver_8cpp_source.html">quad_solver.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   72</span>                                   {</div>
-<div class="line"><span class="lineno">   73</span>    assert(data);</div>
-<div class="line"><span class="lineno">   74</span>    assert(<a class="code hl_variable" href="struct_eq_solver_data.html#a088c567e4699d9a5bc1e63610728ed9e">EqSolverData::COEFF_NUM</a> &gt;= 3);</div>
-<div class="line"><span class="lineno">   75</span> </div>
-<div class="line"><span class="lineno">   76</span>    <span class="keywordtype">double</span> a = data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#a38021481c2a3c7e8d2469bd6140fc7e3">coeffs</a>[<a class="code hl_variable" href="struct_eq_solver_data.html#a088c567e4699d9a5bc1e63610728ed9e">EqSolverData::COEFF_NUM</a> - 3];</div>
-<div class="line"><span class="lineno">   77</span>    <span class="keywordtype">double</span> b = data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#a38021481c2a3c7e8d2469bd6140fc7e3">coeffs</a>[<a class="code hl_variable" href="struct_eq_solver_data.html#a088c567e4699d9a5bc1e63610728ed9e">EqSolverData::COEFF_NUM</a> - 2];</div>
-<div class="line"><span class="lineno">   78</span>    <span class="keywordtype">double</span> c = data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#a38021481c2a3c7e8d2469bd6140fc7e3">coeffs</a>[<a class="code hl_variable" href="struct_eq_solver_data.html#a088c567e4699d9a5bc1e63610728ed9e">EqSolverData::COEFF_NUM</a> - 1];</div>
-<div class="line"><span class="lineno">   79</span> </div>
-<div class="line"><span class="lineno">   80</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="quad__solver_8h.html#ad87362093e8560478a496a6ed4a06ef0">is_double_equal</a>(a, 0)) {        <span class="comment">// check if equation is quad (zero division check)</span></div>
-<div class="line"><span class="lineno">   81</span>        <a class="code hl_function" href="quad__solver_8cpp.html#af543e6dd13045ffc14bff95e2091d89d">solve_lin</a>(data);</div>
-<div class="line"><span class="lineno">   82</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">   83</span>    }</div>
-<div class="line"><span class="lineno">   84</span> </div>
-<div class="line"><span class="lineno">   85</span>    <span class="keywordtype">double</span> D = b*b - 4*a*c;             <span class="comment">// discriminant</span></div>
-<div class="line"><span class="lineno">   86</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="quad__solver_8h.html#ad87362093e8560478a496a6ed4a06ef0">is_double_equal</a>(D, 0)) {        <span class="comment">// check if there are solutions</span></div>
-<div class="line"><span class="lineno">   87</span>        data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#ac163e2c541b81208f906dae978b1bb66">roots</a>[0] = <a class="code hl_function" href="quad__solver_8h.html#ae7eab71653e0eafed76e60501737c2a3">valid_root</a>((-b) / (2*a));</div>
-<div class="line"><span class="lineno">   88</span>        data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#ad5266aea4617131bfbbf70ecba10e30c">roots_num</a> = <a class="code hl_enumvalue" href="quad__solver_8h.html#a8fb10b5c28258c04db1cbd258f6048b0a0451cd6d5aa789cdc383e452dd2c0bd7">ONE_SOLUTION</a>;</div>
-<div class="line"><span class="lineno">   89</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (D &lt; 0) {</div>
-<div class="line"><span class="lineno">   90</span>        data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#ad5266aea4617131bfbbf70ecba10e30c">roots_num</a> = <a class="code hl_enumvalue" href="quad__solver_8h.html#a8fb10b5c28258c04db1cbd258f6048b0a7ba2733ae0b3f049b4fcd4afedd9b980">NO_SOLUTIONS</a>;</div>
-<div class="line"><span class="lineno">   91</span>    } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">   92</span>        <span class="keywordtype">double</span> D_sqrt = NAN;</div>
-<div class="line"><span class="lineno">   93</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="quad__solver_8h.html#ad87362093e8560478a496a6ed4a06ef0">is_double_equal</a>(c, 0))</div>
-<div class="line"><span class="lineno">   94</span>            D_sqrt = b;</div>
-<div class="line"><span class="lineno">   95</span>        <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">   96</span>            D_sqrt = sqrt(D);</div>
-<div class="line"><span class="lineno">   97</span>        assert(isfinite(D_sqrt));</div>
-<div class="line"><span class="lineno">   98</span> </div>
-<div class="line"><span class="lineno">   99</span>        <span class="keywordtype">double</span> double_a = a * 2;</div>
-<div class="line"><span class="lineno">  100</span>        data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#ac163e2c541b81208f906dae978b1bb66">roots</a>[0] = <a class="code hl_function" href="quad__solver_8h.html#ae7eab71653e0eafed76e60501737c2a3">valid_root</a>((-b - D_sqrt) / double_a);</div>
-<div class="line"><span class="lineno">  101</span>        data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#ac163e2c541b81208f906dae978b1bb66">roots</a>[1] = <a class="code hl_function" href="quad__solver_8h.html#ae7eab71653e0eafed76e60501737c2a3">valid_root</a>((-b + D_sqrt) / double_a);</div>
-<div class="line"><span class="lineno">  102</span>        data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#ad5266aea4617131bfbbf70ecba10e30c">roots_num</a> = <a class="code hl_enumvalue" href="quad__solver_8h.html#a8fb10b5c28258c04db1cbd258f6048b0a7b4b3bca57d544a80aaed928315a1c75">TWO_SOLUTIONS</a>;</div>
-<div class="line"><span class="lineno">  103</span>    }</div>
-<div class="line"><span class="lineno">  104</span>    <a class="code hl_function" href="quad__solver_8h.html#a0c4485f320334b39ba88c2ef0f51ad09">bubble_sort</a>(data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#ac163e2c541b81208f906dae978b1bb66">roots</a>, data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#ad5266aea4617131bfbbf70ecba10e30c">roots_num</a>);</div>
-<div class="line"><span class="lineno">  105</span>}</div>
-<div class="ttc" id="aquad__solver_8cpp_html_af543e6dd13045ffc14bff95e2091d89d"><div class="ttname"><a href="quad__solver_8cpp.html#af543e6dd13045ffc14bff95e2091d89d">solve_lin</a></div><div class="ttdeci">void solve_lin(EqSolverData *data)</div><div class="ttdoc">Solves linear equations.</div><div class="ttdef"><b>Definition</b> <a href="quad__solver_8cpp_source.html#l00107">quad_solver.cpp:107</a></div></div>
+<p class="definition">Definition at line <a class="el" href="quad__solver_8cpp_source.html#l00073">73</a> of file <a class="el" href="quad__solver_8cpp_source.html">quad_solver.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   73</span>                                   {</div>
+<div class="line"><span class="lineno">   74</span>    assert(data);</div>
+<div class="line"><span class="lineno">   75</span>    assert(<a class="code hl_variable" href="struct_eq_solver_data.html#a088c567e4699d9a5bc1e63610728ed9e">EqSolverData::COEFF_NUM</a> &gt;= 3);</div>
+<div class="line"><span class="lineno">   76</span> </div>
+<div class="line"><span class="lineno">   77</span>    <span class="keywordtype">double</span> a = data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#a38021481c2a3c7e8d2469bd6140fc7e3">coeffs</a>[<a class="code hl_variable" href="struct_eq_solver_data.html#a088c567e4699d9a5bc1e63610728ed9e">EqSolverData::COEFF_NUM</a> - 3];</div>
+<div class="line"><span class="lineno">   78</span>    <span class="keywordtype">double</span> b = data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#a38021481c2a3c7e8d2469bd6140fc7e3">coeffs</a>[<a class="code hl_variable" href="struct_eq_solver_data.html#a088c567e4699d9a5bc1e63610728ed9e">EqSolverData::COEFF_NUM</a> - 2];</div>
+<div class="line"><span class="lineno">   79</span>    <span class="keywordtype">double</span> c = data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#a38021481c2a3c7e8d2469bd6140fc7e3">coeffs</a>[<a class="code hl_variable" href="struct_eq_solver_data.html#a088c567e4699d9a5bc1e63610728ed9e">EqSolverData::COEFF_NUM</a> - 1];</div>
+<div class="line"><span class="lineno">   80</span> </div>
+<div class="line"><span class="lineno">   81</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="quad__solver_8h.html#ad87362093e8560478a496a6ed4a06ef0">is_double_equal</a>(a, 0)) {        <span class="comment">// check if equation is quad (zero division check)</span></div>
+<div class="line"><span class="lineno">   82</span>        <a class="code hl_function" href="quad__solver_8cpp.html#af543e6dd13045ffc14bff95e2091d89d">solve_lin</a>(data);</div>
+<div class="line"><span class="lineno">   83</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">   84</span>    }</div>
+<div class="line"><span class="lineno">   85</span> </div>
+<div class="line"><span class="lineno">   86</span>    <span class="keywordtype">double</span> D = b*b - 4*a*c;             <span class="comment">// discriminant</span></div>
+<div class="line"><span class="lineno">   87</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="quad__solver_8h.html#ad87362093e8560478a496a6ed4a06ef0">is_double_equal</a>(D, 0)) {        <span class="comment">// check if there are solutions</span></div>
+<div class="line"><span class="lineno">   88</span>        data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#ac163e2c541b81208f906dae978b1bb66">roots</a>[0] = <a class="code hl_function" href="quad__solver_8h.html#ae7eab71653e0eafed76e60501737c2a3">valid_root</a>((-b) / (2*a));</div>
+<div class="line"><span class="lineno">   89</span>        data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#ad5266aea4617131bfbbf70ecba10e30c">roots_num</a> = <a class="code hl_enumvalue" href="quad__solver_8h.html#a8fb10b5c28258c04db1cbd258f6048b0a0451cd6d5aa789cdc383e452dd2c0bd7">ONE_SOLUTION</a>;</div>
+<div class="line"><span class="lineno">   90</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (D &lt; 0) {</div>
+<div class="line"><span class="lineno">   91</span>        data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#ad5266aea4617131bfbbf70ecba10e30c">roots_num</a> = <a class="code hl_enumvalue" href="quad__solver_8h.html#a8fb10b5c28258c04db1cbd258f6048b0a7ba2733ae0b3f049b4fcd4afedd9b980">NO_SOLUTIONS</a>;</div>
+<div class="line"><span class="lineno">   92</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   93</span>        <span class="keywordtype">double</span> D_sqrt = NAN;</div>
+<div class="line"><span class="lineno">   94</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="quad__solver_8h.html#ad87362093e8560478a496a6ed4a06ef0">is_double_equal</a>(c, 0))</div>
+<div class="line"><span class="lineno">   95</span>            D_sqrt = b;</div>
+<div class="line"><span class="lineno">   96</span>        <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">   97</span>            D_sqrt = sqrt(D);</div>
+<div class="line"><span class="lineno">   98</span>        assert(isfinite(D_sqrt));</div>
+<div class="line"><span class="lineno">   99</span> </div>
+<div class="line"><span class="lineno">  100</span>        <span class="keywordtype">double</span> double_a = a * 2;</div>
+<div class="line"><span class="lineno">  101</span>        data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#ac163e2c541b81208f906dae978b1bb66">roots</a>[0] = <a class="code hl_function" href="quad__solver_8h.html#ae7eab71653e0eafed76e60501737c2a3">valid_root</a>((-b - D_sqrt) / double_a);</div>
+<div class="line"><span class="lineno">  102</span>        data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#ac163e2c541b81208f906dae978b1bb66">roots</a>[1] = <a class="code hl_function" href="quad__solver_8h.html#ae7eab71653e0eafed76e60501737c2a3">valid_root</a>((-b + D_sqrt) / double_a);</div>
+<div class="line"><span class="lineno">  103</span>        data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#ad5266aea4617131bfbbf70ecba10e30c">roots_num</a> = <a class="code hl_enumvalue" href="quad__solver_8h.html#a8fb10b5c28258c04db1cbd258f6048b0a7b4b3bca57d544a80aaed928315a1c75">TWO_SOLUTIONS</a>;</div>
+<div class="line"><span class="lineno">  104</span>    }</div>
+<div class="line"><span class="lineno">  105</span>    <a class="code hl_function" href="quad__solver_8h.html#a0c4485f320334b39ba88c2ef0f51ad09">bubble_sort</a>(data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#ac163e2c541b81208f906dae978b1bb66">roots</a>, data-&gt;<a class="code hl_variable" href="struct_eq_solver_data.html#ad5266aea4617131bfbbf70ecba10e30c">roots_num</a>);</div>
+<div class="line"><span class="lineno">  106</span>}</div>
+<div class="ttc" id="aquad__solver_8cpp_html_af543e6dd13045ffc14bff95e2091d89d"><div class="ttname"><a href="quad__solver_8cpp.html#af543e6dd13045ffc14bff95e2091d89d">solve_lin</a></div><div class="ttdeci">void solve_lin(EqSolverData *data)</div><div class="ttdoc">Solves linear equations.</div><div class="ttdef"><b>Definition</b> <a href="quad__solver_8cpp_source.html#l00108">quad_solver.cpp:108</a></div></div>
 <div class="ttc" id="aquad__solver_8h_html_a0c4485f320334b39ba88c2ef0f51ad09"><div class="ttname"><a href="quad__solver_8h.html#a0c4485f320334b39ba88c2ef0f51ad09">bubble_sort</a></div><div class="ttdeci">void bubble_sort(double *arr, int size)</div><div class="ttdoc">Bubble sorting algorithm.</div><div class="ttdef"><b>Definition</b> <a href="quad__solver_8h_source.html#l00152">quad_solver.h:152</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="quad__solver_8h_source.html#l00152">bubble_sort()</a>, <a class="el" href="quad__solver_8h_source.html#l00049">EqSolverData::COEFF_NUM</a>, <a class="el" href="quad__solver_8h_source.html#l00051">EqSolverData::coeffs</a>, <a class="el" href="quad__solver_8h_source.html#l00112">is_double_equal()</a>, <a class="el" href="quad__solver_8h_source.html#l00040">NO_SOLUTIONS</a>, <a class="el" href="quad__solver_8h_source.html#l00041">ONE_SOLUTION</a>, <a class="el" href="quad__solver_8h_source.html#l00052">EqSolverData::roots</a>, <a class="el" href="quad__solver_8h_source.html#l00053">EqSolverData::roots_num</a>, <a class="el" href="quad__solver_8cpp_source.html#l00107">solve_lin()</a>, <a class="el" href="quad__solver_8h_source.html#l00042">TWO_SOLUTIONS</a>, and <a class="el" href="quad__solver_8h_source.html#l00125">valid_root()</a>.</p>
+<p class="reference">References <a class="el" href="quad__solver_8h_source.html#l00152">bubble_sort()</a>, <a class="el" href="quad__solver_8h_source.html#l00049">EqSolverData::COEFF_NUM</a>, <a class="el" href="quad__solver_8h_source.html#l00051">EqSolverData::coeffs</a>, <a class="el" href="quad__solver_8h_source.html#l00112">is_double_equal()</a>, <a class="el" href="quad__solver_8h_source.html#l00040">NO_SOLUTIONS</a>, <a class="el" href="quad__solver_8h_source.html#l00041">ONE_SOLUTION</a>, <a class="el" href="quad__solver_8h_source.html#l00052">EqSolverData::roots</a>, <a class="el" href="quad__solver_8h_source.html#l00053">EqSolverData::roots_num</a>, <a class="el" href="quad__solver_8cpp_source.html#l00108">solve_lin()</a>, <a class="el" href="quad__solver_8h_source.html#l00042">TWO_SOLUTIONS</a>, and <a class="el" href="quad__solver_8h_source.html#l00125">valid_root()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="quad__solver_8cpp_source.html#l00012">solver_proccess()</a>, and <a class="el" href="test_8cpp_source.html#l00019">test_proccess()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="quad__solver_8cpp_source.html#l00013">solver_proccess()</a>, and <a class="el" href="test_8cpp_source.html#l00019">test_proccess()</a>.</p>
 
 </div>
 </div>
@@ -362,44 +362,44 @@ Functions</h2></td></tr>
 <p>Main proccess (read, solve and print) </p>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="struct_status.html#ab31bb94cc29a302cab703638615b604c">Status::Statuses</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="quad__solver_8cpp_source.html#l00012">12</a> of file <a class="el" href="quad__solver_8cpp_source.html">quad_solver.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   12</span>                                 {</div>
-<div class="line"><span class="lineno">   13</span>    <a class="code hl_struct" href="struct_eq_solver_data.html">EqSolverData</a> data = {};</div>
-<div class="line"><span class="lineno">   14</span>    <a class="code hl_function" href="quad__solver_8h.html#a132325d5598740553490b04c3f6929bf">EqSolverData_init</a>(&amp;data);</div>
-<div class="line"><span class="lineno">   15</span> </div>
-<div class="line"><span class="lineno">   16</span>    <span class="keywordflow">switch</span> (<a class="code hl_function" href="quad__solver_8cpp.html#ab6b6dbd697cafe8278b6d1d17cce90e4">enter_coeffs</a>(&amp;data)) {</div>
-<div class="line"><span class="lineno">   17</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="input_8h.html#aef35fc440c8029ffabbdc082f7c0a891ae0aa021e21dddbd6d8cecec71e9cf564">InputStatus::OK</a>:</div>
-<div class="line"><span class="lineno">   18</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   19</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="input_8h.html#aef35fc440c8029ffabbdc082f7c0a891a3ce48bd9ee0e102c023533c6d283aaff">InputStatus::WRONG_DATA</a>:</div>
-<div class="line"><span class="lineno">   20</span>            <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="struct_status.html#ab31bb94cc29a302cab703638615b604caf324ca3638c77f98a84e69b3cecf1c77">Status::COEFFS_INPUT</a>;</div>
-<div class="line"><span class="lineno">   21</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="input_8h.html#aef35fc440c8029ffabbdc082f7c0a891a581953f6b20ad7f993b64b1dc632032e">InputStatus::END_OF_FILE</a>:</div>
-<div class="line"><span class="lineno">   22</span>            <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="struct_status.html#ab31bb94cc29a302cab703638615b604ca2a46c26417945d83f0757a8668ce582a">Status::END_OF_FILE</a>;</div>
-<div class="line"><span class="lineno">   23</span>        <span class="keywordflow">default</span>:</div>
-<div class="line"><span class="lineno">   24</span>            assert(0 &amp;&amp; <span class="stringliteral">&quot;enter_coeffs() returned wrong InputStatus&quot;</span>);</div>
-<div class="line"><span class="lineno">   25</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   26</span>    }</div>
-<div class="line"><span class="lineno">   27</span> </div>
-<div class="line"><span class="lineno">   28</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_variable" href="struct_eq_solver_data.html#a088c567e4699d9a5bc1e63610728ed9e">EqSolverData::COEFF_NUM</a>; i++)</div>
-<div class="line"><span class="lineno">   29</span>        assert(isfinite(data.<a class="code hl_variable" href="struct_eq_solver_data.html#a38021481c2a3c7e8d2469bd6140fc7e3">coeffs</a>[i]));</div>
-<div class="line"><span class="lineno">   30</span> </div>
-<div class="line"><span class="lineno">   31</span>    <a class="code hl_function" href="quad__solver_8cpp.html#a5947cf1f98f8c24826b8a839209c0799">solve_quad</a>(&amp;data);</div>
-<div class="line"><span class="lineno">   32</span> </div>
-<div class="line"><span class="lineno">   33</span>    <a class="code hl_function" href="quad__solver_8cpp.html#a40249a678a244dc684ba8c154c777c7f">print_roots</a>(&amp;data);</div>
-<div class="line"><span class="lineno">   34</span> </div>
-<div class="line"><span class="lineno">   35</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="struct_status.html#ab31bb94cc29a302cab703638615b604ca8f997129dcd342bd9c93377de25f68bd">Status::NO_ERROR</a>;</div>
-<div class="line"><span class="lineno">   36</span>}</div>
+<p class="definition">Definition at line <a class="el" href="quad__solver_8cpp_source.html#l00013">13</a> of file <a class="el" href="quad__solver_8cpp_source.html">quad_solver.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   13</span>                                 {</div>
+<div class="line"><span class="lineno">   14</span>    <a class="code hl_struct" href="struct_eq_solver_data.html">EqSolverData</a> data = {};</div>
+<div class="line"><span class="lineno">   15</span>    <a class="code hl_function" href="quad__solver_8h.html#a132325d5598740553490b04c3f6929bf">EqSolverData_init</a>(&amp;data);</div>
+<div class="line"><span class="lineno">   16</span> </div>
+<div class="line"><span class="lineno">   17</span>    <span class="keywordflow">switch</span> (<a class="code hl_function" href="quad__solver_8cpp.html#ab6b6dbd697cafe8278b6d1d17cce90e4">enter_coeffs</a>(&amp;data)) {</div>
+<div class="line"><span class="lineno">   18</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="input_8h.html#aef35fc440c8029ffabbdc082f7c0a891ae0aa021e21dddbd6d8cecec71e9cf564">InputStatus::OK</a>:</div>
+<div class="line"><span class="lineno">   19</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   20</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="input_8h.html#aef35fc440c8029ffabbdc082f7c0a891a3ce48bd9ee0e102c023533c6d283aaff">InputStatus::WRONG_DATA</a>:</div>
+<div class="line"><span class="lineno">   21</span>            <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="struct_status.html#ab31bb94cc29a302cab703638615b604caf324ca3638c77f98a84e69b3cecf1c77">Status::COEFFS_INPUT</a>;</div>
+<div class="line"><span class="lineno">   22</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="input_8h.html#aef35fc440c8029ffabbdc082f7c0a891a581953f6b20ad7f993b64b1dc632032e">InputStatus::END_OF_FILE</a>:</div>
+<div class="line"><span class="lineno">   23</span>            <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="struct_status.html#ab31bb94cc29a302cab703638615b604ca2a46c26417945d83f0757a8668ce582a">Status::END_OF_FILE</a>;</div>
+<div class="line"><span class="lineno">   24</span>        <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">   25</span>            assert(0 &amp;&amp; <span class="stringliteral">&quot;enter_coeffs() returned wrong InputStatus&quot;</span>);</div>
+<div class="line"><span class="lineno">   26</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   27</span>    }</div>
+<div class="line"><span class="lineno">   28</span> </div>
+<div class="line"><span class="lineno">   29</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_variable" href="struct_eq_solver_data.html#a088c567e4699d9a5bc1e63610728ed9e">EqSolverData::COEFF_NUM</a>; i++)</div>
+<div class="line"><span class="lineno">   30</span>        assert(isfinite(data.<a class="code hl_variable" href="struct_eq_solver_data.html#a38021481c2a3c7e8d2469bd6140fc7e3">coeffs</a>[i]));</div>
+<div class="line"><span class="lineno">   31</span> </div>
+<div class="line"><span class="lineno">   32</span>    <a class="code hl_function" href="quad__solver_8cpp.html#a5947cf1f98f8c24826b8a839209c0799">solve_quad</a>(&amp;data);</div>
+<div class="line"><span class="lineno">   33</span> </div>
+<div class="line"><span class="lineno">   34</span>    <a class="code hl_function" href="quad__solver_8cpp.html#a40249a678a244dc684ba8c154c777c7f">print_roots</a>(&amp;data);</div>
+<div class="line"><span class="lineno">   35</span> </div>
+<div class="line"><span class="lineno">   36</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="struct_status.html#ab31bb94cc29a302cab703638615b604ca8f997129dcd342bd9c93377de25f68bd">Status::NO_ERROR</a>;</div>
+<div class="line"><span class="lineno">   37</span>}</div>
 <div class="ttc" id="ainput_8h_html_aef35fc440c8029ffabbdc082f7c0a891a3ce48bd9ee0e102c023533c6d283aaff"><div class="ttname"><a href="input_8h.html#aef35fc440c8029ffabbdc082f7c0a891a3ce48bd9ee0e102c023533c6d283aaff">InputStatus::WRONG_DATA</a></div><div class="ttdeci">@ WRONG_DATA</div><div class="ttdoc">Input error.</div></div>
 <div class="ttc" id="ainput_8h_html_aef35fc440c8029ffabbdc082f7c0a891a581953f6b20ad7f993b64b1dc632032e"><div class="ttname"><a href="input_8h.html#aef35fc440c8029ffabbdc082f7c0a891a581953f6b20ad7f993b64b1dc632032e">InputStatus::END_OF_FILE</a></div><div class="ttdeci">@ END_OF_FILE</div><div class="ttdoc">End of file reached.</div></div>
-<div class="ttc" id="aquad__solver_8cpp_html_a40249a678a244dc684ba8c154c777c7f"><div class="ttname"><a href="quad__solver_8cpp.html#a40249a678a244dc684ba8c154c777c7f">print_roots</a></div><div class="ttdeci">void print_roots(const EqSolverData *data)</div><div class="ttdoc">Prints roots.</div><div class="ttdef"><b>Definition</b> <a href="quad__solver_8cpp_source.html#l00123">quad_solver.cpp:123</a></div></div>
-<div class="ttc" id="aquad__solver_8cpp_html_a5947cf1f98f8c24826b8a839209c0799"><div class="ttname"><a href="quad__solver_8cpp.html#a5947cf1f98f8c24826b8a839209c0799">solve_quad</a></div><div class="ttdeci">void solve_quad(EqSolverData *data)</div><div class="ttdoc">Solves quad equations.</div><div class="ttdef"><b>Definition</b> <a href="quad__solver_8cpp_source.html#l00072">quad_solver.cpp:72</a></div></div>
-<div class="ttc" id="aquad__solver_8cpp_html_ab6b6dbd697cafe8278b6d1d17cce90e4"><div class="ttname"><a href="quad__solver_8cpp.html#ab6b6dbd697cafe8278b6d1d17cce90e4">enter_coeffs</a></div><div class="ttdeci">InputStatus enter_coeffs(EqSolverData *data)</div><div class="ttdoc">Reads coefficients from input to data-&gt;coeffs, starting with name 'a'.</div><div class="ttdef"><b>Definition</b> <a href="quad__solver_8cpp_source.html#l00061">quad_solver.cpp:61</a></div></div>
+<div class="ttc" id="aquad__solver_8cpp_html_a40249a678a244dc684ba8c154c777c7f"><div class="ttname"><a href="quad__solver_8cpp.html#a40249a678a244dc684ba8c154c777c7f">print_roots</a></div><div class="ttdeci">void print_roots(const EqSolverData *data)</div><div class="ttdoc">Prints roots.</div><div class="ttdef"><b>Definition</b> <a href="quad__solver_8cpp_source.html#l00124">quad_solver.cpp:124</a></div></div>
+<div class="ttc" id="aquad__solver_8cpp_html_a5947cf1f98f8c24826b8a839209c0799"><div class="ttname"><a href="quad__solver_8cpp.html#a5947cf1f98f8c24826b8a839209c0799">solve_quad</a></div><div class="ttdeci">void solve_quad(EqSolverData *data)</div><div class="ttdoc">Solves quad equations.</div><div class="ttdef"><b>Definition</b> <a href="quad__solver_8cpp_source.html#l00073">quad_solver.cpp:73</a></div></div>
+<div class="ttc" id="aquad__solver_8cpp_html_ab6b6dbd697cafe8278b6d1d17cce90e4"><div class="ttname"><a href="quad__solver_8cpp.html#ab6b6dbd697cafe8278b6d1d17cce90e4">enter_coeffs</a></div><div class="ttdeci">InputStatus enter_coeffs(EqSolverData *data)</div><div class="ttdoc">Reads coefficients from input to data-&gt;coeffs, starting with name 'a'.</div><div class="ttdef"><b>Definition</b> <a href="quad__solver_8cpp_source.html#l00062">quad_solver.cpp:62</a></div></div>
 <div class="ttc" id="aquad__solver_8h_html_a132325d5598740553490b04c3f6929bf"><div class="ttname"><a href="quad__solver_8h.html#a132325d5598740553490b04c3f6929bf">EqSolverData_init</a></div><div class="ttdeci">void EqSolverData_init(EqSolverData *data)</div><div class="ttdoc">Inits EqSolverData struct.</div><div class="ttdef"><b>Definition</b> <a href="quad__solver_8h_source.html#l00061">quad_solver.h:61</a></div></div>
 <div class="ttc" id="astruct_eq_solver_data_html"><div class="ttname"><a href="struct_eq_solver_data.html">EqSolverData</a></div><div class="ttdoc">Contains input and output data for solver.</div><div class="ttdef"><b>Definition</b> <a href="quad__solver_8h_source.html#l00048">quad_solver.h:48</a></div></div>
 <div class="ttc" id="astruct_status_html_ab31bb94cc29a302cab703638615b604ca2a46c26417945d83f0757a8668ce582a"><div class="ttname"><a href="struct_status.html#ab31bb94cc29a302cab703638615b604ca2a46c26417945d83f0757a8668ce582a">Status::END_OF_FILE</a></div><div class="ttdeci">@ END_OF_FILE</div><div class="ttdoc">End of file reached unexpectedly.</div><div class="ttdef"><b>Definition</b> <a href="quad__solver_8h_source.html#l00023">quad_solver.h:22</a></div></div>
 <div class="ttc" id="astruct_status_html_ab31bb94cc29a302cab703638615b604ca8f997129dcd342bd9c93377de25f68bd"><div class="ttname"><a href="struct_status.html#ab31bb94cc29a302cab703638615b604ca8f997129dcd342bd9c93377de25f68bd">Status::NO_ERROR</a></div><div class="ttdeci">@ NO_ERROR</div><div class="ttdoc">Poison value.</div><div class="ttdef"><b>Definition</b> <a href="quad__solver_8h_source.html#l00016">quad_solver.h:16</a></div></div>
 <div class="ttc" id="astruct_status_html_ab31bb94cc29a302cab703638615b604caf324ca3638c77f98a84e69b3cecf1c77"><div class="ttname"><a href="struct_status.html#ab31bb94cc29a302cab703638615b604caf324ca3638c77f98a84e69b3cecf1c77">Status::COEFFS_INPUT</a></div><div class="ttdeci">@ COEFFS_INPUT</div><div class="ttdoc">User input error.</div><div class="ttdef"><b>Definition</b> <a href="quad__solver_8h_source.html#l00020">quad_solver.h:20</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="quad__solver_8h_source.html#l00049">EqSolverData::COEFF_NUM</a>, <a class="el" href="quad__solver_8h_source.html#l00051">EqSolverData::coeffs</a>, <a class="el" href="quad__solver_8h_source.html#l00020">Status::COEFFS_INPUT</a>, <a class="el" href="input_8h.html#aef35fc440c8029ffabbdc082f7c0a891a581953f6b20ad7f993b64b1dc632032e">END_OF_FILE</a>, <a class="el" href="quad__solver_8h_source.html#l00022">Status::END_OF_FILE</a>, <a class="el" href="quad__solver_8cpp_source.html#l00061">enter_coeffs()</a>, <a class="el" href="quad__solver_8h_source.html#l00061">EqSolverData_init()</a>, <a class="el" href="quad__solver_8h_source.html#l00016">Status::NO_ERROR</a>, <a class="el" href="input_8h.html#aef35fc440c8029ffabbdc082f7c0a891ae0aa021e21dddbd6d8cecec71e9cf564">OK</a>, <a class="el" href="quad__solver_8cpp_source.html#l00123">print_roots()</a>, <a class="el" href="quad__solver_8cpp_source.html#l00072">solve_quad()</a>, and <a class="el" href="input_8h.html#aef35fc440c8029ffabbdc082f7c0a891a3ce48bd9ee0e102c023533c6d283aaff">WRONG_DATA</a>.</p>
+<p class="reference">References <a class="el" href="quad__solver_8h_source.html#l00049">EqSolverData::COEFF_NUM</a>, <a class="el" href="quad__solver_8h_source.html#l00051">EqSolverData::coeffs</a>, <a class="el" href="quad__solver_8h_source.html#l00020">Status::COEFFS_INPUT</a>, <a class="el" href="input_8h.html#aef35fc440c8029ffabbdc082f7c0a891a581953f6b20ad7f993b64b1dc632032e">END_OF_FILE</a>, <a class="el" href="quad__solver_8h_source.html#l00022">Status::END_OF_FILE</a>, <a class="el" href="quad__solver_8cpp_source.html#l00062">enter_coeffs()</a>, <a class="el" href="quad__solver_8h_source.html#l00061">EqSolverData_init()</a>, <a class="el" href="quad__solver_8h_source.html#l00016">Status::NO_ERROR</a>, <a class="el" href="input_8h.html#aef35fc440c8029ffabbdc082f7c0a891ae0aa021e21dddbd6d8cecec71e9cf564">OK</a>, <a class="el" href="quad__solver_8cpp_source.html#l00124">print_roots()</a>, <a class="el" href="quad__solver_8cpp_source.html#l00073">solve_quad()</a>, and <a class="el" href="input_8h.html#aef35fc440c8029ffabbdc082f7c0a891a3ce48bd9ee0e102c023533c6d283aaff">WRONG_DATA</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00021">main()</a>, and <a class="el" href="test_8cpp_source.html#l00003">test_or_normal()</a>.</p>
 

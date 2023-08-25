@@ -58,7 +58,7 @@ Status::Statuses test_proccess(FILE* file);
  * @param[in] file
  * @return bool success
  */
-bool test_read_roots(const EqSolverData* data, EqSolverData* correc_data, FILE* file);
+bool test_read_roots(const EqSolverData* data, EqSolverData* correct_data, FILE* file);
 
 /**
  * @brief Specifies test results

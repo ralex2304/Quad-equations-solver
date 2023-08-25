@@ -6,12 +6,10 @@ Status::Statuses args_parse(int argc, char* argv[], ArgsTest* args_test) {
     assert(args_test);
     assert(args_test->filename == nullptr);
 
-    static const int ARGS_DICT_LEN = 2; ///< args_dict array len
-
     /**
      * @brief This array contains console options, their functions and descriptions
      */
-    static Argument args_dict[ARGS_DICT_LEN] = {
+    static Argument args_dict[] = {
         {"-h", print_help,         "#   -h - prints help information\n", true}, ///< Help option
 
         {"-t", read_test_filename, "#   -t - specify test file name after this (works only if test mode enabled)\n"
@@ -22,6 +20,8 @@ Status::Statuses args_parse(int argc, char* argv[], ArgsTest* args_test) {
                                     "# \n"
                                     "# <Next test>\n", false}                   ///< Test option
     };
+
+    static const int ARGS_DICT_LEN = sizeof(args_dict) / sizeof(args_dict[0]); ///< args_dict array len
 
     if(args_test->is_enabled)
         enable_test_args(args_dict, ARGS_DICT_LEN);
@@ -61,10 +61,9 @@ Status::Statuses args_parse(int argc, char* argv[], ArgsTest* args_test) {
     return Status::NORMAL_WORK;
 }
 
-ArgsMode print_help(const Argument args_list[], const int args_list_len,
+ArgsMode print_help(const Argument args_dict[], const int args_dict_len,
                     int* arg_i, const int argc, char* argv[], ArgsTest* args_test) {
-    assert(args_list);
-    assert(args_list_len >= 0);
+    assert(args_dict);
     assert(arg_i);
     assert(argc);
     assert(argv);
@@ -74,21 +73,22 @@ ArgsMode print_help(const Argument args_list[], const int args_list_len,
            "# Where \"x\" is a variable and \"a\", \"b\", \"c\" are coefficients\n"
            "# Console args:\n");
 
-    for (int i = 0; i < args_list_len; i++) {
-        if (!args_list[i].is_enabled)
+    for (int i = 0; i < args_dict_len; i++) {
+        if (!args_dict[i].is_enabled)
             continue;
 
-        printf("%s", args_list[i].description);
+        printf("%s", args_dict[i].description);
     }
 
     printf("# End of help. Good luck using this program!\n");
     return ArgsMode::EXIT;
 }
 
-ArgsMode read_test_filename(const Argument args_list[], const int args_list_len,
+ArgsMode read_test_filename(const Argument args_dict[], const int args_dict_len,
                             int* arg_i, int argc, char* argv[], ArgsTest* args_test) {
-    assert(args_list);
-    assert(args_list_len >= 0);
+    (void) args_dict_len;
+
+    assert(args_dict);
     assert(arg_i);
     assert(argv);
     assert(args_test);

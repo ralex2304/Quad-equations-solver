@@ -103,12 +103,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a7f6690e6eea3fd85e554812059bbeaac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_status.html#ab31bb94cc29a302cab703638615b604c">Status::Statuses</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="args__parser_8cpp.html#a7f6690e6eea3fd85e554812059bbeaac">args_parse</a> (int argc, char *argv[], <a class="el" href="struct_args_test.html">ArgsTest</a> *args_test)</td></tr>
 <tr class="memdesc:a7f6690e6eea3fd85e554812059bbeaac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses console arguments.  <br /></td></tr>
 <tr class="separator:a7f6690e6eea3fd85e554812059bbeaac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a92068a122e29f867656189b40573803f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="args__parser_8h.html#a1f9b651227837e4a1479f53662e38d2e">ArgsMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="args__parser_8cpp.html#a92068a122e29f867656189b40573803f">print_help</a> (const <a class="el" href="struct_argument.html">Argument</a> args_list[], const int args_list_len, int *arg_i, const int argc, char *argv[], <a class="el" href="struct_args_test.html">ArgsTest</a> *args_test)</td></tr>
-<tr class="memdesc:a92068a122e29f867656189b40573803f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints help.  <br /></td></tr>
-<tr class="separator:a92068a122e29f867656189b40573803f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a333622020e85ba5e46285ad583bd2518"><td class="memItemLeft" align="right" valign="top"><a class="el" href="args__parser_8h.html#a1f9b651227837e4a1479f53662e38d2e">ArgsMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="args__parser_8cpp.html#a333622020e85ba5e46285ad583bd2518">read_test_filename</a> (const <a class="el" href="struct_argument.html">Argument</a> args_list[], const int args_list_len, int *arg_i, int argc, char *argv[], <a class="el" href="struct_args_test.html">ArgsTest</a> *args_test)</td></tr>
-<tr class="memdesc:a333622020e85ba5e46285ad583bd2518"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads test file name from console.  <br /></td></tr>
-<tr class="separator:a333622020e85ba5e46285ad583bd2518"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a47ed83ed68adf05754eadaa08a49f1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="args__parser_8h.html#a1f9b651227837e4a1479f53662e38d2e">ArgsMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="args__parser_8cpp.html#a8a47ed83ed68adf05754eadaa08a49f1">print_help</a> (const <a class="el" href="struct_argument.html">Argument</a> args_dict[], const int args_dict_len, int *arg_i, const int argc, char *argv[], <a class="el" href="struct_args_test.html">ArgsTest</a> *args_test)</td></tr>
+<tr class="memdesc:a8a47ed83ed68adf05754eadaa08a49f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints help.  <br /></td></tr>
+<tr class="separator:a8a47ed83ed68adf05754eadaa08a49f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ce75fc7e4f0463858fb94bbf788313f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="args__parser_8h.html#a1f9b651227837e4a1479f53662e38d2e">ArgsMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="args__parser_8cpp.html#a1ce75fc7e4f0463858fb94bbf788313f">read_test_filename</a> (const <a class="el" href="struct_argument.html">Argument</a> args_dict[], const int args_dict_len, int *arg_i, int argc, char *argv[], <a class="el" href="struct_args_test.html">ArgsTest</a> *args_test)</td></tr>
+<tr class="memdesc:a1ce75fc7e4f0463858fb94bbf788313f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads test file name from console.  <br /></td></tr>
+<tr class="separator:a1ce75fc7e4f0463858fb94bbf788313f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a7f6690e6eea3fd85e554812059bbeaac" name="a7f6690e6eea3fd85e554812059bbeaac"></a>
@@ -133,7 +133,7 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="struct_args_test.html">ArgsTest</a> *&#160;</td>
-          <td class="paramname"><em>test</em>&#160;</td>
+          <td class="paramname"><em>args_test</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -148,14 +148,14 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">argc</td><td></td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">argv</td><td></td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">filename</td><td>for test mode </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">args_test</td><td></td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="struct_status.html#ab31bb94cc29a302cab703638615b604c">Status::Statuses</a> </dd></dl>
-<p>&lt; args_dict array len</p>
 <p>This array contains console options, their functions and descriptions</p>
 <p>&lt; Help option</p>
+<p>&lt; args_dict array len</p>
 
 <p class="definition">Definition at line <a class="el" href="args__parser_8cpp_source.html#l00003">3</a> of file <a class="el" href="args__parser_8cpp_source.html">args_parser.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">    3</span>                                                                       {</div>
@@ -164,19 +164,19 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">    6</span>    assert(args_test);</div>
 <div class="line"><span class="lineno">    7</span>    assert(args_test-&gt;<a class="code hl_variable" href="struct_args_test.html#ab0eda4c64f5a5b655b2967e34881f8f4">filename</a> == <span class="keyword">nullptr</span>);</div>
 <div class="line"><span class="lineno">    8</span> </div>
-<div class="line"><span class="lineno">    9</span>    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> ARGS_DICT_LEN = 2; </div>
-<div class="line"><span class="lineno">   10</span> </div>
-<div class="line"><span class="lineno">   14</span>    <span class="keyword">static</span> <a class="code hl_struct" href="struct_argument.html">Argument</a> args_dict[ARGS_DICT_LEN] = {</div>
-<div class="line"><span class="lineno">   15</span>        {<span class="stringliteral">&quot;-h&quot;</span>, <a class="code hl_function" href="args__parser_8cpp.html#a92068a122e29f867656189b40573803f">print_help</a>,         <span class="stringliteral">&quot;#   -h - prints help information\n&quot;</span>, <span class="keyword">true</span>}, </div>
-<div class="line"><span class="lineno">   16</span> </div>
-<div class="line"><span class="lineno">   17</span>        {<span class="stringliteral">&quot;-t&quot;</span>, <a class="code hl_function" href="args__parser_8cpp.html#a333622020e85ba5e46285ad583bd2518">read_test_filename</a>, <span class="stringliteral">&quot;#   -t - specify test file name after this (works only if test mode enabled)\n&quot;</span></div>
-<div class="line"><span class="lineno">   18</span>                                    <span class="stringliteral">&quot;# Test file format (there might be several such sections):\n&quot;</span></div>
-<div class="line"><span class="lineno">   19</span>                                    <span class="stringliteral">&quot;# &lt;coeff a&gt; &lt;coeff b&gt; &lt;coeff c&gt;\n&quot;</span></div>
-<div class="line"><span class="lineno">   20</span>                                    <span class="stringliteral">&quot;# &lt;solutions number&gt;\n&quot;</span></div>
-<div class="line"><span class="lineno">   21</span>                                    <span class="stringliteral">&quot;# &lt;solution 1 (if exists)&gt; &lt;solution 2 (if exists)&gt;\n&quot;</span></div>
-<div class="line"><span class="lineno">   22</span>                                    <span class="stringliteral">&quot;# \n&quot;</span></div>
-<div class="line"><span class="lineno">   23</span>                                    <span class="stringliteral">&quot;# &lt;Next test&gt;\n&quot;</span>, <span class="keyword">false</span>}                   </div>
-<div class="line"><span class="lineno">   24</span>    };</div>
+<div class="line"><span class="lineno">   12</span>    <span class="keyword">static</span> <a class="code hl_struct" href="struct_argument.html">Argument</a> args_dict[] = {</div>
+<div class="line"><span class="lineno">   13</span>        {<span class="stringliteral">&quot;-h&quot;</span>, <a class="code hl_function" href="args__parser_8cpp.html#a8a47ed83ed68adf05754eadaa08a49f1">print_help</a>,         <span class="stringliteral">&quot;#   -h - prints help information\n&quot;</span>, <span class="keyword">true</span>}, </div>
+<div class="line"><span class="lineno">   14</span> </div>
+<div class="line"><span class="lineno">   15</span>        {<span class="stringliteral">&quot;-t&quot;</span>, <a class="code hl_function" href="args__parser_8cpp.html#a1ce75fc7e4f0463858fb94bbf788313f">read_test_filename</a>, <span class="stringliteral">&quot;#   -t - specify test file name after this (works only if test mode enabled)\n&quot;</span></div>
+<div class="line"><span class="lineno">   16</span>                                    <span class="stringliteral">&quot;# Test file format (there might be several such sections):\n&quot;</span></div>
+<div class="line"><span class="lineno">   17</span>                                    <span class="stringliteral">&quot;# &lt;coeff a&gt; &lt;coeff b&gt; &lt;coeff c&gt;\n&quot;</span></div>
+<div class="line"><span class="lineno">   18</span>                                    <span class="stringliteral">&quot;# &lt;solutions number&gt;\n&quot;</span></div>
+<div class="line"><span class="lineno">   19</span>                                    <span class="stringliteral">&quot;# &lt;solution 1 (if exists)&gt; &lt;solution 2 (if exists)&gt;\n&quot;</span></div>
+<div class="line"><span class="lineno">   20</span>                                    <span class="stringliteral">&quot;# \n&quot;</span></div>
+<div class="line"><span class="lineno">   21</span>                                    <span class="stringliteral">&quot;# &lt;Next test&gt;\n&quot;</span>, <span class="keyword">false</span>}                   </div>
+<div class="line"><span class="lineno">   22</span>    };</div>
+<div class="line"><span class="lineno">   23</span> </div>
+<div class="line"><span class="lineno">   24</span>    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> ARGS_DICT_LEN = <span class="keyword">sizeof</span>(args_dict) / <span class="keyword">sizeof</span>(args_dict[0]); </div>
 <div class="line"><span class="lineno">   25</span> </div>
 <div class="line"><span class="lineno">   26</span>    <span class="keywordflow">if</span>(args_test-&gt;<a class="code hl_variable" href="struct_args_test.html#a9e0ee54a685a69957977af9d6aac8d52">is_enabled</a>)</div>
 <div class="line"><span class="lineno">   27</span>        <a class="code hl_function" href="args__parser_8h.html#a5d9849fc9a2e8ecca0c504265f745149">enable_test_args</a>(args_dict, ARGS_DICT_LEN);</div>
@@ -215,8 +215,8 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   60</span> </div>
 <div class="line"><span class="lineno">   61</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="struct_status.html#ab31bb94cc29a302cab703638615b604ca7f9c6609a744cdaac1a9e27306d8f8b0">Status::NORMAL_WORK</a>;</div>
 <div class="line"><span class="lineno">   62</span>}</div>
-<div class="ttc" id="aargs__parser_8cpp_html_a333622020e85ba5e46285ad583bd2518"><div class="ttname"><a href="args__parser_8cpp.html#a333622020e85ba5e46285ad583bd2518">read_test_filename</a></div><div class="ttdeci">ArgsMode read_test_filename(const Argument args_list[], const int args_list_len, int *arg_i, int argc, char *argv[], ArgsTest *args_test)</div><div class="ttdoc">Reads test file name from console.</div><div class="ttdef"><b>Definition</b> <a href="args__parser_8cpp_source.html#l00088">args_parser.cpp:88</a></div></div>
-<div class="ttc" id="aargs__parser_8cpp_html_a92068a122e29f867656189b40573803f"><div class="ttname"><a href="args__parser_8cpp.html#a92068a122e29f867656189b40573803f">print_help</a></div><div class="ttdeci">ArgsMode print_help(const Argument args_list[], const int args_list_len, int *arg_i, const int argc, char *argv[], ArgsTest *args_test)</div><div class="ttdoc">Prints help.</div><div class="ttdef"><b>Definition</b> <a href="args__parser_8cpp_source.html#l00064">args_parser.cpp:64</a></div></div>
+<div class="ttc" id="aargs__parser_8cpp_html_a1ce75fc7e4f0463858fb94bbf788313f"><div class="ttname"><a href="args__parser_8cpp.html#a1ce75fc7e4f0463858fb94bbf788313f">read_test_filename</a></div><div class="ttdeci">ArgsMode read_test_filename(const Argument args_dict[], const int args_dict_len, int *arg_i, int argc, char *argv[], ArgsTest *args_test)</div><div class="ttdoc">Reads test file name from console.</div><div class="ttdef"><b>Definition</b> <a href="args__parser_8cpp_source.html#l00087">args_parser.cpp:87</a></div></div>
+<div class="ttc" id="aargs__parser_8cpp_html_a8a47ed83ed68adf05754eadaa08a49f1"><div class="ttname"><a href="args__parser_8cpp.html#a8a47ed83ed68adf05754eadaa08a49f1">print_help</a></div><div class="ttdeci">ArgsMode print_help(const Argument args_dict[], const int args_dict_len, int *arg_i, const int argc, char *argv[], ArgsTest *args_test)</div><div class="ttdoc">Prints help.</div><div class="ttdef"><b>Definition</b> <a href="args__parser_8cpp_source.html#l00064">args_parser.cpp:64</a></div></div>
 <div class="ttc" id="aargs__parser_8h_html_a1f9b651227837e4a1479f53662e38d2ea2f453cfe638e57e27bb0c9512436111e"><div class="ttname"><a href="args__parser_8h.html#a1f9b651227837e4a1479f53662e38d2ea2f453cfe638e57e27bb0c9512436111e">ArgsMode::CONTINUE</a></div><div class="ttdeci">@ CONTINUE</div><div class="ttdoc">Continue reading args.</div></div>
 <div class="ttc" id="aargs__parser_8h_html_a1f9b651227837e4a1479f53662e38d2eaa42b2fb0e720a080e79a92f4ca97d927"><div class="ttname"><a href="args__parser_8h.html#a1f9b651227837e4a1479f53662e38d2eaa42b2fb0e720a080e79a92f4ca97d927">ArgsMode::EXIT</a></div><div class="ttdeci">@ EXIT</div><div class="ttdoc">Continue reading args, but then normal exit.</div></div>
 <div class="ttc" id="aargs__parser_8h_html_a1f9b651227837e4a1479f53662e38d2eabb1ca97ec761fc37101737ba0aa2e7c5"><div class="ttname"><a href="args__parser_8h.html#a1f9b651227837e4a1479f53662e38d2eabb1ca97ec761fc37101737ba0aa2e7c5">ArgsMode::ERROR</a></div><div class="ttdeci">@ ERROR</div><div class="ttdoc">Error.</div></div>
@@ -228,14 +228,14 @@ Functions</h2></td></tr>
 <div class="ttc" id="astruct_status_html_ab31bb94cc29a302cab703638615b604ca7f9c6609a744cdaac1a9e27306d8f8b0"><div class="ttname"><a href="struct_status.html#ab31bb94cc29a302cab703638615b604ca7f9c6609a744cdaac1a9e27306d8f8b0">Status::NORMAL_WORK</a></div><div class="ttdeci">@ NORMAL_WORK</div><div class="ttdoc">Normal mode system value (isn't returned in main())</div><div class="ttdef"><b>Definition</b> <a href="quad__solver_8h_source.html#l00017">quad_solver.h:17</a></div></div>
 <div class="ttc" id="astruct_status_html_ab31bb94cc29a302cab703638615b604cabd71500b14c23ba35ba380809d51f33a"><div class="ttname"><a href="struct_status.html#ab31bb94cc29a302cab703638615b604cabd71500b14c23ba35ba380809d51f33a">Status::OK_EXIT</a></div><div class="ttdeci">@ OK_EXIT</div><div class="ttdoc">OK.</div><div class="ttdef"><b>Definition</b> <a href="quad__solver_8h_source.html#l00018">quad_solver.h:18</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="quad__solver_8h_source.html#l00019">Status::ARGS</a>, <a class="el" href="args__parser_8h.html#a1f9b651227837e4a1479f53662e38d2ea2f453cfe638e57e27bb0c9512436111e">CONTINUE</a>, <a class="el" href="args__parser_8h_source.html#l00083">enable_test_args()</a>, <a class="el" href="args__parser_8h.html#a1f9b651227837e4a1479f53662e38d2eabb1ca97ec761fc37101737ba0aa2e7c5">ERROR</a>, <a class="el" href="args__parser_8h.html#a1f9b651227837e4a1479f53662e38d2eaa42b2fb0e720a080e79a92f4ca97d927">EXIT</a>, <a class="el" href="args__parser_8h_source.html#l00024">ArgsTest::filename</a>, <a class="el" href="args__parser_8h_source.html#l00023">ArgsTest::is_enabled</a>, <a class="el" href="quad__solver_8h_source.html#l00017">Status::NORMAL_WORK</a>, <a class="el" href="quad__solver_8h_source.html#l00018">Status::OK_EXIT</a>, <a class="el" href="args__parser_8cpp_source.html#l00064">print_help()</a>, and <a class="el" href="args__parser_8cpp_source.html#l00088">read_test_filename()</a>.</p>
+<p class="reference">References <a class="el" href="quad__solver_8h_source.html#l00019">Status::ARGS</a>, <a class="el" href="args__parser_8h.html#a1f9b651227837e4a1479f53662e38d2ea2f453cfe638e57e27bb0c9512436111e">CONTINUE</a>, <a class="el" href="args__parser_8h_source.html#l00083">enable_test_args()</a>, <a class="el" href="args__parser_8h.html#a1f9b651227837e4a1479f53662e38d2eabb1ca97ec761fc37101737ba0aa2e7c5">ERROR</a>, <a class="el" href="args__parser_8h.html#a1f9b651227837e4a1479f53662e38d2eaa42b2fb0e720a080e79a92f4ca97d927">EXIT</a>, <a class="el" href="args__parser_8h_source.html#l00024">ArgsTest::filename</a>, <a class="el" href="args__parser_8h_source.html#l00023">ArgsTest::is_enabled</a>, <a class="el" href="quad__solver_8h_source.html#l00017">Status::NORMAL_WORK</a>, <a class="el" href="quad__solver_8h_source.html#l00018">Status::OK_EXIT</a>, <a class="el" href="args__parser_8cpp_source.html#l00064">print_help()</a>, and <a class="el" href="args__parser_8cpp_source.html#l00087">read_test_filename()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00021">main()</a>.</p>
 
 </div>
 </div>
-<a id="a92068a122e29f867656189b40573803f" name="a92068a122e29f867656189b40573803f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a92068a122e29f867656189b40573803f">&#9670;&#160;</a></span>print_help()</h2>
+<a id="a8a47ed83ed68adf05754eadaa08a49f1" name="a8a47ed83ed68adf05754eadaa08a49f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a47ed83ed68adf05754eadaa08a49f1">&#9670;&#160;</a></span>print_help()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -300,27 +300,26 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="args__parser_8cpp_source.html#l00064">64</a> of file <a class="el" href="args__parser_8cpp_source.html">args_parser.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   65</span>                                                                                   {</div>
-<div class="line"><span class="lineno">   66</span>    assert(args_list);</div>
-<div class="line"><span class="lineno">   67</span>    assert(args_list_len &gt;= 0);</div>
-<div class="line"><span class="lineno">   68</span>    assert(arg_i);</div>
-<div class="line"><span class="lineno">   69</span>    assert(argc);</div>
-<div class="line"><span class="lineno">   70</span>    assert(argv);</div>
-<div class="line"><span class="lineno">   71</span>    assert(args_test);</div>
-<div class="line"><span class="lineno">   72</span> </div>
-<div class="line"><span class="lineno">   73</span>    printf(<span class="stringliteral">&quot;# This program solves quad equations of the form a*x^2 + b*x + c = 0\n&quot;</span></div>
-<div class="line"><span class="lineno">   74</span>           <span class="stringliteral">&quot;# Where \&quot;x\&quot; is a variable and \&quot;a\&quot;, \&quot;b\&quot;, \&quot;c\&quot; are coefficients\n&quot;</span></div>
-<div class="line"><span class="lineno">   75</span>           <span class="stringliteral">&quot;# Console args:\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   76</span> </div>
-<div class="line"><span class="lineno">   77</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; args_list_len; i++) {</div>
-<div class="line"><span class="lineno">   78</span>        <span class="keywordflow">if</span> (!args_list[i].is_enabled)</div>
-<div class="line"><span class="lineno">   79</span>            <span class="keywordflow">continue</span>;</div>
-<div class="line"><span class="lineno">   80</span> </div>
-<div class="line"><span class="lineno">   81</span>        printf(<span class="stringliteral">&quot;%s&quot;</span>, args_list[i].description);</div>
-<div class="line"><span class="lineno">   82</span>    }</div>
-<div class="line"><span class="lineno">   83</span> </div>
-<div class="line"><span class="lineno">   84</span>    printf(<span class="stringliteral">&quot;# End of help. Good luck using this program!\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   85</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="args__parser_8h.html#a1f9b651227837e4a1479f53662e38d2eaa42b2fb0e720a080e79a92f4ca97d927">ArgsMode::EXIT</a>;</div>
-<div class="line"><span class="lineno">   86</span>}</div>
+<div class="line"><span class="lineno">   66</span>    assert(args_dict);</div>
+<div class="line"><span class="lineno">   67</span>    assert(arg_i);</div>
+<div class="line"><span class="lineno">   68</span>    assert(argc);</div>
+<div class="line"><span class="lineno">   69</span>    assert(argv);</div>
+<div class="line"><span class="lineno">   70</span>    assert(args_test);</div>
+<div class="line"><span class="lineno">   71</span> </div>
+<div class="line"><span class="lineno">   72</span>    printf(<span class="stringliteral">&quot;# This program solves quad equations of the form a*x^2 + b*x + c = 0\n&quot;</span></div>
+<div class="line"><span class="lineno">   73</span>           <span class="stringliteral">&quot;# Where \&quot;x\&quot; is a variable and \&quot;a\&quot;, \&quot;b\&quot;, \&quot;c\&quot; are coefficients\n&quot;</span></div>
+<div class="line"><span class="lineno">   74</span>           <span class="stringliteral">&quot;# Console args:\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   75</span> </div>
+<div class="line"><span class="lineno">   76</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; args_dict_len; i++) {</div>
+<div class="line"><span class="lineno">   77</span>        <span class="keywordflow">if</span> (!args_dict[i].is_enabled)</div>
+<div class="line"><span class="lineno">   78</span>            <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">   79</span> </div>
+<div class="line"><span class="lineno">   80</span>        printf(<span class="stringliteral">&quot;%s&quot;</span>, args_dict[i].description);</div>
+<div class="line"><span class="lineno">   81</span>    }</div>
+<div class="line"><span class="lineno">   82</span> </div>
+<div class="line"><span class="lineno">   83</span>    printf(<span class="stringliteral">&quot;# End of help. Good luck using this program!\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   84</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="args__parser_8h.html#a1f9b651227837e4a1479f53662e38d2eaa42b2fb0e720a080e79a92f4ca97d927">ArgsMode::EXIT</a>;</div>
+<div class="line"><span class="lineno">   85</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="args__parser_8h.html#a1f9b651227837e4a1479f53662e38d2eaa42b2fb0e720a080e79a92f4ca97d927">EXIT</a>.</p>
 
@@ -328,8 +327,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a333622020e85ba5e46285ad583bd2518" name="a333622020e85ba5e46285ad583bd2518"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a333622020e85ba5e46285ad583bd2518">&#9670;&#160;</a></span>read_test_filename()</h2>
+<a id="a1ce75fc7e4f0463858fb94bbf788313f" name="a1ce75fc7e4f0463858fb94bbf788313f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ce75fc7e4f0463858fb94bbf788313f">&#9670;&#160;</a></span>read_test_filename()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -392,10 +391,11 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>ArgsMode </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="args__parser_8cpp_source.html#l00088">88</a> of file <a class="el" href="args__parser_8cpp_source.html">args_parser.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   89</span>                                                                                     {</div>
-<div class="line"><span class="lineno">   90</span>    assert(args_list);</div>
-<div class="line"><span class="lineno">   91</span>    assert(args_list_len &gt;= 0);</div>
+<p class="definition">Definition at line <a class="el" href="args__parser_8cpp_source.html#l00087">87</a> of file <a class="el" href="args__parser_8cpp_source.html">args_parser.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   88</span>                                                                                     {</div>
+<div class="line"><span class="lineno">   89</span>    (void) args_dict_len;</div>
+<div class="line"><span class="lineno">   90</span> </div>
+<div class="line"><span class="lineno">   91</span>    assert(args_dict);</div>
 <div class="line"><span class="lineno">   92</span>    assert(arg_i);</div>
 <div class="line"><span class="lineno">   93</span>    assert(argv);</div>
 <div class="line"><span class="lineno">   94</span>    assert(args_test);</div>
